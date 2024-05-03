@@ -1,4 +1,4 @@
-package app.controller.auth;
+package app.controllers.auth;
 
 public enum UserType {
     BASIC, PREMIUM, SINGER, PODCASTER, ADMIN;

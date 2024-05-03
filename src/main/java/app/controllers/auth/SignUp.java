@@ -1,4 +1,4 @@
-package app.controller.auth;
+package app.controllers.auth;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

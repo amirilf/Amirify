@@ -1,4 +1,4 @@
-package app.controller.auth;
+package app.controllers.auth;
 
 import app.models.Admin;
 import app.models.BasicListener;
