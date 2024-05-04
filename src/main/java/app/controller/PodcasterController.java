@@ -1,10 +1,10 @@
-package app.controllers;
+package app.controller;
 
-import app.controllers.auth.CurrentUser;
-import app.models.Database;
-import app.models.Genre;
-import app.models.Podcast;
-import app.models.Podcaster;
+import app.controller.auth.CurrentUser;
+import app.model.Database;
+import app.model.Genre;
+import app.model.Podcast;
+import app.model.Podcaster;
 import app.utility.validators.LinkValidator;
 
 public class PodcasterController {

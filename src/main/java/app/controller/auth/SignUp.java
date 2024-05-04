@@ -1,13 +1,13 @@
-package app.controllers.auth;
+package app.controller.auth;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import app.models.BasicListener;
-import app.models.Database;
-import app.models.Podcaster;
-import app.models.Singer;
-import app.models.User;
+import app.model.BasicListener;
+import app.model.Database;
+import app.model.Podcaster;
+import app.model.Singer;
+import app.model.User;
 import app.utility.validators.DateValidator;
 import app.utility.validators.EmailValidator;
 import app.utility.validators.PasswordValidator;

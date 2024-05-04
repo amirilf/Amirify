@@ -1,4 +1,4 @@
-package app.controllers;
+package app.controller;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -7,20 +7,20 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import app.controllers.auth.CurrentUser;
-import app.models.Artist;
-import app.models.Audio;
-import app.models.BasicListener;
-import app.models.Database;
-import app.models.Genre;
-import app.models.Listener;
-import app.models.Music;
-import app.models.Playlist;
-import app.models.Podcast;
-import app.models.PremiumListener;
-import app.models.PremiumPackage;
-import app.models.Report;
-import app.models.User;
+import app.controller.auth.CurrentUser;
+import app.model.Artist;
+import app.model.Audio;
+import app.model.BasicListener;
+import app.model.Database;
+import app.model.Genre;
+import app.model.Listener;
+import app.model.Music;
+import app.model.Playlist;
+import app.model.Podcast;
+import app.model.PremiumListener;
+import app.model.PremiumPackage;
+import app.model.Report;
+import app.model.User;
 import app.utility.validators.DateValidator;
 
 public class ListenterController {

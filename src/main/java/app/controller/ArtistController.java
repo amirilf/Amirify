@@ -1,17 +1,17 @@
-package app.controllers;
+package app.controller;
 
 import java.util.ArrayList;
 
-import app.controllers.auth.CurrentUser;
-import app.models.Album;
-import app.models.Artist;
-import app.models.Audio;
-import app.models.Database;
-import app.models.Singer;
-import app.models.User;
-import app.models.Music;
-import app.models.Podcast;
-import app.models.Podcaster;
+import app.controller.auth.CurrentUser;
+import app.model.Album;
+import app.model.Artist;
+import app.model.Audio;
+import app.model.Database;
+import app.model.Music;
+import app.model.Podcast;
+import app.model.Podcaster;
+import app.model.Singer;
+import app.model.User;
 
 public class ArtistController {
 

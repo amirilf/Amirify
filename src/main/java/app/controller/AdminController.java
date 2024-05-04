@@ -1,15 +1,15 @@
-package app.controllers;
+package app.controller;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import app.models.Artist;
-import app.models.Audio;
-import app.models.Database;
-import app.models.Music;
-import app.models.Report;
-import app.models.User;
+import app.model.Artist;
+import app.model.Audio;
+import app.model.Database;
+import app.model.Music;
+import app.model.Report;
+import app.model.User;
 import app.utility.validators.DateValidator;
 
 public class AdminController {

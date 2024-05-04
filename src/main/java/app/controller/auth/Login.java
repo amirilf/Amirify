@@ -1,7 +1,7 @@
-package app.controllers.auth;
+package app.controller.auth;
 
-import app.models.User;
-import app.models.Database;
+import app.model.Database;
+import app.model.User;
 
 public class Login {
 

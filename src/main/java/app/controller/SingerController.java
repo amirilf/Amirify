@@ -1,11 +1,11 @@
-package app.controllers;
+package app.controller;
 
-import app.controllers.auth.CurrentUser;
-import app.models.Album;
-import app.models.Database;
-import app.models.Genre;
-import app.models.Music;
-import app.models.Singer;
+import app.controller.auth.CurrentUser;
+import app.model.Album;
+import app.model.Database;
+import app.model.Genre;
+import app.model.Music;
+import app.model.Singer;
 import app.utility.validators.LinkValidator;
 
 public class SingerController {

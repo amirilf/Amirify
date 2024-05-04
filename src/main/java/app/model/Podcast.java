@@ -1,4 +1,4 @@
-package app.models;
+package app.model;
 
 public class Podcast extends Audio {
 

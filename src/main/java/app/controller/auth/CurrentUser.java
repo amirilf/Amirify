@@ -1,11 +1,11 @@
-package app.controllers.auth;
+package app.controller.auth;
 
-import app.models.Admin;
-import app.models.BasicListener;
-import app.models.Podcaster;
-import app.models.PremiumListener;
-import app.models.Singer;
-import app.models.User;
+import app.model.Admin;
+import app.model.BasicListener;
+import app.model.Podcaster;
+import app.model.PremiumListener;
+import app.model.Singer;
+import app.model.User;
 
 /**
  * This class holds the logged in user.

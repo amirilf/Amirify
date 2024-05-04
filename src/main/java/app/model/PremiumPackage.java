@@ -1,4 +1,4 @@
-package app.models;
+package app.model;
 
 public enum PremiumPackage {
     D30(5), D60(9), D180(14);

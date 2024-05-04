@@ -1,4 +1,4 @@
-package app.models;
+package app.model;
 
 import java.util.ArrayList;
 // import utility.RandomGenerator;

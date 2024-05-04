@@ -1,4 +1,4 @@
-package app.models;
+package app.model;
 
 import app.utility.validators.DateValidator;
 
