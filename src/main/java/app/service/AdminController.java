@@ -1,4 +1,4 @@
-package app.controller;
+package app.service;
 
 import java.util.ArrayList;
 import java.util.Collections;

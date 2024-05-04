@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="main-pane" stylesheets="@../css/auth.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="main-pane" stylesheets="@../css/auth.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.AuthController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true">
          <image>
@@ -39,15 +39,9 @@
             </HBox>
             <VBox alignment="CENTER" layoutX="125.0" layoutY="184.0" prefHeight="200.0" prefWidth="250.0" spacing="20.0">
                <children>
-                  <Button focusTraversable="false" mnemonicParsing="false" prefHeight="40.0" prefWidth="240.0" styleClass="auth-button" text="Login" textAlignment="CENTER">
-                     <font>
-                        <Font name="DejaVu Serif Bold" size="25.0" />
-                     </font>
+                  <Button fx:id="loginButton" focusTraversable="false" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="40.0" prefWidth="240.0" styleClass="auth-button" text="Login" textAlignment="CENTER">
                   </Button>
-                  <Button focusTraversable="false" mnemonicParsing="false" prefHeight="40.0" prefWidth="240.0" styleClass="auth-button" text="Signup" textAlignment="CENTER">
-                     <font>
-                        <Font name="DejaVu Serif Bold" size="25.0" />
-                     </font>
+                  <Button fx:id="signupButton" focusTraversable="false" mnemonicParsing="false" onAction="#handleSignupButtonAction" prefHeight="40.0" prefWidth="240.0" styleClass="auth-button" text="Signup" textAlignment="CENTER">
                   </Button>
                </children>
             </VBox>

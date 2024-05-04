@@ -1,7 +1,7 @@
-package app.controller;
+package app.service;
 
-import app.controller.auth.CurrentUser;
 import app.model.User;
+import app.service.auth.CurrentUser;
 import app.utility.validators.DateValidator;
 
 public class UserController {
