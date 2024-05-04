@@ -1,0 +1,16 @@
+.auth-button {
+    -fx-background-color: #5db75d; /* Green background */
+    -fx-text-fill: white; /* White text color */
+    -fx-font-size: 16px; /* Font size */
+    -fx-padding: 10px 20px; /* Padding */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-cursor: pointer; /* Cursor style */
+    -fx-font-weight: bold; /* Bold text */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0); /* Shadow effect */
+    -fx-background-radius: 10px; /* Larger background radius for smoother corners */
+}
+
+.auth-button:hover {
+    -fx-background-color: #4aaf4a; /* Darker green background on hover */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 15, 0, 0, 0); /* Increased shadow on hover */
+}
