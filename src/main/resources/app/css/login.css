@@ -56,3 +56,28 @@
     -fx-font-family: monospace;
 }
 
+.custom-choice-box {
+    -fx-font-family: 'Dyuthi Regular';
+    -fx-font-size: 15px;
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-border-color: #ccc;
+    -fx-border-width: 4px;
+}
+
+.custom-choice-box .arrow {
+    -fx-background-color: transparent;
+}
+
+.custom-choice-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.custom-choice-box .arrow-button:hover {
+    -fx-background-color: #f0f0f0;
+}
+
+.im-label .error-message{
+    -fx-font-family: 'Dyuthi Regular';
+    -fx-font-size: 16px;
+}

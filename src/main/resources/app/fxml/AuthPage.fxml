@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="main-pane" stylesheets="@../css/auth.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.AuthController">
+<AnchorPane prefHeight="500.0" prefWidth="600.0" styleClass="main-pane" stylesheets="@../css/auth.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.AuthController">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true">
+      <ImageView fitHeight="500.0" fitWidth="600.0" pickOnBounds="true">
          <image>
             <Image url="@../images/bg-auth.png" />
          </image>
@@ -21,9 +21,9 @@
             <MotionBlur />
          </effect>
       </ImageView>
-      <Pane layoutX="150.0" layoutY="100.0" prefHeight="400.0" prefWidth="500.0">
+      <Pane layoutX="95.0" layoutY="91.0" prefHeight="319.0" prefWidth="410.0">
          <children>
-            <HBox alignment="CENTER" layoutX="50.0" layoutY="34.0" prefHeight="150.0" prefWidth="400.0">
+            <HBox alignment="CENTER" layoutX="5.0" layoutY="10.0" prefHeight="150.0" prefWidth="400.0">
                <children>
                   <ImageView fitHeight="120.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -37,7 +37,7 @@
                   </Label>
                </children>
             </HBox>
-            <VBox alignment="CENTER" layoutX="125.0" layoutY="184.0" prefHeight="200.0" prefWidth="250.0" spacing="20.0">
+            <VBox alignment="CENTER" layoutX="80.0" layoutY="145.0" prefHeight="200.0" prefWidth="250.0" spacing="20.0">
                <children>
                   <Button fx:id="loginButton" focusTraversable="false" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="40.0" prefWidth="240.0" styleClass="auth-button" text="Login" textAlignment="CENTER">
                   </Button>
