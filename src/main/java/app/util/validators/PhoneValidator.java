@@ -1,4 +1,4 @@
-package app.utility.validators;
+package app.util.validators;
 
 import java.util.regex.Pattern;
 

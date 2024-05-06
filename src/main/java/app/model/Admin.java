@@ -1,6 +1,6 @@
 package app.model;
 
-import app.utility.validators.DateValidator;
+import app.util.validators.DateValidator;
 
 public class Admin extends User {
 

@@ -1,4 +1,4 @@
-package app.service.auth;
+package app.controller.auth;
 
 import app.model.Database;
 import app.model.User;

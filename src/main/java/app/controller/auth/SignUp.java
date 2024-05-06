@@ -1,4 +1,4 @@
-package app.service.auth;
+package app.controller.auth;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -8,10 +8,10 @@ import app.model.Database;
 import app.model.Podcaster;
 import app.model.Singer;
 import app.model.User;
-import app.utility.validators.DateValidator;
-import app.utility.validators.EmailValidator;
-import app.utility.validators.PasswordValidator;
-import app.utility.validators.PhoneValidator;
+import app.util.validators.DateValidator;
+import app.util.validators.EmailValidator;
+import app.util.validators.PasswordValidator;
+import app.util.validators.PhoneValidator;
 
 public class SignUp {
 

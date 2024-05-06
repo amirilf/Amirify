@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import app.service.auth.CurrentUser;
+import app.controller.auth.CurrentUser;
 
 public class PremiumListener extends Listener {
 

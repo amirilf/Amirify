@@ -1,7 +1,8 @@
-package app.service;
+package app.controller;
 
 import java.util.ArrayList;
 
+import app.controller.auth.CurrentUser;
 import app.model.Album;
 import app.model.Artist;
 import app.model.Audio;
@@ -11,7 +12,6 @@ import app.model.Podcast;
 import app.model.Podcaster;
 import app.model.Singer;
 import app.model.User;
-import app.service.auth.CurrentUser;
 
 public class ArtistController {
 
