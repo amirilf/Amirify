@@ -4,12 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-
+import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
 public class AuthController {
@@ -24,31 +21,28 @@ public class AuthController {
     private Button signupButton;
 
     @FXML
+    private AnchorPane rootLayout;
+
+    @FXML
     private void handleLoginButtonAction(ActionEvent event) {
-        openNewStage("Login");
+        openPage("Login");
     }
 
     @FXML
     private void handleSignupButtonAction(ActionEvent event) {
-        openNewStage("Signup");
+        openPage("Signup");
     }
 
-    private void openNewStage(String title) {
+    private void openPage(String title) {
 
         try {
 
             // will open LoginPage.fxml and SignupPage.fxml
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/fxml/" + title + "Page.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root);
 
-            Stage newStage = new Stage();
-            newStage.setTitle(title);
-            newStage.initModality(Modality.WINDOW_MODAL);
-            newStage.initOwner(loginButton.getScene().getWindow());
-            newStage.setResizable(false);
-            newStage.setScene(scene);
-            newStage.show();
+            rootLayout.getChildren().clear();
+            rootLayout.getChildren().add(root);
 
         } catch (IOException e) {
             e.printStackTrace();

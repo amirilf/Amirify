@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -17,33 +18,48 @@ import javafx.stage.Stage;
 public class SignupController {
 
     @FXML
+    private TextField firstNameField;
+
+    @FXML
+    private TextField lastNameField;
+
+    @FXML
+    private TextField emailField;
+
+    @FXML
+    private TextField phoneField;
+
+    @FXML
     private TextField usernameField;
 
     @FXML
     private TextField passwordField;
 
     @FXML
-    private ChoiceBox<String> myChoiceBox;
+    private DatePicker dateField;
+
+    @FXML
+    private ChoiceBox<String> typeField;
 
     @FXML
     private Label errorMessage;
 
     @FXML
     public void initialize() {
-        myChoiceBox.setValue("Listener");
-        myChoiceBox.setItems(FXCollections.observableArrayList("Listener", "Singer", "Podcaster"));
+        typeField.setValue("Listener");
+        typeField.setItems(FXCollections.observableArrayList("Listener", "Singer", "Podcaster"));
     }
 
     @FXML
     public void handleLoginLink(MouseEvent event) throws IOException {
-        Stage stage = (Stage) usernameField.getScene().getWindow();
-        stage.close();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/fxml/LoginPage.fxml"));
         Parent root = loader.load();
+
         Scene scene = new Scene(root);
+
+        Stage stage = (Stage) usernameField.getScene().getWindow();
         stage.setScene(scene);
-        stage.setTitle("Login");
         stage.show();
     }
 

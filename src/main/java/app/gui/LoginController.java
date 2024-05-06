@@ -24,14 +24,13 @@ public class LoginController {
 
     @FXML
     public void handleSignupLink(MouseEvent event) throws IOException {
-        Stage stage = (Stage) usernameField.getScene().getWindow();
-        stage.close();
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/fxml/SignupPage.fxml"));
         Parent root = loader.load();
+
         Scene scene = new Scene(root);
+
+        Stage stage = (Stage) usernameField.getScene().getWindow();
         stage.setScene(scene);
-        stage.setTitle("Signup");
         stage.show();
     }
 
