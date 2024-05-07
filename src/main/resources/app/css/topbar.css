@@ -1,0 +1,52 @@
+.button.premium {
+    -fx-cursor: hand;
+    -fx-background-color: linear-gradient(to bottom, #6fe08b, #4fa163);
+    -fx-text-fill: #ffffff;
+    -fx-font-family: 'Dyuthi Regular';
+    -fx-font-size: 16px;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0);
+    -fx-transition: transform 0.3s, glow 0.3s;
+}
+
+.button.premium:hover {
+    -fx-background-color: linear-gradient(to bottom, #4fa163, #6fe08b);
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.5), 10, 0, 0, 0),
+                inner-shadow(gaussian, rgba(255, 255, 255, 0.7), 5, 0.8, 0, 0);
+    -fx-transform: scale(1.1);
+    -fx-glow-color: #ffeeee;
+    -fx-glow-amount: 0.5; 
+}
+
+.label {
+    -fx-font-family: "Dyuthi Regular";
+    -fx-font-size: 25.0px;
+    -fx-cursor: hand;
+    -fx-text-fill: black;
+}
+
+.label:hover {
+    -fx-underline: true;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);
+}
+
+.arrow {
+    -fx-cursor: hand; 
+    -fx-fill: #1c1a1a;
+    -fx-font-family: "Dyuthi Regular";
+    -fx-font-size: 30px;
+}
+
+.arrow:hover {
+    -fx-fill: #c8c5c5;
+}
+
+
+
+.notification-icon {
+    -fx-cursor: hand;
+}
+
+.notification-icon:hover {
+    -fx-opacity: 0.5;
+}

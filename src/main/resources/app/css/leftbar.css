@@ -1,0 +1,10 @@
+.tab-label {
+    -fx-font-family: 'Dyuthi Regular';
+    -fx-font-size: 35px;
+    -fx-cursor: hand;
+    -fx-text-fill: #1c1a1a;
+}
+
+.tab-label:hover {
+    -fx-text-fill: #c8c5c5;
+}
