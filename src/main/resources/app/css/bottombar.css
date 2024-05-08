@@ -1,0 +1,31 @@
+.title-label{
+    -fx-font-family: 'DejaVu Serif Bold';
+    -fx-font-size: 22px;
+    -fx-cursor: hand;
+    -fx-text-fill: black;
+}
+
+.title-label:hover{
+    -fx-underline: true;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);
+}
+
+.author-label{
+    -fx-font-family: 'Monospaced Regular';
+    -fx-font-size: 15px;
+    -fx-cursor: hand;
+    -fx-text-fill: black;
+}
+
+.author-label:hover{
+    -fx-underline: true;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);
+}
+
+.icon {
+    -fx-cursor: hand;
+}
+
+.icon:hover {
+    -fx-opacity: 0.5;
+}

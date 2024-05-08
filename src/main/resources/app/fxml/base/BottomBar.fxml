@@ -1,10 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 
-<HBox prefHeight="70" prefWidth="1000" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.BottomBarController">
-
-    <Label text="Bottom Bar Content" />
-
-</HBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1000.0" styleClass="main" stylesheets="@../../css/bottombar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.BottomBarController">
+   <children>
+      <StackPane layoutX="26.0" layoutY="15.0" prefHeight="70.0" prefWidth="70.0">
+         <children>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" height="70.0" width="70.0" />
+            <ImageView fitHeight="70.0" fitWidth="70.0">
+                  <image>
+                     <Image url="@../../images/image-cover.jpg" />
+                  </image>
+                  <clip>
+                     <Rectangle arcHeight="15.0" arcWidth="15.0" height="70.0" width="70.0" />
+                  </clip>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </ImageView>
+         </children>
+      </StackPane>
+      <Label layoutX="109.0" layoutY="25.0" styleClass="title-label" text="Money on the dash" />
+            <HBox alignment="CENTER_LEFT" layoutX="109.0" layoutY="59.0" prefHeight="26.0" prefWidth="273.0" spacing="5.0">
+         <children>
+            <Label styleClass="author-label" text="Justin Bieaber" HBox.hgrow="ALWAYS" />
+            <Label styleClass="author-label" text="DJ Khaled" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="593.0" layoutY="13.0" prefHeight="50.0" prefWidth="142.0" spacing="10.0">
+         <children>
+            <ImageView fx:id="nextButton" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" styleClass="icon">
+               <image>
+                  <Image url="@../../images/icon-next.png" />
+               </image>
+               <HBox.margin>
+                  <Insets right="6.0" />
+               </HBox.margin>
+            </ImageView>
+            <Line endX="-82.44970703125" endY="-16.1568603515625" startX="-82.44975280761719" startY="-49.44975280761719" />
+            <ImageView fx:id="playPauseButton" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
+               <image>
+                  <Image url="@../../images/icon-play.png" />
+               </image>
+            </ImageView>
+            <Line endX="-82.44970703125" endY="-16.1568603515625" startX="-82.44975280761719" startY="-49.44975280761719" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
+               <image>
+                  <Image url="@../../images/icon-next.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="366.0" layoutY="63.0" prefHeight="26.0" prefWidth="624.0" spacing="10.0">
+         <children>
+            <Label fx:id="startTimeLabel" text="00:00" />
+            <Slider fx:id="progressSlider" prefHeight="25.0" prefWidth="500.0" />
+            <Label fx:id="endTimeLabel" text="03:30" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

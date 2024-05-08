@@ -15,7 +15,7 @@
          <Image url="@../../images/bg-leftbar.png" />
       </image>
    </ImageView>
-   <VBox prefHeight="250.0" prefWidth="200" spacing="10.0">
+   <VBox layoutY="12.0" prefHeight="250.0" prefWidth="200" spacing="10.0">
       <children>
          <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="10.0">
             <children>
@@ -24,7 +24,7 @@
                      <Image url="@../../images/icon-home.png" />
                   </image>
                </ImageView>
-               <Label styleClass="tab-label" prefHeight="60.0" prefWidth="105.0" text="Home"/>
+               <Label prefHeight="60.0" prefWidth="105.0" styleClass="tab-label" text="Home" />
             </children>
          </HBox>
          <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="10.0">
@@ -34,7 +34,7 @@
                      <Image url="@../../images/icon-search.png" />
                   </image>
                </ImageView>
-               <Label styleClass="tab-label" prefHeight="60.0" prefWidth="105.0" text="Search" />
+               <Label prefHeight="60.0" prefWidth="105.0" styleClass="tab-label" text="Search" />
             </children>
          </HBox>
          <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
@@ -44,7 +44,7 @@
                      <Image url="@../../images/icon-library.png" />
                   </image>
                </ImageView>
-               <Label styleClass="tab-label" alignment="TOP_LEFT" prefHeight="60.0" prefWidth="105.0" text="Library" />
+               <Label alignment="TOP_LEFT" prefHeight="60.0" prefWidth="105.0" styleClass="tab-label" text="Library" />
             </children>
          </HBox>
       </children>

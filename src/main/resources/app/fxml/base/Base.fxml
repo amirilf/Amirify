@@ -8,13 +8,13 @@
     <!-- LeftBar.fxml | This part has size of (200,800) -->
     <fx:include source="LeftBar.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0" />
 
-    <!-- TopBar.fxml | This part has size of (1000,100) -->
+    <!-- TopBar.fxml | This part has size of (1000,70) -->
     <fx:include source="TopBar.fxml" AnchorPane.leftAnchor="200" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
 
     <!-- Main content of each page | The content has to have size of (1000,630) -->
-    <VBox fx:id="mainContentPlaceholder" AnchorPane.bottomAnchor="70" AnchorPane.leftAnchor="200" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="100" />
+    <VBox fx:id="mainContentPlaceholder" AnchorPane.bottomAnchor="100" AnchorPane.leftAnchor="200" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="70" />
 
-    <!-- BottomBar.fxml | This part has size of (1000,70) -->
+    <!-- BottomBar.fxml | This part has size of (1000,100) -->
     <fx:include source="BottomBar.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="200" AnchorPane.rightAnchor="0" />
 
 </AnchorPane>
