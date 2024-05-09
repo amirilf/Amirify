@@ -11,6 +11,9 @@ import java.io.IOException;
 
 public class AuthController {
 
+    private String signupFxmlPage = "/app/fxml/SignupPage.fxml";
+    private String loginFxmlPage = "/app/fxml/LoginPage.fxml";
+
     @FXML
     private ChoiceBox<String> myChoiceBox;
 
@@ -25,20 +28,18 @@ public class AuthController {
 
     @FXML
     private void handleLoginButtonAction(ActionEvent event) {
-        openPage("Login");
+        openPage(loginFxmlPage);
     }
 
     @FXML
     private void handleSignupButtonAction(ActionEvent event) {
-        openPage("Signup");
+        openPage(signupFxmlPage);
     }
 
-    private void openPage(String title) {
+    private void openPage(String path) {
 
         try {
-
-            // will open LoginPage.fxml and SignupPage.fxml
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/fxml/" + title + "Page.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
             Parent root = loader.load();
 
             rootLayout.getChildren().clear();

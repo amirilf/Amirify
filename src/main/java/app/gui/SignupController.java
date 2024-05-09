@@ -17,6 +17,8 @@ import javafx.stage.Stage;
 
 public class SignupController {
 
+    private String loginFxmlPage = "/app/fxml/LoginPage.fxml";
+
     @FXML
     private TextField firstNameField;
 
@@ -53,7 +55,7 @@ public class SignupController {
     @FXML
     public void handleLoginLink(MouseEvent event) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/fxml/LoginPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(loginFxmlPage));
         Parent root = loader.load();
 
         Scene scene = new Scene(root);

@@ -13,6 +13,8 @@ import java.io.IOException;
 
 public class LoginController {
 
+    private String signupFxmlPage = "/app/fxml/SignupPage.fxml";
+
     @FXML
     private TextField usernameField;
 
@@ -24,7 +26,7 @@ public class LoginController {
 
     @FXML
     public void handleSignupLink(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/fxml/SignupPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(signupFxmlPage));
         Parent root = loader.load();
 
         Scene scene = new Scene(root);
@@ -37,8 +39,6 @@ public class LoginController {
     @FXML
     public void handleLoginButtonAction(ActionEvent event) throws IOException {
 
-        // here we go through this if, if there is something wrong with username or
-        // password
         if (true) {
             // showing error message
             errorMessage.setVisible(true);
