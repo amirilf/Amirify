@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.effect.InnerShadow?>
@@ -15,7 +14,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1000.0" styleClass="main" stylesheets="@../../css/bottombar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.BottomBarController">
    <children>
-      <StackPane layoutX="26.0" layoutY="15.0" prefHeight="70.0" prefWidth="70.0">
+      <StackPane layoutX="23.0" layoutY="15.0" prefHeight="70.0" prefWidth="70.0">
          <children>
             <Rectangle arcHeight="20.0" arcWidth="20.0" height="70.0" width="70.0" />
             <ImageView fitHeight="70.0" fitWidth="70.0">
@@ -31,23 +30,23 @@
             </ImageView>
          </children>
       </StackPane>
-      <Label layoutX="109.0" layoutY="25.0" styleClass="title-label" text="Money on the dash" />
-            <HBox alignment="CENTER_LEFT" layoutX="109.0" layoutY="59.0" prefHeight="26.0" prefWidth="273.0" spacing="5.0">
+      <Label layoutX="110.0" layoutY="26.0" styleClass="title-label" text="Money on the dash" />
+            <HBox alignment="CENTER_LEFT" layoutX="110.0" layoutY="58.0" prefHeight="26.0" prefWidth="273.0" spacing="5.0">
          <children>
             <Label styleClass="author-label" text="Justin Bieaber" HBox.hgrow="ALWAYS" />
             <Label styleClass="author-label" text="DJ Khaled" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="366.0" layoutY="63.0" prefHeight="26.0" prefWidth="624.0" spacing="10.0">
+      <HBox alignment="CENTER" layoutX="366.0" layoutY="62.0" prefHeight="26.0" prefWidth="624.0" spacing="10.0">
          <children>
-            <Label fx:id="startTimeLabel" text="00:00" />
+            <Label fx:id="startTimeLabel" text="00:00" textFill="#f1f1f1" />
             <Slider fx:id="progressSlider" prefHeight="25.0" prefWidth="500.0" />
-            <Label fx:id="endTimeLabel" text="03:30" />
+            <Label fx:id="endTimeLabel" text="03:30" textFill="#f1f1f1" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="428.0" layoutY="13.0" prefHeight="50.0" prefWidth="500.0" spacing="30.0">
+      <HBox alignment="CENTER" layoutX="428.0" layoutY="14.0" prefHeight="50.0" prefWidth="500.0" spacing="30.0">
          <children>
-            <ImageView fx:id="shuffleIcon" styleClass="icon" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#handleShuffleClick" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="shuffleIcon" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#handleShuffleClick" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                <image>
                   <Image url="@../../images/icon-shuffle-off.png" />
                </image>
@@ -76,7 +75,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <ImageView fx:id="repeatIcon" styleClass="icon" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#handleRepeatClick" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="repeatIcon" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#handleRepeatClick" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                <image>
                   <Image url="@../../images/icon-repeat-off.png" />
                </image>
@@ -84,4 +83,7 @@
          </children>
       </HBox>
    </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
 </AnchorPane>

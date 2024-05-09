@@ -1,3 +1,8 @@
+.main {
+    -fx-background-color: #747f81;
+    -fx-background-radius: 10px
+}
+
 .title-label{
     -fx-font-family: 'DejaVu Serif Bold';
     -fx-font-size: 22px;
@@ -7,7 +12,7 @@
 
 .title-label:hover{
     -fx-underline: true;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, #ffffff, 10, 0, 0, 0);
 }
 
 .author-label{
@@ -19,7 +24,7 @@
 
 .author-label:hover{
     -fx-underline: true;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, #ffffff, 10, 0, 0, 0);
 }
 
 .icon {
@@ -28,4 +33,18 @@
 
 .icon:hover {
     -fx-opacity: 0.5;
+}
+
+.slider .track {
+    -fx-background-color: #c8c5c5;
+    -fx-background-radius: 0;
+    -fx-padding: 0 0 2px 0;
+    -fx-background-insets: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.slider .thumb {
+    -fx-background-color: #1ed760;
+    -fx-background-radius: 10px;
 }

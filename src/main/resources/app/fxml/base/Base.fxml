@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="800" prefWidth="1200" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.BaseController">
+<AnchorPane prefHeight="890.0" prefWidth="1200.0" styleClass="main" stylesheets="@../../css/base.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.BaseController">
 
-    <!-- LeftBar.fxml | This part has size of (200,800) -->
-    <fx:include source="LeftBar.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0" />
+    <!-- LeftBar.fxml | This part has size of (185,880) -->
+    <fx:include source="LeftBar.fxml" AnchorPane.leftAnchor="5" AnchorPane.topAnchor="5" />
 
     <!-- TopBar.fxml | This part has size of (1000,70) -->
-    <fx:include source="TopBar.fxml" AnchorPane.leftAnchor="200" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
+    <fx:include source="TopBar.fxml" AnchorPane.rightAnchor="5" AnchorPane.topAnchor="5" />
 
-    <!-- Main content of each page | The content has to have size of (1000,630) -->
-    <VBox fx:id="mainContentPlaceholder" AnchorPane.bottomAnchor="100" AnchorPane.leftAnchor="200" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="70" />
+    <!-- Main content of each page | The content has to have size of (1000,700) -->
+    <fx:include source="Body.fxml" AnchorPane.rightAnchor="5" AnchorPane.topAnchor="80" />
 
     <!-- BottomBar.fxml | This part has size of (1000,100) -->
-    <fx:include source="BottomBar.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="200" AnchorPane.rightAnchor="0" />
+    <fx:include source="BottomBar.fxml" AnchorPane.bottomAnchor="5" AnchorPane.rightAnchor="5" />
 
 </AnchorPane>

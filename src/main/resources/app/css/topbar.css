@@ -1,7 +1,13 @@
+.main {
+    -fx-background-color: #747f81;
+    -fx-background-radius: 10px
+}
+
+
 .button.premium {
     -fx-cursor: hand;
-    -fx-background-color: linear-gradient(to bottom, #6fe08b, #4fa163);
-    -fx-text-fill: #ffffff;
+    -fx-background-color: linear-gradient(to bottom, #c8c5c5, #e9e4e4);
+    -fx-text-fill: #000000;
     -fx-font-family: 'Dyuthi Regular';
     -fx-font-size: 16px;
     -fx-background-radius: 15px;
@@ -10,11 +16,10 @@
 }
 
 .button.premium:hover {
-    -fx-background-color: linear-gradient(to bottom, #4fa163, #6fe08b);
+    -fx-background-color: linear-gradient(to bottom, #e9e4e4, #c8c5c5);
     -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.5), 10, 0, 0, 0),
                 inner-shadow(gaussian, rgba(255, 255, 255, 0.7), 5, 0.8, 0, 0);
     -fx-transform: scale(1.1);
-    -fx-glow-color: #ffeeee;
     -fx-glow-amount: 0.5; 
 }
 
@@ -27,26 +32,16 @@
 
 .label:hover {
     -fx-underline: true;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, #ffffff, 10, 0, 0, 0);
 }
 
 .arrow {
     -fx-cursor: hand; 
-    -fx-fill: #1c1a1a;
+    -fx-fill: #000000;
     -fx-font-family: "Dyuthi Regular";
     -fx-font-size: 30px;
 }
 
 .arrow:hover {
     -fx-fill: #c8c5c5;
-}
-
-
-
-.notification-icon {
-    -fx-cursor: hand;
-}
-
-.notification-icon:hover {
-    -fx-opacity: 0.5;
 }
