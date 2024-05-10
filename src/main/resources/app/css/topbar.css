@@ -19,7 +19,6 @@
     -fx-background-color: linear-gradient(to bottom, #e9e4e4, #c8c5c5);
     -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.5), 10, 0, 0, 0),
                 inner-shadow(gaussian, rgba(255, 255, 255, 0.7), 5, 0.8, 0, 0);
-    -fx-transform: scale(1.1);
     -fx-glow-amount: 0.5; 
 }
 
