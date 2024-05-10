@@ -11,6 +11,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.animation.Timeline;
+
+import java.util.Random;
+
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.util.Duration;
@@ -59,6 +62,7 @@ public class BottomBarController {
     String link4 = "/app/media/Trevor Daniel - Falling.mp3";
     String links[] = { link1, link2, link3, link4 };
     int index = 0;
+    int mediaLength = links.length;
 
     @FXML
     private void initialize() {
@@ -127,30 +131,40 @@ public class BottomBarController {
     @FXML
     private void handleNextClick() {
 
-        // if the list is done then start again from the first item!
-
-        if (index == links.length - 1) {
-            index = 0;
+        if (shuffle) {
+            setMediaSource(shufflePath(mediaLength));
         } else {
-            index++;
+
+            // if the list is done then start again from the first item!
+
+            if (index == links.length - 1) {
+                index = 0;
+            } else {
+                index++;
+            }
+            setMediaSource(links[index]);
         }
-        System.out.println(index);
-        setMediaSource(links[index]);
+
     }
 
     @FXML
     private void handlePreviousClick() {
 
-        // if it's the first item then start from current time zero of that item!
-
-        if (index == 0) {
-            currentDurationProperty.set(0);
-            playMedia(0d);
+        if (shuffle) {
+            setMediaSource(shufflePath(mediaLength));
         } else {
-            index--;
-            setMediaSource(links[index]);
+
+            // if it's the first item then start from current time zero of that item!
+
+            if (index == 0) {
+                currentDurationProperty.set(0);
+                playMedia(0d);
+            } else {
+                index--;
+                setMediaSource(links[index]);
+            }
         }
-        System.out.println(index);
+
     }
 
     @FXML
@@ -177,6 +191,15 @@ public class BottomBarController {
         } else {
             shuffleIcon.setImage(new Image(getClass().getResourceAsStream(shuffleOffIconPath)));
         }
+    }
+
+    private String shufflePath(int size) {
+
+        // size => size of playlist
+
+        index = new Random().nextInt(size);
+        return links[index];
+
     }
 
     private void setImage(ImageView imageView, String imageUrl) {
@@ -206,21 +229,17 @@ public class BottomBarController {
 
                                         // no repeating
 
-                                        if (index < 3) {
+                                        if (index == mediaLength - 1) {
 
-                                            // next song in playlist
-
-                                            index++;
-                                            setMediaSource(links[index]);
-
-                                        } else {
-
-                                            // there is no other song in playlist
-
+                                            // this was the last media in list so we pause it
                                             isPlaying = false;
                                             setImage(playPauseButton, playIconPath);
                                             timeline.pause();
                                             mediaPlayer.pause();
+
+                                        } else {
+                                            // we have still media in list so we play next one
+                                            handleNextClick();
                                         }
                                     }
                                 }
@@ -259,5 +278,4 @@ public class BottomBarController {
             mediaPlayer.play();
         }
     }
-
 }
