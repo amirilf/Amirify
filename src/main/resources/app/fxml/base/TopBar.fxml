@@ -28,7 +28,7 @@
          <children>
             <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" styleClass="premium" text="Get premium">
             </Button>
-            <Label styleClass="name" text="amir mohammad khorasani " HBox.hgrow="ALWAYS" />
+            <Label fx:id="nameLabel" styleClass="name" text="Amir Khorasani" HBox.hgrow="ALWAYS"/>
          </children>
          <padding>
             <Insets right="30.0" />
