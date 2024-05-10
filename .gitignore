@@ -1,9 +1,8 @@
-tmp/
-
-# this is folder of images used on project, im gonna add them at the end to avoid tracking unuseful images.
+# these folders should be updated after finishing project to avoid storing useless ones
 images/
-
+icon/
 media/
+tmp/
 
 target/
 !.mvn/wrapper/maven-wrapper.jar

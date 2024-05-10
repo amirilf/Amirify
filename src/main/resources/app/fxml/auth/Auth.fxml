@@ -10,12 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootLayout" prefHeight="800.0" prefWidth="1200.0" styleClass="main-pane" stylesheets="@../css/auth.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.AuthController">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:id="mainAnchorPane" fx:controller="app.gui.AuthController">
    <children>
-      <ImageView fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true">
-         <image>
-            <Image url="@../images/bg-auth.png" />
-         </image>
+      <ImageView fx:id="bg" fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true">
          <effect>
             <MotionBlur />
          </effect>
@@ -24,11 +21,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="130.0" prefWidth="350.0">
                <children>
-                  <ImageView fitHeight="107.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/logo.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="logo" fitHeight="107.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true"/>
                   <Label alignment="CENTER" prefHeight="132.0" prefWidth="262.0" text="Amirify">
                      <font>
                         <Font name="Dyuthi Regular" size="80.0" />

@@ -1,13 +1,18 @@
 package app.gui;
 
+import app.util.Variables;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Label;
 import javafx.geometry.Bounds;
 
 public class TopBarController {
+
+    @FXML
+    private AnchorPane mainAnchorPane;
 
     @FXML
     private Label nameLabel;
@@ -34,6 +39,9 @@ public class TopBarController {
             }
 
         });
+
+        // ============= Adding CSS
+        mainAnchorPane.getStylesheets().addAll(getClass().getResource(Variables.topbarCSSPath).toString());
         // =============
     }
 

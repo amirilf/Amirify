@@ -2,6 +2,7 @@ package app;
 
 import java.io.IOException;
 
+import app.util.Variables;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,10 +14,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/base/Base.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(Variables.baseFXMLPath));
         Parent root = loader.load();
         Scene scene = new Scene(root);
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("images/logo.png")));
+        stage.getIcons().add(new Image(getClass().getResourceAsStream(Variables.logoPath)));
         stage.setScene(scene);
         stage.setResizable(false);
         stage.setTitle("Amirify");

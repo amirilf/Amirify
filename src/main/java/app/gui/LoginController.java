@@ -7,13 +7,24 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+import app.util.Variables;
+
 public class LoginController {
 
-    private String signupFxmlPage = "/app/fxml/SignupPage.fxml";
+    @FXML
+    private AnchorPane mainAnchorPane;
+
+    @FXML
+    private ImageView bg;
+    // It's just testing, should be updated late in Variables
+    private Image img_bg = new Image(getClass().getResource(Variables.bgAuthPath).toString());
 
     @FXML
     private TextField usernameField;
@@ -25,8 +36,20 @@ public class LoginController {
     private Label errorMessage;
 
     @FXML
+    private void initialize() {
+
+        // ============= Adding CSS
+        mainAnchorPane.getStylesheets().addAll(getClass().getResource(Variables.authCSSPath).toString());
+        // =============
+
+        // ============= Adding images
+        bg.setImage(img_bg);
+        // =============
+    }
+
+    @FXML
     public void handleSignupLink(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(signupFxmlPage));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(Variables.signupFXMLPath));
         Parent root = loader.load();
 
         Scene scene = new Scene(root);

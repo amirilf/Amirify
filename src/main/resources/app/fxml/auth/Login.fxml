@@ -14,13 +14,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../css/auth.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:id="mainAnchorPane" fx:controller="app.gui.LoginController">
    <children>
-      <ImageView fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true">
-         <image>
-            <Image url="@../images/bg-auth.png" />
-         </image>
-      </ImageView>
+      <ImageView fx:id="bg" fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true"/>
       <VBox alignment="TOP_CENTER" layoutX="367.0" layoutY="275.0" prefHeight="280.0" prefWidth="466.0" spacing="10.0">
          <children>
             <Pane prefHeight="290.0" prefWidth="466.0">

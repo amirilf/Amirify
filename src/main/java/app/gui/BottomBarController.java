@@ -8,27 +8,49 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.animation.Timeline;
 
 import java.util.Random;
 
+import app.util.Variables;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.util.Duration;
 
 public class BottomBarController {
 
-    // PATHs
-    String playIconPath = "/app/images/icon-play.png";
-    String pauseIconPath = "/app/images/icon-pause.png";
-    String repeatOnIconPath = "/app/images/icon-repeat-on.png";
-    String repeatOffIconPath = "/app/images/icon-repeat-off.png";
-    String shuffleOnIconPath = "/app/images/icon-shuffle-on.png";
-    String shuffleOffIconPath = "/app/images/icon-shuffle-off.png";
+    // icon objects
+    @FXML
+    private ImageView cover;
+    // later we remove this & instead we add media cover from db, it's just testing
+    private Image img_cover = new Image(getClass().getResource("/app/media/cover.png").toString());
 
-    // ELEMENTS
+    @FXML
+    private ImageView playPause;
+    private Image img_playPause = new Image(getClass().getResource(Variables.playIconPath).toString());
+
+    @FXML
+    private ImageView repeat;
+    private Image img_repeat = new Image(getClass().getResource(Variables.repeatOffIconPath).toString());
+
+    @FXML
+    private ImageView shuffle;
+    private Image img_shuffle = new Image(getClass().getResource(Variables.shuffleOffIconPath).toString());
+
+    @FXML
+    private ImageView next;
+    @FXML
+    private ImageView previous;
+
+    // same for both next and previous, one of them is rotated
+    private Image img_next = new Image(getClass().getResource(Variables.nextIconPath).toString());
+
+    @FXML
+    private AnchorPane mainAnchorPane;
+
     @FXML
     private Label startTimeLabel;
 
@@ -38,20 +60,11 @@ public class BottomBarController {
     @FXML
     private Label endTimeLabel;
 
-    @FXML
-    private ImageView playPauseButton;
-
-    @FXML
-    private ImageView repeatIcon;
-
-    @FXML
-    private ImageView shuffleIcon;
-
     MediaPlayer mediaPlayer;
     private Timeline timeline = new Timeline();
     private boolean isPlaying = false;
-    private boolean repeat = false;
-    private boolean shuffle = false;
+    private boolean isRepeat = false;
+    private boolean isShuffle = false;
     private DoubleProperty currentDurationProperty = new SimpleDoubleProperty(0);
     private DoubleProperty totalDurationProperty = new SimpleDoubleProperty(0);
 
@@ -98,6 +111,19 @@ public class BottomBarController {
 
         // starting playback method
         mediaPlayBack();
+
+        // ============= Adding CSS
+        mainAnchorPane.getStylesheets().addAll(getClass().getResource(Variables.bottombarCSSPath).toString());
+        // =============
+
+        // ============= Adding images
+        cover.setImage(img_cover);
+        playPause.setImage(img_playPause);
+        next.setImage(img_next);
+        previous.setImage(img_next);
+        repeat.setImage(img_repeat);
+        shuffle.setImage(img_shuffle);
+        // =============
     }
 
     private String formatDuration(double seconds) {
@@ -115,10 +141,10 @@ public class BottomBarController {
         // change icons, play and pause media
 
         if (isPlaying) {
-            setImage(playPauseButton, playIconPath);
+            setImage(playPause, Variables.playIconPath);
             mediaPlayer.pause();
         } else {
-            setImage(playPauseButton, pauseIconPath);
+            setImage(playPause, Variables.pauseIconPath);
             if (currentDurationProperty.get() >= totalDurationProperty.get()) {
                 currentDurationProperty.set(0);
             }
@@ -131,7 +157,7 @@ public class BottomBarController {
     @FXML
     private void handleNextClick() {
 
-        if (shuffle) {
+        if (isShuffle) {
             setMediaSource(shufflePath(mediaLength));
         } else {
 
@@ -150,7 +176,7 @@ public class BottomBarController {
     @FXML
     private void handlePreviousClick() {
 
-        if (shuffle) {
+        if (isShuffle) {
             setMediaSource(shufflePath(mediaLength));
         } else {
 
@@ -172,11 +198,11 @@ public class BottomBarController {
 
         // enable and disable the repeat feature and also change the icon
 
-        repeat = !repeat;
-        if (repeat) {
-            repeatIcon.setImage(new Image(getClass().getResourceAsStream(repeatOnIconPath)));
+        isRepeat = !isRepeat;
+        if (isRepeat) {
+            repeat.setImage(new Image(getClass().getResourceAsStream(Variables.repeatOnIconPath)));
         } else {
-            repeatIcon.setImage(new Image(getClass().getResourceAsStream(repeatOffIconPath)));
+            repeat.setImage(new Image(getClass().getResourceAsStream(Variables.repeatOffIconPath)));
         }
     }
 
@@ -185,11 +211,11 @@ public class BottomBarController {
 
         // enable and disable the shuffle feature and also change the icon
 
-        shuffle = !shuffle;
-        if (shuffle) {
-            shuffleIcon.setImage(new Image(getClass().getResourceAsStream(shuffleOnIconPath)));
+        isShuffle = !isShuffle;
+        if (isShuffle) {
+            shuffle.setImage(new Image(getClass().getResourceAsStream(Variables.shuffleOnIconPath)));
         } else {
-            shuffleIcon.setImage(new Image(getClass().getResourceAsStream(shuffleOffIconPath)));
+            shuffle.setImage(new Image(getClass().getResourceAsStream(Variables.shuffleOffIconPath)));
         }
     }
 
@@ -222,7 +248,7 @@ public class BottomBarController {
                                 currentDurationProperty.set(currentDurationProperty.get() + 1);
 
                                 if (currentDurationProperty.get() >= totalDurationProperty.get()) {
-                                    if (repeat) {
+                                    if (isRepeat) {
                                         currentDurationProperty.set(0);
                                         playMedia(0d);
                                     } else {
@@ -233,7 +259,7 @@ public class BottomBarController {
 
                                             // this was the last media in list so we pause it
                                             isPlaying = false;
-                                            setImage(playPauseButton, playIconPath);
+                                            setImage(playPause, Variables.playIconPath);
                                             timeline.pause();
                                             mediaPlayer.pause();
 

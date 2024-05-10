@@ -9,36 +9,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="880.0" prefWidth="185.0" styleClass="main" stylesheets="@../../css/leftbar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.LeftBarController">
+<AnchorPane prefHeight="880.0" prefWidth="185.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:id="mainAnchorPane" fx:controller="app.gui.LeftBarController" styleClass="main">
    <VBox layoutX="8.0" prefHeight="250.0" prefWidth="170.0" spacing="10.0">
       <children>
          <HBox alignment="CENTER" prefHeight="60.0" prefWidth="185.0" spacing="10.0">
             <children>
-               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../images/icon-home.png" />
-                  </image>
-               </ImageView>
+               <ImageView fx:id="home" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true"/>
                <Label prefHeight="60.0" prefWidth="105.0" styleClass="tab-label" text="Home" />
             </children>
          </HBox>
          <HBox alignment="CENTER" prefHeight="60.0" prefWidth="185.0" spacing="10.0">
             <children>
-               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../images/icon-search.png" />
-                  </image>
-               </ImageView>
+               <ImageView fx:id="search" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true"/>
                <Label prefHeight="60.0" prefWidth="105.0" styleClass="tab-label" text="Search" />
             </children>
          </HBox>
          <HBox alignment="CENTER" prefHeight="50.0" prefWidth="185.0" spacing="10.0">
             <children>
-               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../images/icon-library.png" />
-                  </image>
-               </ImageView>
+               <ImageView fx:id="library" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true"/>
                <Label alignment="TOP_LEFT" prefHeight="60.0" prefWidth="105.0" styleClass="tab-label" text="Library" />
             </children>
          </HBox>
@@ -49,11 +37,7 @@
    </VBox>
    <HBox alignment="CENTER" layoutX="18.0" layoutY="841.0" prefHeight="25.0" prefWidth="150.0" spacing="10.0">
       <children>
-         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../images/icon-copyleft.png" />
-            </image>
-         </ImageView>
+         <ImageView fx:id="copyleft" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true"/>
          <Label prefHeight="25.0" prefWidth="88.0" text="2024 Amirify">
             <font>
                <Font name="Monospaced Bold" size="12.0" />

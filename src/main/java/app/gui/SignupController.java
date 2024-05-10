@@ -2,6 +2,7 @@ package app.gui;
 
 import java.io.IOException;
 
+import app.util.Variables;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,12 +13,21 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class SignupController {
 
-    private String loginFxmlPage = "/app/fxml/LoginPage.fxml";
+    @FXML
+    private AnchorPane mainAnchorPane;
+
+    @FXML
+    private ImageView bg;
+    // It's just testing, should be updated late in Variables
+    private Image img_bg = new Image(getClass().getResource(Variables.bgAuthPath).toString());
 
     @FXML
     private TextField firstNameField;
@@ -50,12 +60,21 @@ public class SignupController {
     public void initialize() {
         typeField.setValue("Listener");
         typeField.setItems(FXCollections.observableArrayList("Listener", "Singer", "Podcaster"));
+
+        // ============= Adding CSS
+        mainAnchorPane.getStylesheets().addAll(getClass().getResource(Variables.authCSSPath).toString());
+        // =============
+
+        // ============= Adding images
+        bg.setImage(img_bg);
+        // =============
+
     }
 
     @FXML
     public void handleLoginLink(MouseEvent event) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(loginFxmlPage));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(Variables.loginFXMLPath));
         Parent root = loader.load();
 
         Scene scene = new Scene(root);
