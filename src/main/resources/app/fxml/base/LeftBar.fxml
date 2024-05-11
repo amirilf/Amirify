@@ -15,19 +15,19 @@
          <HBox alignment="CENTER" prefHeight="60.0" prefWidth="185.0" spacing="10.0">
             <children>
                <ImageView fx:id="home" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true"/>
-               <Label prefHeight="60.0" prefWidth="105.0" styleClass="tab-label" text="Home" />
+               <Label onMouseClicked="#handleHomeClick" fx:id="home_label" prefHeight="60.0" prefWidth="105.0" styleClass="tab-label" text="Home" />
             </children>
          </HBox>
          <HBox alignment="CENTER" prefHeight="60.0" prefWidth="185.0" spacing="10.0">
             <children>
                <ImageView fx:id="search" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true"/>
-               <Label prefHeight="60.0" prefWidth="105.0" styleClass="tab-label" text="Search" />
+               <Label onMouseClicked="#handleSearchClick" fx:id="search_label" prefHeight="60.0" prefWidth="105.0" styleClass="tab-label" text="Search" />
             </children>
          </HBox>
          <HBox alignment="CENTER" prefHeight="50.0" prefWidth="185.0" spacing="10.0">
             <children>
                <ImageView fx:id="library" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true"/>
-               <Label alignment="TOP_LEFT" prefHeight="60.0" prefWidth="105.0" styleClass="tab-label" text="Library" />
+               <Label onMouseClicked="#handleLibraryClick" fx:id="library_label" alignment="TOP_LEFT" prefHeight="60.0" prefWidth="105.0" styleClass="tab-label" text="Library" />
             </children>
          </HBox>
       </children>

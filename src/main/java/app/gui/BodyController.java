@@ -25,14 +25,15 @@ public class BodyController {
     @FXML
     private AnchorPane mainAnchorPane;
 
-    private StringProperty contentPath = new SimpleStringProperty();
+    private static StringProperty contentPath = new SimpleStringProperty();
 
-    public void setFxmlPath(String contentPath) {
-        this.contentPath.set(contentPath);
+    public static void setFxmlPath(String path) {
+        contentPath.set(path);
     }
 
     @FXML
     private void initialize() {
+
         contentPath.addListener((observable, oldValue, newValue) -> loadPage());
 
         // ============= Adding CSS

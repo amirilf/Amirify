@@ -2,8 +2,10 @@ package app.gui;
 
 import app.util.Variables;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class LeftBarController {
@@ -28,6 +30,15 @@ public class LeftBarController {
     private AnchorPane mainAnchorPane;
 
     @FXML
+    private Label home_label;
+
+    @FXML
+    private Label search_label;
+
+    @FXML
+    private Label library_label;
+
+    @FXML
     private void initialize() {
 
         // ============= Adding CSS
@@ -43,4 +54,18 @@ public class LeftBarController {
 
     }
 
+    @FXML
+    private void handleHomeClick(MouseEvent event) {
+        BodyController.setFxmlPath("Home");
+    }
+
+    @FXML
+    private void handleSearchClick(MouseEvent event) {
+        BodyController.setFxmlPath("Search");
+    }
+
+    @FXML
+    private void handleLibraryClick(MouseEvent event) {
+        BodyController.setFxmlPath("Library");
+    }
 }
