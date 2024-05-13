@@ -1,11 +1,841 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="@home.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.HomeController">
    <children>
-      <Label layoutX="454.0" layoutY="342.0" text="Home content" />
+      <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="18.0" layoutY="18.0" prefHeight="665.0" prefWidth="965.0" vbarPolicy="ALWAYS">
+         <content>
+            <VBox fx:id="contentVBox" spacing="20.0">
+               <children>
+                  <VBox prefHeight="350.0" prefWidth="918.0" styleClass="vbox">
+                     <children>
+                        <Pane prefHeight="60.0" prefWidth="916.0">
+                           <children>
+                              <Label layoutX="27.0" layoutY="5.0" styleClass="lbl" text="Made for you">
+                                 <font>
+                                    <Font name="Dyuthi Regular" size="30.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="825.0" layoutY="18.0" styleClass="lbl" text="See more">
+                                 <font>
+                                    <Font name="Dyuthi Regular" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <HBox prefHeight="270.0" prefWidth="916.0" spacing="26.0">
+                           <children>
+                              <VBox onMouseEntered="#showPlayMedia" onMouseExited="#hidePlayMedia" prefHeight="270.0" prefWidth="200.0" styleClass="vbox-item">
+                                 <children>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0">
+                                       <children>
+                                          <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../media/cover.png" />
+                                             </image>
+                                             <clip>
+                                                <Rectangle arcHeight="15.0" arcWidth="15.0" height="180" width="180" />
+                                             </clip>
+                                          </ImageView>
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
+                                             <image>
+                                                <Image url="@../../images/icon/icon-playmedia.png" />
+                                             </image>
+                                             <StackPane.margin>
+                                                <Insets left="120.0" top="120.0" />
+                                             </StackPane.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Label prefHeight="0.0" prefWidth="200.0" styleClass="item-title" text="Moody mix">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="180.0" styleClass="item-desc" text="Lizzy mc Alphine pe oe pfek fpoek pofek ">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox onMouseEntered="#showPlayMedia" onMouseExited="#hidePlayMedia" prefHeight="270.0" prefWidth="200.0" styleClass="vbox-item">
+                                 <children>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0">
+                                       <children>
+                                          <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../media/cover.png" />
+                                             </image>
+                                             <clip>
+                                                <Rectangle arcHeight="15.0" arcWidth="15.0" height="180" width="180" />
+                                             </clip>
+                                          </ImageView>
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
+                                             <image>
+                                                <Image url="@../../images/icon/icon-playmedia.png" />
+                                             </image>
+                                             <StackPane.margin>
+                                                <Insets left="120.0" top="120.0" />
+                                             </StackPane.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Label prefHeight="0.0" prefWidth="200.0" styleClass="item-title" text="Moody mix">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="180.0" styleClass="item-desc" text="Lizzy mc Alphine pe oe pfek fpoek pofek ">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox onMouseEntered="#showPlayMedia" onMouseExited="#hidePlayMedia" prefHeight="270.0" prefWidth="200.0" styleClass="vbox-item">
+                                 <children>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0">
+                                       <children>
+                                          <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../media/cover.png" />
+                                             </image>
+                                             <clip>
+                                                <Rectangle arcHeight="15.0" arcWidth="15.0" height="180" width="180" />
+                                             </clip>
+                                          </ImageView>
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
+                                             <image>
+                                                <Image url="@../../images/icon/icon-playmedia.png" />
+                                             </image>
+                                             <StackPane.margin>
+                                                <Insets left="120.0" top="120.0" />
+                                             </StackPane.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Label prefHeight="0.0" prefWidth="200.0" styleClass="item-title" text="Moody mix">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="180.0" styleClass="item-desc" text="Lizzy mc Alphine pe oe pfek fpoek pofek ">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox onMouseEntered="#showPlayMedia" onMouseExited="#hidePlayMedia" prefHeight="270.0" prefWidth="200.0" styleClass="vbox-item">
+                                 <children>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0">
+                                       <children>
+                                          <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../media/cover.png" />
+                                             </image>
+                                             <clip>
+                                                <Rectangle arcHeight="15.0" arcWidth="15.0" height="180" width="180" />
+                                             </clip>
+                                          </ImageView>
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
+                                             <image>
+                                                <Image url="@../../images/icon/icon-playmedia.png" />
+                                             </image>
+                                             <StackPane.margin>
+                                                <Insets left="120.0" top="120.0" />
+                                             </StackPane.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Label prefHeight="0.0" prefWidth="200.0" styleClass="item-title" text="Moody mix">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="180.0" styleClass="item-desc" text="Lizzy mc Alphine pe oe pfek fpoek pofek ">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding></HBox>
+                     </children></VBox>
+                  <VBox prefHeight="350.0" prefWidth="918.0" styleClass="vbox">
+                     <children>
+                        <Pane prefHeight="60.0" prefWidth="916.0">
+                           <children>
+                              <Label layoutX="27.0" layoutY="5.0" styleClass="lbl" text="Made for you">
+                                 <font>
+                                    <Font name="Dyuthi Regular" size="30.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="825.0" layoutY="18.0" styleClass="lbl" text="See more">
+                                 <font>
+                                    <Font name="Dyuthi Regular" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <HBox prefHeight="270.0" prefWidth="916.0" spacing="26.0">
+                           <children>
+                              <VBox onMouseEntered="#showPlayMedia" onMouseExited="#hidePlayMedia" prefHeight="270.0" prefWidth="200.0" styleClass="vbox-item">
+                                 <children>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0">
+                                       <children>
+                                          <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../media/cover.png" />
+                                             </image>
+                                             <clip>
+                                                <Rectangle arcHeight="15.0" arcWidth="15.0" height="180" width="180" />
+                                             </clip>
+                                          </ImageView>
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
+                                             <image>
+                                                <Image url="@../../images/icon/icon-playmedia.png" />
+                                             </image>
+                                             <StackPane.margin>
+                                                <Insets left="120.0" top="120.0" />
+                                             </StackPane.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Label prefHeight="0.0" prefWidth="200.0" styleClass="item-title" text="Moody mix">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="180.0" styleClass="item-desc" text="Lizzy mc Alphine pe oe pfek fpoek pofek ">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox onMouseEntered="#showPlayMedia" onMouseExited="#hidePlayMedia" prefHeight="270.0" prefWidth="200.0" styleClass="vbox-item">
+                                 <children>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0">
+                                       <children>
+                                          <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../media/cover.png" />
+                                             </image>
+                                             <clip>
+                                                <Rectangle arcHeight="15.0" arcWidth="15.0" height="180" width="180" />
+                                             </clip>
+                                          </ImageView>
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
+                                             <image>
+                                                <Image url="@../../images/icon/icon-playmedia.png" />
+                                             </image>
+                                             <StackPane.margin>
+                                                <Insets left="120.0" top="120.0" />
+                                             </StackPane.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Label prefHeight="0.0" prefWidth="200.0" styleClass="item-title" text="Moody mix">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="180.0" styleClass="item-desc" text="Lizzy mc Alphine pe oe pfek fpoek pofek ">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox onMouseEntered="#showPlayMedia" onMouseExited="#hidePlayMedia" prefHeight="270.0" prefWidth="200.0" styleClass="vbox-item">
+                                 <children>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0">
+                                       <children>
+                                          <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../media/cover.png" />
+                                             </image>
+                                             <clip>
+                                                <Rectangle arcHeight="15.0" arcWidth="15.0" height="180" width="180" />
+                                             </clip>
+                                          </ImageView>
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
+                                             <image>
+                                                <Image url="@../../images/icon/icon-playmedia.png" />
+                                             </image>
+                                             <StackPane.margin>
+                                                <Insets left="120.0" top="120.0" />
+                                             </StackPane.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Label prefHeight="0.0" prefWidth="200.0" styleClass="item-title" text="Moody mix">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="180.0" styleClass="item-desc" text="Lizzy mc Alphine pe oe pfek fpoek pofek ">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox onMouseEntered="#showPlayMedia" onMouseExited="#hidePlayMedia" prefHeight="270.0" prefWidth="200.0" styleClass="vbox-item">
+                                 <children>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0">
+                                       <children>
+                                          <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../media/cover.png" />
+                                             </image>
+                                             <clip>
+                                                <Rectangle arcHeight="15.0" arcWidth="15.0" height="180" width="180" />
+                                             </clip>
+                                          </ImageView>
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
+                                             <image>
+                                                <Image url="@../../images/icon/icon-playmedia.png" />
+                                             </image>
+                                             <StackPane.margin>
+                                                <Insets left="120.0" top="120.0" />
+                                             </StackPane.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Label prefHeight="0.0" prefWidth="200.0" styleClass="item-title" text="Moody mix">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="180.0" styleClass="item-desc" text="Lizzy mc Alphine pe oe pfek fpoek pofek ">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="350.0" prefWidth="918.0" styleClass="vbox">
+                     <children>
+                        <Pane prefHeight="60.0" prefWidth="916.0">
+                           <children>
+                              <Label layoutX="27.0" layoutY="5.0" styleClass="lbl" text="Made for you">
+                                 <font>
+                                    <Font name="Dyuthi Regular" size="30.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="825.0" layoutY="18.0" styleClass="lbl" text="See more">
+                                 <font>
+                                    <Font name="Dyuthi Regular" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <HBox prefHeight="270.0" prefWidth="916.0" spacing="26.0">
+                           <children>
+                              <VBox onMouseEntered="#showPlayMedia" onMouseExited="#hidePlayMedia" prefHeight="270.0" prefWidth="200.0" styleClass="vbox-item">
+                                 <children>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0">
+                                       <children>
+                                          <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../media/cover.png" />
+                                             </image>
+                                             <clip>
+                                                <Rectangle arcHeight="15.0" arcWidth="15.0" height="180" width="180" />
+                                             </clip>
+                                          </ImageView>
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
+                                             <image>
+                                                <Image url="@../../images/icon/icon-playmedia.png" />
+                                             </image>
+                                             <StackPane.margin>
+                                                <Insets left="120.0" top="120.0" />
+                                             </StackPane.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Label prefHeight="0.0" prefWidth="200.0" styleClass="item-title" text="Moody mix">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="180.0" styleClass="item-desc" text="Lizzy mc Alphine pe oe pfek fpoek pofek ">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox onMouseEntered="#showPlayMedia" onMouseExited="#hidePlayMedia" prefHeight="270.0" prefWidth="200.0" styleClass="vbox-item">
+                                 <children>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0">
+                                       <children>
+                                          <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../media/cover.png" />
+                                             </image>
+                                             <clip>
+                                                <Rectangle arcHeight="15.0" arcWidth="15.0" height="180" width="180" />
+                                             </clip>
+                                          </ImageView>
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
+                                             <image>
+                                                <Image url="@../../images/icon/icon-playmedia.png" />
+                                             </image>
+                                             <StackPane.margin>
+                                                <Insets left="120.0" top="120.0" />
+                                             </StackPane.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Label prefHeight="0.0" prefWidth="200.0" styleClass="item-title" text="Moody mix">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="180.0" styleClass="item-desc" text="Lizzy mc Alphine pe oe pfek fpoek pofek ">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox onMouseEntered="#showPlayMedia" onMouseExited="#hidePlayMedia" prefHeight="270.0" prefWidth="200.0" styleClass="vbox-item">
+                                 <children>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0">
+                                       <children>
+                                          <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../media/cover.png" />
+                                             </image>
+                                             <clip>
+                                                <Rectangle arcHeight="15.0" arcWidth="15.0" height="180" width="180" />
+                                             </clip>
+                                          </ImageView>
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
+                                             <image>
+                                                <Image url="@../../images/icon/icon-playmedia.png" />
+                                             </image>
+                                             <StackPane.margin>
+                                                <Insets left="120.0" top="120.0" />
+                                             </StackPane.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Label prefHeight="0.0" prefWidth="200.0" styleClass="item-title" text="Moody mix">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="180.0" styleClass="item-desc" text="Lizzy mc Alphine pe oe pfek fpoek pofek ">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox onMouseEntered="#showPlayMedia" onMouseExited="#hidePlayMedia" prefHeight="270.0" prefWidth="200.0" styleClass="vbox-item">
+                                 <children>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0">
+                                       <children>
+                                          <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../media/cover.png" />
+                                             </image>
+                                             <clip>
+                                                <Rectangle arcHeight="15.0" arcWidth="15.0" height="180" width="180" />
+                                             </clip>
+                                          </ImageView>
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
+                                             <image>
+                                                <Image url="@../../images/icon/icon-playmedia.png" />
+                                             </image>
+                                             <StackPane.margin>
+                                                <Insets left="120.0" top="120.0" />
+                                             </StackPane.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Label prefHeight="0.0" prefWidth="200.0" styleClass="item-title" text="Moody mix">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="180.0" styleClass="item-desc" text="Lizzy mc Alphine pe oe pfek fpoek pofek ">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="350.0" prefWidth="918.0" styleClass="vbox">
+                     <children>
+                        <Pane prefHeight="60.0" prefWidth="916.0">
+                           <children>
+                              <Label layoutX="27.0" layoutY="5.0" styleClass="lbl" text="Made for you">
+                                 <font>
+                                    <Font name="Dyuthi Regular" size="30.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="825.0" layoutY="18.0" styleClass="lbl" text="See more">
+                                 <font>
+                                    <Font name="Dyuthi Regular" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <HBox prefHeight="270.0" prefWidth="916.0" spacing="26.0">
+                           <children>
+                              <VBox onMouseEntered="#showPlayMedia" onMouseExited="#hidePlayMedia" prefHeight="270.0" prefWidth="200.0" styleClass="vbox-item">
+                                 <children>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0">
+                                       <children>
+                                          <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../media/cover.png" />
+                                             </image>
+                                             <clip>
+                                                <Rectangle arcHeight="15.0" arcWidth="15.0" height="180" width="180" />
+                                             </clip>
+                                          </ImageView>
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
+                                             <image>
+                                                <Image url="@../../images/icon/icon-playmedia.png" />
+                                             </image>
+                                             <StackPane.margin>
+                                                <Insets left="120.0" top="120.0" />
+                                             </StackPane.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Label prefHeight="0.0" prefWidth="200.0" styleClass="item-title" text="Moody mix">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="180.0" styleClass="item-desc" text="Lizzy mc Alphine pe oe pfek fpoek pofek ">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox onMouseEntered="#showPlayMedia" onMouseExited="#hidePlayMedia" prefHeight="270.0" prefWidth="200.0" styleClass="vbox-item">
+                                 <children>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0">
+                                       <children>
+                                          <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../media/cover.png" />
+                                             </image>
+                                             <clip>
+                                                <Rectangle arcHeight="15.0" arcWidth="15.0" height="180" width="180" />
+                                             </clip>
+                                          </ImageView>
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
+                                             <image>
+                                                <Image url="@../../images/icon/icon-playmedia.png" />
+                                             </image>
+                                             <StackPane.margin>
+                                                <Insets left="120.0" top="120.0" />
+                                             </StackPane.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Label prefHeight="0.0" prefWidth="200.0" styleClass="item-title" text="Moody mix">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="180.0" styleClass="item-desc" text="Lizzy mc Alphine pe oe pfek fpoek pofek ">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox onMouseEntered="#showPlayMedia" onMouseExited="#hidePlayMedia" prefHeight="270.0" prefWidth="200.0" styleClass="vbox-item">
+                                 <children>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0">
+                                       <children>
+                                          <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../media/cover.png" />
+                                             </image>
+                                             <clip>
+                                                <Rectangle arcHeight="15.0" arcWidth="15.0" height="180" width="180" />
+                                             </clip>
+                                          </ImageView>
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
+                                             <image>
+                                                <Image url="@../../images/icon/icon-playmedia.png" />
+                                             </image>
+                                             <StackPane.margin>
+                                                <Insets left="120.0" top="120.0" />
+                                             </StackPane.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Label prefHeight="0.0" prefWidth="200.0" styleClass="item-title" text="Moody mix">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="180.0" styleClass="item-desc" text="Lizzy mc Alphine pe oe pfek fpoek pofek ">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox onMouseEntered="#showPlayMedia" onMouseExited="#hidePlayMedia" prefHeight="270.0" prefWidth="200.0" styleClass="vbox-item">
+                                 <children>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0">
+                                       <children>
+                                          <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../media/cover.png" />
+                                             </image>
+                                             <clip>
+                                                <Rectangle arcHeight="15.0" arcWidth="15.0" height="180" width="180" />
+                                             </clip>
+                                          </ImageView>
+                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
+                                             <image>
+                                                <Image url="@../../images/icon/icon-playmedia.png" />
+                                             </image>
+                                             <StackPane.margin>
+                                                <Insets left="120.0" top="120.0" />
+                                             </StackPane.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Label prefHeight="0.0" prefWidth="200.0" styleClass="item-title" text="Moody mix">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="180.0" styleClass="item-desc" text="Lizzy mc Alphine pe oe pfek fpoek pofek ">
+                                       <font>
+                                          <Font name="Dyuthi Regular" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
