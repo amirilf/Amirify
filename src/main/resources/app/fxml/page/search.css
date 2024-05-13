@@ -1,8 +1,43 @@
-* {
-    -fx-background-color: #747f81;
-    -fx-background-radius: 10px
+#scrollPane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: none;
 }
 
+#contentVBox {
+    -fx-border-color: transparent;
+}
+
+
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 5;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #999999;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 10px;
+}
+
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow {
+    -fx-opacity: 0;
+}
+
+.scroll-bar:vertical .increment-button,
+.scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+}
+
+
+.brows-title {
+    -fx-fill: rgb(200, 200, 200);
+}
 
 .search-button {
     -fx-background-color: linear-gradient(to bottom, #ffffff, #e0e0e0);
@@ -39,6 +74,7 @@
     -fx-border-color: white;
     -fx-border-width: 2px;
     -fx-border-radius: 50px;
+    -fx-padding: 5px 5px 5px 15px; /* Adjust padding */
     
     -fx-text-fill: white;
     
