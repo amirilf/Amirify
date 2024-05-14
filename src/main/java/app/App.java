@@ -14,9 +14,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        // FXMLLoader loader = new
-        // FXMLLoader(getClass().getResource(Variables.baseFXMLPath));
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/fxml/page/Library.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(Variables.baseFXMLPath));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.getIcons().add(new Image(getClass().getResourceAsStream(Variables.logoPath)));

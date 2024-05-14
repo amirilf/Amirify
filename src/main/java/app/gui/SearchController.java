@@ -18,7 +18,8 @@ public class SearchController {
             System.out.println("empty");
         } else {
             searchInput.setStyle("-fx-border-color: white;");
-            System.out.println("search: " + searchText);
+            CurrentData.setSearch(searchText);
+            BodyController.setFxmlPath("Result");
         }
     }
 }
