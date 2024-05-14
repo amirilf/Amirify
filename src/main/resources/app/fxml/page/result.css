@@ -1,0 +1,142 @@
+/* * {
+    -fx-background-color: #747f81;
+    -fx-background-radius: 10px
+} */
+
+#scrollPane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+}
+
+#contentVBox {
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 5;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #999999;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 10px;
+}
+
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow {
+    -fx-opacity: 0;
+}
+
+.scroll-bar:vertical .increment-button,
+.scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+}
+
+.lbl {
+    -fx-text-fill: #ffffff;
+}
+
+.lbl:hover {
+    -fx-text-fill: #c8c5c5;
+}
+
+
+.playMediaImage {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0);
+    -fx-transition: all 0.3s;
+}
+
+.playMediaImage:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0, 0, 0);
+}
+
+
+.vbox-item:hover {
+    -fx-background-color: #687172;
+}
+
+.vbox-item > * {
+    -fx-background-color: inherit;
+}
+
+.vbox-item:hover .item-title,
+.vbox-item:hover .item-desc {
+    -fx-background-color: #687172;
+}
+
+.vbox-item {
+    -fx-border-radius: 10px;
+}
+
+.search-button {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #e0e0e0);
+    -fx-text-fill: #505859;
+    -fx-font-family: 'Dyuthi Regular';
+    -fx-font-size: 20px;
+    -fx-background-radius: 40px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0);
+    -fx-transition: transform 0.3s, glow 0.3s;
+    -fx-cursor: hand;
+}
+
+.search-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #e0e0e0, #ffffff);
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.5), 10, 0, 0, 0),
+                inner-shadow(gaussian, rgba(255, 255, 255, 0.7), 5, 0.8, 0, 0);
+    -fx-glow-amount: 0.5;
+}
+
+.search-button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #b0b0b0, #d0d0d0);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 0);
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+
+.search-box {
+    -fx-font-family: 'Dyuthi Regular';
+    -fx-font-size: 20px;
+    
+    -fx-background-color: transparent;
+
+    -fx-border-color: white;
+    -fx-border-width: 2px;
+    -fx-border-radius: 50px;
+    -fx-padding: 5px 5px 5px 15px;
+    
+    -fx-text-fill: white;
+    
+    -fx-cursor: text;
+}
+
+.song-pane:hover{
+    -fx-background-color: #687172;
+}
+
+.song-pane:hover > ImageView {
+    -fx-opacity: 0.7;
+}
+
+.song-pane > * {
+    -fx-background-color: inherit;
+}
+
+
+.song-title:hover,
+.song-author:hover {
+    -fx-text-fill: #555555;
+}
+
+
+.lbl:hover {
+    -fx-text-fill: #c8c5c5;
+}
