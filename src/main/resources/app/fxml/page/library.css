@@ -1,0 +1,72 @@
+.main {
+    -fx-background-color: #747f81;
+    -fx-background-radius: 10px
+}
+
+.menu-item {
+    -fx-font-family: "Dyuthi Regular";
+    -fx-font-size: 18px;
+}
+
+.menu-button {
+    -fx-alignment: center;
+}
+
+.menu-button .label {
+    -fx-alignment: center;
+    -fx-padding: 2px;
+}
+
+.search-box {
+    -fx-background-color: transparent;
+    -fx-font-family: 'Dyuthi Regular';
+    -fx-font-size: px;
+    -fx-text-fill: white;
+    -fx-cursor: text;
+}
+
+.search-box > * {
+    -fx-background-color: inherit;
+}
+
+
+.search-hbox{
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-width: 2px;
+    -fx-border-radius: 50px;
+    -fx-padding: 5px;
+}
+
+.filter-btn {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #e0e0e0);
+    -fx-text-fill: #505859;
+    -fx-background-radius: 40px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 0);
+    -fx-transition: transform 0.3s, glow 0.3s;
+    -fx-cursor: hand;
+    -fx-padding: 0 20px;
+}
+
+.filter-btn .arrow {
+    -fx-background-color: transparent; 
+}
+
+.filter-btn .arrow-button {
+    -fx-padding: 0;
+}
+
+.filter-btn .menu-item {
+    -fx-text-fill: #505859; 
+    -fx-padding: 8px 20px; 
+}
+
+.filter-btn .menu-item:selected {
+    -fx-background-color: #e0e0e0; 
+    -fx-text-fill: #505859;
+}
+
+.filter-btn .menu-item:focused {
+    -fx-background-color: #aaaaaa;
+}
+

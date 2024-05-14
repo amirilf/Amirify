@@ -1,11 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" styleClass="main" stylesheets="@library.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.LibraryController">
    <children>
-      <Label layoutX="477.0" layoutY="342.0" text="Library" />
+      <ScrollPane layoutX="26.0" layoutY="98.0" prefHeight="588.0" prefWidth="950.0" style="-fx-background-color: pink;" />
+      <Pane layoutX="26.0" layoutY="14.0" prefHeight="70.0" prefWidth="950.0">
+         <children>
+            <MenuButton fx:id="menuButton" alignment="CENTER" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="140.0" styleClass="filter-btn" text="All">
+              <items>
+                <MenuItem mnemonicParsing="false" text="All" />
+                <MenuItem mnemonicParsing="false" text="Playlists" />
+                <MenuItem mnemonicParsing="false" text="Artists" />
+                  <MenuItem mnemonicParsing="false" text="Podcasts" />
+              </items>
+               <font>
+                  <Font name="Dyuthi Regular" size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </MenuButton>
+            <HBox alignment="CENTER" layoutX="345.0" layoutY="12.0" prefHeight="47.0" prefWidth="260.0" styleClass="search-hbox">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/icon/icon-search.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <TextField fx:id="searchInput" prefHeight="33.0" prefWidth="200.0" promptText="Search in Your Library" styleClass="search-box" />
+               </children>
+            </HBox>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
