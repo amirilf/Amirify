@@ -3,6 +3,54 @@
     -fx-background-radius: 10px
 }
 
+#scrollPane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+}
+
+#contentVBox {
+    -fx-border-color: transparent;
+}
+
+
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 5;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #999999;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 10px;
+}
+
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow {
+    -fx-opacity: 0;
+}
+
+.scroll-bar:vertical .increment-button,
+.scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+}
+
+.playMediaImage {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0);
+    -fx-transition: all 0.3s;
+}
+
+.playMediaImage:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0, 0, 0);
+}
+
+
 .menu-item {
     -fx-font-family: "Dyuthi Regular";
     -fx-font-size: 18px;
@@ -20,7 +68,7 @@
 .search-box {
     -fx-background-color: transparent;
     -fx-font-family: 'Dyuthi Regular';
-    -fx-font-size: px;
+    -fx-font-size: 16px;
     -fx-text-fill: white;
     -fx-cursor: text;
 }
@@ -70,3 +118,21 @@
     -fx-background-color: #aaaaaa;
 }
 
+
+
+.vbox-item:hover {
+    -fx-background-color: #687172;
+}
+
+.vbox-item > * {
+    -fx-background-color: inherit;
+}
+
+.vbox-item:hover .item-title,
+.vbox-item:hover .item-desc {
+    -fx-background-color: #687172;
+}
+
+.vbox-item {
+    -fx-border-radius: 10px;
+}
