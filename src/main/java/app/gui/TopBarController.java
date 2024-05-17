@@ -21,13 +21,15 @@ public class TopBarController {
     private void initialize() {
 
         // ============= creating contextmenu and its items
-        MenuItem profileItem = new MenuItem("Profile");
+        MenuItem settingItem = new MenuItem("Setting");
+        MenuItem aboutItem = new MenuItem("About");
         MenuItem logoutItem = new MenuItem("Logout");
 
-        profileItem.setOnAction(this::handleProfile);
+        settingItem.setOnAction(this::handleSetting);
+        aboutItem.setOnAction(this::handleAbout);
         logoutItem.setOnAction(this::handleLogout);
 
-        ContextMenu contextMenu = new ContextMenu(profileItem, logoutItem);
+        ContextMenu contextMenu = new ContextMenu(settingItem, aboutItem, logoutItem);
 
         nameLabel.setOnMouseClicked(event -> {
             if (contextMenu.isShowing()) {
@@ -45,11 +47,20 @@ public class TopBarController {
         // =============
     }
 
-    private void handleProfile(ActionEvent event) {
-        System.out.println("Profile");
+    private void handleSetting(ActionEvent event) {
+        BodyController.setFxmlPath("Setting");
+    }
+
+    private void handleAbout(ActionEvent event) {
+        BodyController.setFxmlPath("About");
     }
 
     private void handleLogout(ActionEvent event) {
         System.out.println("Logout");
+    }
+
+    @FXML
+    private void handlePremiumClick() {
+        BodyController.setFxmlPath("Premium");
     }
 }

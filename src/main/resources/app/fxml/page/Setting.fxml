@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="@setting.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.SettingController">
+   <children>
+      <Label layoutX="456.0" layoutY="25.0" prefHeight="51.0" prefWidth="88.0" text="Setting" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font name="Dyuthi Regular" size="30.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER_LEFT" layoutX="192.0" layoutY="97.0" prefHeight="150.0" prefWidth="730.0" spacing="30.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../media/cover.png" />
+               </image>
+               <clip>
+                  <Circle centerX="75" centerY="75" radius="75" />
+               </clip>
+            </ImageView>
+            <VBox prefHeight="150.0" prefWidth="550.0">
+               <children>
+                  <Label text="Amir mohammad">
+                     <font>
+                        <Font name="Dyuthi Regular" size="60.0" />
+                     </font>
+                  </Label>
+                  <Label id="following_lbl" onMouseClicked="#handleFollowingLabelClick" styleClass="following-lbl" text="7 followings">
+                     <font>
+                        <Font name="Monospaced Regular" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Label layoutX="42.0" layoutY="88.0" text="-&gt; Profile">
+         <font>
+            <Font name="Monospaced Regular" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="42.0" layoutY="281.0" text="-&gt; Account">
+         <font>
+            <Font name="Monospaced Regular" size="15.0" />
+         </font>
+      </Label>
+      <VBox alignment="CENTER_LEFT" layoutX="192.0" layoutY="291.0" prefHeight="231.0" prefWidth="160.0">
+         <children>
+            <Label text="Full Name :">
+               <font>
+                  <Font name="Dyuthi Regular" size="20.0" />
+               </font>
+            </Label>
+            <Label text="Email :">
+               <font>
+                  <Font name="Dyuthi Regular" size="20.0" />
+               </font>
+            </Label>
+            <Label text="Phone :">
+               <font>
+                  <Font name="Dyuthi Regular" size="20.0" />
+               </font>
+            </Label>
+            <Label text="BirthDate :">
+               <font>
+                  <Font name="Dyuthi Regular" size="20.0" />
+               </font>
+            </Label>
+            <Label text="Username :">
+               <font>
+                  <Font name="Dyuthi Regular" size="20.0" />
+               </font>
+            </Label>
+            <Label text="Password :">
+               <font>
+                  <Font name="Dyuthi Regular" size="20.0" />
+               </font>
+            </Label>
+            <Label text="Account status :">
+               <font>
+                  <Font name="Dyuthi Regular" size="20.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </VBox>
+      <Label layoutX="42.0" layoutY="541.0" text="-&gt; Language">
+         <font>
+            <Font name="Monospaced Regular" size="15.0" />
+         </font>
+      </Label>
+      <VBox alignment="CENTER_LEFT" layoutX="376.0" layoutY="291.0" prefHeight="231.0" prefWidth="400.0">
+         <children>
+            <Label text="Amir Khorasani">
+               <font>
+                  <Font name="Dyuthi Regular" size="20.0" />
+               </font>
+            </Label>
+            <Label text="email@email.com">
+               <font>
+                  <Font name="Dyuthi Regular" size="20.0" />
+               </font>
+            </Label>
+            <Label text="09876543210">
+               <font>
+                  <Font name="Dyuthi Regular" size="20.0" />
+               </font>
+            </Label>
+            <Label text="2024/02/01">
+               <font>
+                  <Font name="Dyuthi Regular" size="20.0" />
+               </font>
+            </Label>
+            <Label text="\@amirilf">
+               <font>
+                  <Font name="Dyuthi Regular" size="20.0" />
+               </font>
+            </Label>
+            <Label text="1234Amir">
+               <font>
+                  <Font name="Dyuthi Regular" size="20.0" />
+               </font>
+            </Label>
+            <Label text="Premium for 30 days">
+               <font>
+                  <Font name="Dyuthi Regular" size="20.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </VBox>
+      <Label layoutX="211.0" layoutY="534.0" text="English">
+         <font>
+            <Font name="Dyuthi Regular" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

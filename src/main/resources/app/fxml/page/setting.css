@@ -1,0 +1,4 @@
+.following-lbl:hover{
+    -fx-underline: true;
+    -fx-cursor: hand;
+}
