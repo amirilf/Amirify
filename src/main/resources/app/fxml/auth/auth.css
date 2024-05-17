@@ -5,7 +5,7 @@
     -fx-font-family: "monospace";
     -fx-padding: 10px 20px;
     -fx-border-radius: 5px;
-    -fx-cursor: pointer;
+    -fx-cursor: hand;
     -fx-font-weight: bold;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
     -fx-background-radius: 10px;
@@ -40,7 +40,7 @@
     -fx-font-size: 18px;
 }
 
-.button {
+.btn {
     -fx-background-color: #4CAF50;
     -fx-text-fill: white;
     -fx-background-radius: 10px;
@@ -51,11 +51,11 @@
     -fx-padding: 12px 24px;
 }
 
-.button:hover {
+.btn:hover {
     -fx-background-color: #45a049;
 }
 
-.button:pressed {
+.btn:pressed {
     -fx-background-color: #36752d;
 }
 
@@ -96,4 +96,83 @@
 
 .custom-choice-box .arrow-button:hover {
     -fx-background-color: #f0f0f0;
+}
+
+
+
+/* List menu to choose categories */
+.list-view {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #ccc;
+    -fx-border-width: 2px;
+    -fx-padding: 5px;
+}
+
+.list-view .list-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-padding: 5px 10px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-text-fill: black;
+}
+
+.list-view .list-cell:filled:hover {
+    -fx-background-color: #45a049;
+    -fx-text-fill: white;
+}
+
+.list-view .list-cell:focused {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+}
+
+.check-box {
+    -fx-padding: 5px;
+    -fx-background-radius: 10px;
+}
+
+.check-box .box {
+    -fx-border-color: #4CAF50;
+    -fx-border-radius: 5px;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #4CAF50;
+}
+
+.check-box .box:hover {
+    -fx-border-color: #45a049;
+}
+
+/* Scroll bar */
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 5;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #999999;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 10px;
+}
+
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow {
+    -fx-opacity: 0;
+}
+
+.scroll-bar:vertical .increment-button,
+.scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
 }

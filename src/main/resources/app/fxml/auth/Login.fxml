@@ -14,9 +14,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:id="mainAnchorPane" fx:controller="app.gui.LoginController">
+<AnchorPane fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" stylesheets="@auth.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.auth.LoginController">
    <children>
-      <ImageView fx:id="bg" fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true"/>
+      <ImageView fx:id="bg" fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../images/bg-auth.png" />
+         </image></ImageView>
       <VBox alignment="TOP_CENTER" layoutX="367.0" layoutY="275.0" prefHeight="280.0" prefWidth="466.0" spacing="10.0">
          <children>
             <Pane prefHeight="290.0" prefWidth="466.0">
@@ -24,22 +27,28 @@
                   <VBox alignment="CENTER" layoutX="64.0" layoutY="51.0" prefHeight="198.0" prefWidth="339.0" spacing="20.0">
                      <children>
                         <TextField fx:id="usernameField" prefHeight="50.0" prefWidth="250.0" promptText="Username" styleClass="text-field">
-      </TextField>
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor></TextField>
                         <TextField fx:id="passwordField" prefHeight="50.0" prefWidth="250.0" promptText="Password" styleClass="text-field">
-      </TextField>
-                        <Button mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="50.0" prefWidth="109.0" styleClass="button" text="Login">
-      </Button>
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor></TextField>
+                        <Button mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="50.0" prefWidth="109.0" styleClass="btn" text="Login">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                      </children>
                   </VBox>
                </children>
             </Pane>
          </children>
       </VBox>
-      <HBox alignment="CENTER" layoutX="444.0" layoutY="760.0" prefHeight="15.0" prefWidth="292.0">
+      <HBox alignment="CENTER" layoutX="452.0" layoutY="759.0" prefHeight="15.0" prefWidth="292.0" AnchorPane.bottomAnchor="25.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="bottom-text" text="Don't you have an account? then " wrappingWidth="250.7294921875">
             </Text>
-            <Text fx:id="signupLink" fill="#da5252" onMouseClicked="#handleSignupLink" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="other-page-link" text="Signup" wrappingWidth="60.61181640625">
+            <Text fx:id="signupLink" fill="#da5252" onMouseClicked="#handleSignupLink" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="other-page-link" text="Signup" wrappingWidth="45.61181640625">
                <effect>
                   <DropShadow />
                </effect>
@@ -54,10 +63,18 @@
             <Font name="Dyuthi Regular" size="60.0" />
          </font>
       </Label>
-   <Label fx:id="errorMessage" alignment="CENTER" layoutX="302.0" layoutY="555.0" prefHeight="76.0" prefWidth="596.0" styleClass="error-message" text="Wrong username or password!" textFill="#c91919" visible="false">
+   <Label fx:id="errorMessage" alignment="CENTER" layoutX="302.0" layoutY="555.0" prefHeight="76.0" prefWidth="596.0" styleClass="error-message" text="Wrong username or password!" textFill="#ae1e1e" visible="false">
          <font>
-            <Font size="18.0" />
+            <Font name="Dyuthi Regular" size="20.0" />
          </font>
       </Label>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="21.0" layoutY="723.0" onMouseClicked="#handleBackToAuth" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0">
+         <image>
+            <Image url="@../../images/icon/icon-down-left.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
    </children>
 </AnchorPane>

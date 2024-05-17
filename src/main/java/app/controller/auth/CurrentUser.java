@@ -52,16 +52,11 @@ public class CurrentUser {
         return instance.currentUser != null;
     }
 
-    private static boolean logout() {
+    public static boolean logout() {
         if (instance.currentUser == null)
             return false;
         instance.currentUser = null;
         return true;
-    }
-
-    public static String logoutString() {
-        return (logout()) ? "You have successfully logged out\nTry Login or Signup to work with Amirify (:"
-                : "You are not even logged in!";
     }
 
     public static void login(User user) {

@@ -7,14 +7,12 @@ abstract public class Artist extends User {
 
     private double income;
     private ArrayList<User> followers = new ArrayList<User>();
-    private String bio;
+    private String bio = "";
 
     public Artist(String username, String password, String firstName, String lastName, String email, String phone,
-            LocalDate birthDate,
-            String bio) {
+            LocalDate birthDate) {
         super(username, password, firstName, lastName, email, phone, birthDate);
         this.income = 0;
-        this.bio = bio;
     }
 
     // GETTER

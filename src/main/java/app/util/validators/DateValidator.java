@@ -6,15 +6,21 @@ import java.time.format.DateTimeParseException;
 
 public class DateValidator {
 
-    public static String isValid(String dateString) {
+    public static String isValid(String dateObject) {
+        return isValid(stringToDate(dateObject));
+    }
 
-        if (!dateString.matches("\\d{4}/\\d{2}/\\d{2}")) {
-            return "Date format is not valid!, Accepted format is (YYYY/MM/DD)";
+    public static String isValid(LocalDate dateObject) {
+
+        String dateString = dateToString(dateObject);
+
+        if (!dateString.matches("\\d{4}-\\d{2}-\\d{2}")) {
+            return "Date format is not valid!, correct format is (YYYY-MM-DD)";
         }
 
         try {
             LocalDate date = LocalDate.parse(dateString,
-                    DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+                    DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
             // check range of date => (100 years ago until now)
             LocalDate now = LocalDate.now();
@@ -29,11 +35,11 @@ public class DateValidator {
     }
 
     public static String dateToString(LocalDate date) {
-        return date.format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+        return date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     }
 
     public static LocalDate stringToDate(String date) {
-        return LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+        return LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     }
 
 }

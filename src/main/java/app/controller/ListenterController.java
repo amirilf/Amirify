@@ -72,28 +72,20 @@ public class ListenterController {
         return "You entered a wrong based on choice! (L or P for likes or plays)";
     }
 
-    private static String setFavoriteGenres(ArrayList<Genre> genres) {
-        if (getListener().getFavoriteGenres().size() == 0) {
-            for (Genre genre : genres)
-                getListener().getFavoriteGenres().add(genre);
-            return "Your favorite genres have been successfully added!";
-        }
-        return "You already added your favorite genres before!";
-    }
+    public static void setFavoriteGenres(ArrayList<String> genres) {
 
-    public static String setFavoriteGenresString(String line) {
+        ArrayList<Genre> arr = new ArrayList<>();
 
-        String[] genres = line.split(",");
-        ArrayList<Genre> genresArray = new ArrayList<>();
-
-        for (int i = 1; i < genres.length; i++) {
+        for (String genreString : genres) {
             try {
-                genresArray.add(Genre.valueOf(genres[i]));
+                arr.add(Genre.valueOf(genreString));
             } catch (Exception e) {
-                return "Incorrect genre found! see Help if you need.";
+                // TODO: throw exception instead of sout!
+                System.out.println("Incorrect genre found! see Help if you need.");
             }
         }
-        return setFavoriteGenres(genresArray);
+
+        getListener().getFavoriteGenres().addAll(arr);
     }
 
     private static ArrayList<Audio> suggestions(int n) {
