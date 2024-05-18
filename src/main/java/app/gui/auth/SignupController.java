@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 import app.controller.ListenterController;
+import app.controller.auth.CurrentUser;
 import app.controller.auth.SignUp;
+import app.gui.BodyController;
 import app.util.Variables;
 import app.util.validators.DateValidator;
 import app.util.validators.EmailValidator;
@@ -237,6 +239,7 @@ public class SignupController {
                     // add its favorite genres list
                     ListenterController.setFavoriteGenres(FavoriteGenres.selectedGenres);
                     System.out.println("Favorite genres are added!");
+
                 } else {
                     // user closed the windows and not added any genre (:
                     error = "Choose your favorite genres to complete registration!";
@@ -266,7 +269,12 @@ public class SignupController {
         Scene scene = new Scene(root);
         Stage stage = (Stage) errorMessage.getScene().getWindow();
         stage.setScene(scene);
-        stage.setTitle(firstName + " " + lastName);
+        stage.setTitle("Amirify | " + CurrentUser.getUser().getFullName());
+
+        // TODO : it could be by default Home and not setting every time ):
+        // change default body to Home page
+        BodyController.setFxmlPath("Home");
+
     }
 
     private void showFavoriteGenres() throws IOException {

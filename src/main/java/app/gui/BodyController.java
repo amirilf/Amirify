@@ -31,6 +31,10 @@ public class BodyController {
         contentPath.set(path);
     }
 
+    public static StringProperty getContentPath() {
+        return contentPath;
+    }
+
     @FXML
     private void initialize() {
 

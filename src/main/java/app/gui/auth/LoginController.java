@@ -12,7 +12,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+import app.controller.auth.CurrentUser;
 import app.controller.auth.Login;
+import app.gui.BodyController;
 import app.util.Variables;
 
 public class LoginController {
@@ -49,22 +51,31 @@ public class LoginController {
     @FXML
     public void handleLoginButton(ActionEvent event) throws IOException {
 
+        // get data from form
         String username = usernameField.getText();
         String password = passwordField.getText();
 
+        // if it's True we know user is already logged in
         if (Login.login(username, password)) {
 
             System.out.println("Login");
 
             // we go to the home page since user is already logged in
             FXMLLoader loader = new FXMLLoader(getClass().getResource(Variables.baseFXMLPath));
+
             Parent root = loader.load();
             Scene scene = new Scene(root);
-            Stage stage = (Stage) errorMessage.getScene().getWindow();
-            stage.setScene(scene);
 
-            // TODO : set title like Amirify | Username or smth like that
-            stage.setTitle(username + "  Welcome!");
+            // no creating new one since we care about System perfomance 🤡
+            Stage stage = (Stage) errorMessage.getScene().getWindow();
+
+            stage.setScene(scene);
+            stage.setTitle("Amirify | " + CurrentUser.getUser().getFullName());
+
+            // TODO : it could be by default Home and not setting every time ):
+            // change default body to Home page
+            BodyController.setFxmlPath("Home");
+
         } else {
             // showing error message
             errorMessage.setVisible(true);

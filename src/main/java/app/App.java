@@ -1,7 +1,10 @@
 package app;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
+import app.controller.auth.CurrentUser;
+import app.controller.auth.SignUp;
 import app.model.Admin;
 import app.util.Variables;
 import javafx.application.Application;
@@ -26,7 +29,14 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        Admin.getAdmin("admin", "1234", "mohammad admin", "adminian", "admin@gmail.com", "09999999999", "2000-01-01");
+        Admin.getAdmin("admin", "1234", "mohammad admin", "adminian", "admin@gmail.com", "09999999999",
+                LocalDate.of(2010, 4, 12));
+
+        SignUp.signUpListener("amirilf", "amir", "Amir", "Khorasani", "amirilf@protonmail.com", "09999999999",
+                LocalDate.of(2000, 10, 10));
+
+        CurrentUser.logout();
+
         launch();
     }
 }

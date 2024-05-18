@@ -38,6 +38,7 @@ public class TopBarController {
 
         ContextMenu contextMenu = new ContextMenu(settingItem, aboutItem, logoutItem);
 
+        // TODO : create a method for this and seprate it
         nameLabel.setOnMouseClicked(event -> {
             if (contextMenu.isShowing()) {
                 contextMenu.hide();
@@ -48,6 +49,9 @@ public class TopBarController {
             }
 
         });
+
+        // set full name in topbar (we know user is already logged in!)
+        nameLabel.setText(CurrentUser.getUser().getFullName());
 
         // ============= Adding CSS
         mainAnchorPane.getStylesheets().addAll(getClass().getResource(Variables.topbarCSSPath).toString());
@@ -69,6 +73,7 @@ public class TopBarController {
 
         CurrentUser.logout();
 
+        // opening Login page after loggin out
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(Variables.loginFXMLPath));
             Parent root;

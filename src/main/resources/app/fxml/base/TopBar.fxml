@@ -27,7 +27,7 @@
       <HBox alignment="CENTER_RIGHT" layoutX="200.0" prefHeight="70.0" prefWidth="800.0" spacing="30.0">
          <children>
             <Button onAction="#handlePremiumClick" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" styleClass="premium" text="Premium"/>
-            <Label fx:id="nameLabel" styleClass="name" text="Amir Khorasani" HBox.hgrow="ALWAYS"/>
+            <Label fx:id="nameLabel" styleClass="name" text="Default full name" HBox.hgrow="ALWAYS"/>
          </children>
          <padding>
             <Insets right="30.0" />

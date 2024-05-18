@@ -52,6 +52,34 @@ public class LeftBarController {
         copyleft.setImage(img_copyleft);
         // =============
 
+        BodyController.getContentPath().addListener((observable, oldValue, newValue) -> tabStyles(newValue));
+
+    }
+
+    private void tabStyles(String newValue) {
+
+        // this method changes the color of tab items [Home,Search,Library] based on the
+        // body page like when user is in Home page the Home label style must be changed
+
+        // reset last styles
+        home_label.setStyle("");
+        search_label.setStyle("");
+        library_label.setStyle("");
+
+        // TODO : need to add sub pages like when user is in category page it's also a
+        // TODO : part of search page so again search page should have the style
+        // set style if the main page is related to them
+        switch (newValue) {
+            case "Home":
+                home_label.setStyle("-fx-text-fill: #c8c5c5;"); // Example style
+                break;
+            case "Search":
+                search_label.setStyle("-fx-text-fill: #c8c5c5;"); // Example style
+                break;
+            case "Library":
+                library_label.setStyle("-fx-text-fill: #c8c5c5;"); // Example style
+                break;
+        }
     }
 
     @FXML
