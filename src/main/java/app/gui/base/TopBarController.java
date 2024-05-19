@@ -2,6 +2,7 @@ package app.gui.base;
 
 import java.io.IOException;
 
+import app.controller.auth.CurrentData;
 import app.controller.auth.CurrentUser;
 import app.util.Variables;
 import javafx.event.ActionEvent;
@@ -72,6 +73,15 @@ public class TopBarController {
         System.out.println("Logout");
 
         CurrentUser.logout();
+
+        // also clear the playlist! and stop playing audio (if it was playing)
+        CurrentData.clearPlaylist();
+
+        // make the body path null bcs if not, after loggin out and again loggin in, if
+        // the last path was Home since we set Home again after loggin in, then there is
+        // no change in FXMLPath and it doesn't notice changes so... it will show
+        // default body 0-0
+        BodyController.setFxmlPath("");
 
         // opening Login page after loggin out
         try {

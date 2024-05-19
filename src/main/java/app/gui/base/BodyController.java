@@ -47,13 +47,16 @@ public class BodyController {
     }
 
     private void loadPage() {
-        try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource(Variables.pagesFXMLBasePath + contentPath.get() + ".fxml"));
-            Node page = loader.load();
-            mainAnchorPane.getChildren().setAll(page);
-        } catch (IOException e) {
-            e.printStackTrace();
+        // if we make fxml path empty ("") then it غلط میکنه حرکت خاصی بزنه /:
+        if (!contentPath.get().equals("")) {
+            try {
+                FXMLLoader loader = new FXMLLoader(
+                        getClass().getResource(Variables.pagesFXMLBasePath + contentPath.get() + ".fxml"));
+                Node page = loader.load();
+                mainAnchorPane.getChildren().setAll(page);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

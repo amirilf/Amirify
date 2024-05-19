@@ -51,7 +51,7 @@ public class CurrentData {
     public static void clearPlaylist() {
         playlist.clear();
         selectedIndex = -1;
-        currentAudio = null;
+        currentAudio.set(null);
     }
 
     public static Artist getArtist(String userID) {

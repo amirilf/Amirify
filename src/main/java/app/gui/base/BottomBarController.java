@@ -26,6 +26,8 @@ import app.util.Variables;
 
 public class BottomBarController {
 
+    // TODO : after loggin out it's still playling!!!
+
     @FXML
     private ImageView cover;
     @FXML
@@ -95,6 +97,7 @@ public class BottomBarController {
         mediaPlayBack();
 
         mainAnchorPane.getStylesheets().addAll(getClass().getResource(Variables.bottombarCSSPath).toString());
+
     }
 
     private String formatDuration(double seconds) {
@@ -192,6 +195,7 @@ public class BottomBarController {
     }
 
     private void setMediaSource(Audio audio) {
+
         if (mediaPlayer != null) {
             mediaPlayer.stop();
         }
@@ -219,6 +223,8 @@ public class BottomBarController {
 
         } else {
             setDefaultValues();
+            mediaPlayer.stop();
+            isPlaying = false;
         }
     }
 
