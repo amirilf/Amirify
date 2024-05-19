@@ -19,7 +19,7 @@
       </Label>
       <HBox alignment="CENTER_LEFT" layoutX="192.0" layoutY="97.0" prefHeight="150.0" prefWidth="730.0" spacing="30.0">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+            <ImageView fx:id="image_profile" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                <image>
                   <Image url="@../../media/cover.png" />
                </image>
@@ -29,12 +29,12 @@
             </ImageView>
             <VBox prefHeight="150.0" prefWidth="550.0">
                <children>
-                  <Label text="Amir mohammad">
+                  <Label fx:id="lbl_title" text="Amir mohammad">
                      <font>
                         <Font name="Dyuthi Regular" size="60.0" />
                      </font>
                   </Label>
-                  <Label id="following_lbl" onMouseClicked="#handleFollowingLabelClick" styleClass="following-lbl" text="7 followings">
+                  <Label fx:id="lbl_followings" onMouseClicked="#handleFollowingLabelClick" styleClass="following-lbl" text="7 followings">
                      <font>
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
@@ -102,37 +102,37 @@
       </Label>
       <VBox alignment="CENTER_LEFT" layoutX="376.0" layoutY="291.0" prefHeight="231.0" prefWidth="400.0">
          <children>
-            <Label text="Amir Khorasani">
+            <Label fx:id="lbl_fullName" text="Amir Khorasani">
                <font>
                   <Font name="Dyuthi Regular" size="20.0" />
                </font>
             </Label>
-            <Label text="email@email.com">
+            <Label fx:id="lbl_email" text="email@email.com">
                <font>
                   <Font name="Dyuthi Regular" size="20.0" />
                </font>
             </Label>
-            <Label text="09876543210">
+            <Label fx:id="lbl_phone" text="09876543210">
                <font>
                   <Font name="Dyuthi Regular" size="20.0" />
                </font>
             </Label>
-            <Label text="2024/02/01">
+            <Label fx:id="lbl_birthDate" text="2024/02/01">
                <font>
                   <Font name="Dyuthi Regular" size="20.0" />
                </font>
             </Label>
-            <Label text="\@amirilf">
+            <Label fx:id="lbl_username" text="\@amirilf">
                <font>
                   <Font name="Dyuthi Regular" size="20.0" />
                </font>
             </Label>
-            <Label text="1234Amir">
+            <Label fx:id="lbl_password" text="1234Amir">
                <font>
                   <Font name="Dyuthi Regular" size="20.0" />
                </font>
             </Label>
-            <Label text="Premium for 30 days">
+            <Label fx:id="lbl_status" text="Premium for 30 days">
                <font>
                   <Font name="Dyuthi Regular" size="20.0" />
                </font>

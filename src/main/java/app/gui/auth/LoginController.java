@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import app.controller.auth.CurrentData;
 import app.controller.auth.CurrentUser;
@@ -90,16 +91,23 @@ public class LoginController {
             SignUp.signUpSinger("trevor", "trevor1234", "Daniel", "Trevor", "daniel@email.com", "09966337929",
                     LocalDate.of(2000, 10, 2));
             CurrentUser.logout();
+
             Audio audio1 = new Audio("Hello", "3", null, "/app/media/Adele - Hello.mp3", "/app/media/cover2.png");
             Audio audio2 = new Audio("Love Yourself", "4", null, "/app/media/Love Yourself.mp3",
                     "/app/media/cover3.png");
             Audio audio3 = new Audio("Falling", "5", null, "/app/media/Trevor Daniel - Falling.mp3",
                     "/app/media/cover4.png");
 
-            CurrentData.playlist.add(audio1);
-            CurrentData.playlist.add(audio2);
-            CurrentData.playlist.add(audio3);
+            ArrayList<Audio> audios = new ArrayList<>();
+            audios.add(audio1);
+            audios.add(audio2);
+            audios.add(audio3);
+
+            CurrentData.playlist.addAll(audios);
             CurrentData.setSelectedIndex(0);
+
+            Login.login(username, password);
+            System.out.println(CurrentUser.getUser().getFullName());
 
         } else {
             // showing error message
