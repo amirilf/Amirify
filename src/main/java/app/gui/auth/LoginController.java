@@ -14,7 +14,7 @@ import java.io.IOException;
 
 import app.controller.auth.CurrentUser;
 import app.controller.auth.Login;
-import app.gui.BodyController;
+import app.gui.base.BodyController;
 import app.util.Variables;
 
 public class LoginController {

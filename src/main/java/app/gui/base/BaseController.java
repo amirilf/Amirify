@@ -1,4 +1,4 @@
-package app.gui;
+package app.gui.base;
 
 import app.util.Variables;
 import javafx.fxml.FXML;

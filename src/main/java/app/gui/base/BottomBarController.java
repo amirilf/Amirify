@@ -1,4 +1,4 @@
-package app.gui;
+package app.gui.base;
 
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -67,7 +67,6 @@ public class BottomBarController {
 
         // default values | clear old playlist
         setDefaultValues();
-
         CurrentData.getCurrentAudio().addListener(new ChangeListener<Audio>() {
             @Override
             public void changed(ObservableValue<? extends Audio> observable, Audio oldValue, Audio newValue) {

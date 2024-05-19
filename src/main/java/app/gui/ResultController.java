@@ -1,6 +1,7 @@
 package app.gui;
 
 import app.controller.auth.CurrentData;
+import app.gui.base.BodyController;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;

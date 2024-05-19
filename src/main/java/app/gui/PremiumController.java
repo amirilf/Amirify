@@ -1,5 +1,6 @@
 package app.gui;
 
+import app.gui.base.BodyController;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;

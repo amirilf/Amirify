@@ -4,7 +4,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:id="mainAnchorPane" fx:controller="app.gui.BodyController" styleClass="main">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:id="mainAnchorPane" fx:controller="app.gui.base.BodyController" styleClass="main">
    <children>
       <Text layoutX="427.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Default body content!" wrappingWidth="146.7294921875" />
    </children>

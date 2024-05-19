@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import app.controller.ListenterController;
 import app.controller.auth.CurrentUser;
 import app.controller.auth.SignUp;
-import app.gui.BodyController;
+import app.gui.base.BodyController;
 import app.util.Variables;
 import app.util.validators.DateValidator;
 import app.util.validators.EmailValidator;
