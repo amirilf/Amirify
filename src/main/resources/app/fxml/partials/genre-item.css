@@ -1,0 +1,28 @@
+#stackPane {
+    -fx-background-color: transparent;
+    -fx-background-radius: 50;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 10, 0.5, 0, 0);
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+#stackPane:hover {
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 15, 0.5, 0, 0);
+}
+
+#coverImageView {
+    -fx-opacity: 1.0;
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+#stackPane:hover #coverImageView {
+    -fx-opacity: 0.8;
+}
+
+.title {
+    -fx-text-fill: #101010;
+    -fx-transition: all 0.3s ease-in-out;
+}
+#stackPane:hover .title {
+    -fx-text-fill: #3a3a3a;
+}

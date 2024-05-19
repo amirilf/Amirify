@@ -2,13 +2,10 @@ package app;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 
-import app.controller.auth.CurrentData;
 import app.controller.auth.CurrentUser;
 import app.controller.auth.SignUp;
 import app.model.Admin;
-import app.model.Audio;
 import app.util.Variables;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

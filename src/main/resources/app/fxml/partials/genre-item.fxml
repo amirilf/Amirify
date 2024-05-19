@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="stackPane" onMouseClicked="#handleGenreClick" prefHeight="170.0" prefWidth="170.0" stylesheets="@genre-item.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.partials.GenreItemController">
+   <children>
+      <Rectangle fx:id="rectangle" arcHeight="50.0" arcWidth="50.0" height="170.0" strokeType="INSIDE" width="170.0"/>
+      <ImageView fx:id="coverImageView" fitHeight="105.0" fitWidth="105.0" pickOnBounds="true" StackPane.alignment="BOTTOM_RIGHT">
+         <StackPane.margin>
+            <Insets bottom="7.0" right="7.0" />
+         </StackPane.margin>
+         <clip>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" height="105" width="105" />
+         </clip>
+      </ImageView>
+      <Label fx:id="genreLabel" styleClass="title" text="Music" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="15.0" top="10.0" />
+         </StackPane.margin>
+         <font>
+            <Font name="Dyuthi Regular" size="25.0" />
+         </font>
+      </Label>
+   </children>
+</StackPane>

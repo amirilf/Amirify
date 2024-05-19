@@ -12,52 +12,20 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@search.css" fx:controller="app.gui.SearchController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="@search.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.SearchController">
    <children>
       <HBox alignment="CENTER" layoutX="200.0" layoutY="14.0" prefHeight="100.0" prefWidth="600.0" spacing="20.0">
          <children>
             <TextField fx:id="searchInput" prefHeight="50.0" prefWidth="400.0" promptText="What do you want to play?" styleClass="search-box" />
-            <Button mnemonicParsing="false" onAction="#handleSearchButtonClick" prefHeight="50.0" prefWidth="100.0" styleClass="search-button" text="Search">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin></Button>
+            <Button mnemonicParsing="false" onAction="#handleSearchButtonClick" prefHeight="50.0" prefWidth="100.0" styleClass="search-button" text="Search"/>
          </children>
       </HBox>
-      <ScrollPane fx:id="scrollPane" layoutX="18.0" layoutY="169.0" prefHeight="500.0" prefWidth="964.0" vbarPolicy="ALWAYS">
+      <ScrollPane fx:id="scrollPane" layoutX="18.0" layoutY="169.0" prefHeight="500.0" prefWidth="964.0">
          <content>
-            <VBox prefWidth="930.0" spacing="15.0">
-               <children>
-                  <HBox alignment="CENTER" prefHeight="170.0" prefWidth="925.0" spacing="15.0">
-                     <children>
-                        <StackPane prefHeight="170.0" prefWidth="170.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" height="170.0" strokeType="INSIDE" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="170.0" />
-                              <ImageView fitHeight="105.0" fitWidth="105.0" pickOnBounds="true" StackPane.alignment="BOTTOM_RIGHT">
-                                 <StackPane.margin>
-                                    <Insets bottom="7.0" right="7.0" />
-                                 </StackPane.margin>
-                                 <image>
-                                    <Image url="@../../media/cover.png" />
-                                 </image>
-                                 <clip>
-                                    <Rectangle arcHeight="50.0" arcWidth="50.0" height="105" width="105" />
-                                 </clip>
-                              </ImageView>
-                              <Label text="Music" StackPane.alignment="TOP_LEFT">
-                                 <StackPane.margin>
-                                    <Insets left="15.0" top="10.0" />
-                                 </StackPane.margin>
-                                 <font>
-                                    <Font name="Dyuthi Regular" size="25.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </StackPane>
-                     </children>
-                  </HBox>
-               </children>
+            <VBox fx:id="contentVBox" prefWidth="930.0" spacing="15.0">
                <padding>
                   <Insets top="15.0" />
                </padding>
