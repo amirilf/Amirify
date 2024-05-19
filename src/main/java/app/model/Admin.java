@@ -2,8 +2,6 @@ package app.model;
 
 import java.time.LocalDate;
 
-import app.util.validators.DateValidator;
-
 public class Admin extends User {
 
     private static Admin admin;

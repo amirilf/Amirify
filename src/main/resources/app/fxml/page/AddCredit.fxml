@@ -21,7 +21,7 @@
                   <Font name="Dyuthi Regular" size="20.0" />
                </font>
             </Label>
-            <Label text="200$">
+            <Label fx:id="currentCreditLabel" text="200$">
                <font>
                   <Font name="Dyuthi Regular" size="20.0" />
                </font>
@@ -36,11 +36,20 @@
                </font>
             </Label>
             <ComboBox fx:id="comboBox" prefHeight="30.0" prefWidth="120.0" />
-           <Button onAction="#handlePayButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="pay">
+           <Button mnemonicParsing="false" onAction="#handlePayButton" prefHeight="30.0" prefWidth="120.0" text="pay">
                <font>
                   <Font name="Dyuthi Regular" size="14.0" />
                </font>
             </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="79.0" layoutY="402.0" prefHeight="71.0" prefWidth="842.0">
+         <children>
+            <Label fx:id="errorMessage" textFill="#9a2222" visible="false">
+               <font>
+                  <Font name="Dyuthi Regular" size="20.0" />
+               </font>
+            </Label>
          </children>
       </HBox>
    </children>

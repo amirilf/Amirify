@@ -472,27 +472,22 @@ public class ListenterController {
         CurrentUser.login(premiumUser);
     }
 
-    public static String getPremium(String pkg) {
+    public static void getPremium(PremiumPackage pkg) {
 
         Listener listener = getListener();
 
-        if (!(pkg.equals("30") || pkg.equals("60") || pkg.equals("180")))
-            return "The package type is not correct! (30 | 60 | 180)";
-
-        double price = PremiumPackage.valueOf("D" + pkg).getValue();
+        double price = pkg.getValue();
         double credit = listener.getCredit();
-        if (credit < price)
-            return "Your account balance is insufficient to purchase a " + pkg + "-day premium account!";
 
         listener.setCredit(credit - price);
-        int days = Integer.parseInt(pkg);
+        int days = Integer.parseInt(pkg.name().substring(1));
+        System.out.println("Days: " + days);
+
         if (listener instanceof PremiumListener) {
             PremiumListener premium = (PremiumListener) listener;
             premium.setLeftDays(premium.getLeftDays() + days);
-            return "Your subscription has been increased to " + premium.getLeftDays() + " days!";
         } else {
             createPremium((BasicListener) listener, days);
-            return "Your account has been successfully converted to premium for " + days + " days!";
         }
     }
 

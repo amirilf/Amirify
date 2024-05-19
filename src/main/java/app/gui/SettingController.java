@@ -1,7 +1,5 @@
 package app.gui;
 
-import java.util.List;
-
 import app.controller.ListenterController;
 import app.controller.auth.CurrentUser;
 import app.gui.base.BodyController;
@@ -56,7 +54,7 @@ public class SettingController {
         lbl_email.setText(listener.getEmail());
         lbl_phone.setText(listener.getPhone());
         lbl_birthDate.setText(listener.getBirthDate().toString());
-        lbl_username.setText(listener.getUsername());
+        lbl_username.setText("@" + listener.getUsername());
         lbl_password.setText(listener.getPassword());
         lbl_status.setText(ListenterController.getSubscription());
     }
