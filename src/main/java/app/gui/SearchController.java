@@ -1,5 +1,6 @@
 package app.gui;
 
+import app.controller.auth.CurrentData;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
