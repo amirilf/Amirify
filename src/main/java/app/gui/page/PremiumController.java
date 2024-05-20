@@ -2,6 +2,7 @@ package app.gui.page;
 
 import app.controller.ListenterController;
 import app.controller.auth.CurrentUser;
+import app.exceptions.NotEnoughCredit;
 import app.gui.base.BodyController;
 import app.model.Listener;
 import app.model.PremiumPackage;
@@ -61,16 +62,20 @@ public class PremiumController {
         PremiumPackage selectedPackage = PremiumPackage.getPackageByName(selectedItem);
 
         if (selectedPackage != null) {
-            double packageValue = selectedPackage.getValue();
-            if (listener.getCredit() >= packageValue) {
-                // user has enough money to buy it 0_0
+
+            try {
                 ListenterController.getPremium(selectedPackage);
                 lbl_status.setText(ListenterController.getSubscription());
                 lbl_credit.setText(listener.getCredit() + "$");
                 showError("");
-            } else {
+            } catch (NotEnoughCredit e) {
+
+                // TODO : check exception works prefectly
+                System.out.println(e.getMessage());
+
                 showError("Insufficient credit to buy this package!");
             }
+
         } else {
             System.out.println("Smth is wrong... package not found.");
         }

@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import app.controller.auth.CurrentUser;
+import app.exceptions.NotEnoughCredit;
 import app.model.Artist;
 import app.model.Audio;
 import app.model.BasicListener;
@@ -200,9 +201,10 @@ public class ListenterController {
 
         switch (filterBy) {
             case 'D':
-                String error = DateValidator.isValid(key);
-                if (error != null)
-                    return error;
+                // TODO: make it ok using exceptions later
+                // String error = DateValidator.isValid(key);
+                // if (error != null)
+                // return error;
                 audios = filter(DateValidator.stringToDate(key));
                 break;
             case 'A':
@@ -259,13 +261,14 @@ public class ListenterController {
     }
 
     public static String filterInGivenDateRangeString(String begin, String end) {
-        String error1 = DateValidator.isValid(begin);
-        String error2 = DateValidator.isValid(end);
 
-        if (error1 != null)
-            return error1;
-        else if (error2 != null)
-            return error2;
+        // TODO: make validation using exceptions here
+        // String error1 = DateValidator.isValid(begin);
+        // String error2 = DateValidator.isValid(end);
+        // if (error1 != null)
+        // return error1;
+        // else if (error2 != null)
+        // return error2;
 
         List<Audio> audios = filter(DateValidator.stringToDate(begin), DateValidator.stringToDate(end));
         int length = audios.size();
@@ -472,12 +475,16 @@ public class ListenterController {
         CurrentUser.login(premiumUser);
     }
 
-    public static void getPremium(PremiumPackage pkg) {
+    public static void getPremium(PremiumPackage pkg) throws NotEnoughCredit {
 
         Listener listener = getListener();
 
         double price = pkg.getValue();
         double credit = listener.getCredit();
+
+        if (price > credit) {
+            throw new NotEnoughCredit();
+        }
 
         listener.setCredit(credit - price);
         int days = Integer.parseInt(pkg.name().substring(1));

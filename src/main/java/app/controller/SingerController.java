@@ -58,8 +58,9 @@ public class SingerController {
         if (album == null)
             return "There is no Album with this albumID";
 
-        if (!LinkValidator.isValid(link))
-            return LinkValidator.ERROR;
+        // TODO : make validation ok using exceptions
+        // if (!LinkValidator.isValid(link))
+        // return LinkValidator.ERROR;
 
         Music music = new Music(title, getSinger().getUserID(), genreOBJ, link,
                 cover, lyrics);

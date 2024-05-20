@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import app.controller.ListenterController;
 import app.controller.auth.CurrentUser;
 import app.controller.auth.SignUp;
+import app.exceptions.InvalidFormatException;
 import app.gui.base.BodyController;
 import app.util.Variables;
 import app.util.validators.DateValidator;
@@ -189,27 +190,38 @@ public class SignupController {
         // System.out.println(type);
 
         // checking basic validation (not related to DB or smth)
-        if (!EmailValidator.isValid(email)) {
-            errorMessage.setText(EmailValidator.ERROR);
+
+        try {
+            EmailValidator.check(email);
+        } catch (InvalidFormatException e) {
+            errorMessage.setText(e.getMessage());
             errorMessage.setVisible(true);
             emailField.setStyle(redBorderStyle);
             return;
         }
-        if (!PhoneValidator.isValid(phone)) {
-            errorMessage.setText(PhoneValidator.ERROR);
+
+        try {
+            PhoneValidator.check(phone);
+        } catch (InvalidFormatException e) {
+            errorMessage.setText(e.getMessage());
             errorMessage.setVisible(true);
             phoneField.setStyle(redBorderStyle);
             return;
         }
-        if (!PasswordValidator.isValid(password)) {
-            errorMessage.setText(PasswordValidator.ERROR);
+
+        try {
+            PasswordValidator.check(password);
+        } catch (InvalidFormatException e) {
+            errorMessage.setText(e.getMessage());
             errorMessage.setVisible(true);
             passwordField.setStyle(redBorderStyle);
             return;
         }
-        error = DateValidator.isValid(birthDate);
-        if (error != null) {
-            errorMessage.setText(error);
+
+        try {
+            DateValidator.check(birthDate);
+        } catch (InvalidFormatException e) {
+            errorMessage.setText(e.getMessage());
             errorMessage.setVisible(true);
             birthDateField.setStyle(redBorderStyle);
             return;

@@ -18,6 +18,8 @@ import app.controller.auth.CurrentData;
 import app.controller.auth.CurrentUser;
 import app.controller.auth.Login;
 import app.controller.auth.SignUp;
+import app.exceptions.UserNotFoundException;
+import app.exceptions.WrongPasswordException;
 import app.gui.base.BodyController;
 import app.model.Audio;
 import app.util.Variables;
@@ -61,7 +63,10 @@ public class LoginController {
         String password = passwordField.getText();
 
         // if it's True we know user is already logged in
-        if (Login.login(username, password)) {
+
+        try {
+
+            Login.login(username, password);
 
             System.out.println("Login");
 
@@ -109,7 +114,11 @@ public class LoginController {
             Login.login(username, password);
             System.out.println(CurrentUser.getUser().getFullName());
 
-        } else {
+        } catch (UserNotFoundException | WrongPasswordException e) {
+
+            // TODO : remove line | only testing exceptions work good
+            System.out.println(e.getMessage());
+
             // showing error message
             errorMessage.setVisible(true);
 

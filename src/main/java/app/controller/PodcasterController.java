@@ -24,8 +24,9 @@ public class PodcasterController {
             return "Gener is not valid! see Help for more";
         }
 
-        if (!LinkValidator.isValid(link))
-            return LinkValidator.ERROR;
+        // TODO : make validation ok using exceptions
+        // if (!LinkValidator.isValid(link))
+        // return LinkValidator.ERROR;
 
         Podcast podcast = new Podcast(title, podcaster.getUserID(), genreOBJ,
                 link, cover, transcript);
