@@ -3,7 +3,7 @@ package app.gui.page;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class ArtistController {
+public class AudioController {
 
     public static String name = "";
 
@@ -14,4 +14,5 @@ public class ArtistController {
     private void initialize() {
         lbl.setText(name);
     }
+
 }

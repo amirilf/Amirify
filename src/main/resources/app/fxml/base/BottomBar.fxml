@@ -27,10 +27,10 @@
             </ImageView>
          </children>
       </StackPane>
-      <Label fx:id="title" layoutX="110.0" layoutY="26.0" styleClass="title-label" text="Money on the dash" />
+      <Label onMouseClicked="#handleAudioClick" fx:id="title" layoutX="110.0" layoutY="26.0" styleClass="title-label" text="Money on the dash" />
       <HBox alignment="CENTER_LEFT" layoutX="110.0" layoutY="58.0" prefHeight="26.0" prefWidth="273.0" spacing="5.0">
          <children>
-            <Label fx:id="artist" styleClass="author-label" text="Justin Bieaber" HBox.hgrow="ALWAYS" />
+            <Label onMouseClicked="#handleArtistClick" fx:id="artist"  styleClass="author-label" text="Justin Bieaber" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="366.0" layoutY="62.0" prefHeight="26.0" prefWidth="624.0" spacing="10.0">

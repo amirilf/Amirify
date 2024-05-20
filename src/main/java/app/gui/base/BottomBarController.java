@@ -21,6 +21,8 @@ import javafx.util.Duration;
 import java.util.Random;
 
 import app.controller.auth.CurrentData;
+import app.gui.page.ArtistController;
+import app.gui.page.AudioController;
 import app.model.Audio;
 import app.util.Variables;
 
@@ -246,4 +248,32 @@ public class BottomBarController {
         title.setDisable(true);
         artist.setDisable(true);
     }
+
+    // mouse clicked on Artist name or Audio name
+
+    @FXML
+    private void handleArtistClick() {
+        System.out.println("Artist clicked");
+
+        ArtistController.name = artist.getText();
+
+        if (BodyController.getContentPath().get().equals("Artist"))
+            // user was already in Artist page and clicked on another Artist in Playin bar
+            BodyController.setFxmlPath("");
+        BodyController.setFxmlPath("Artist");
+    }
+
+    @FXML
+    private void handleAudioClick() {
+        System.out.println("Audio clicked");
+
+        AudioController.name = title.getText();
+
+        if (BodyController.getContentPath().get().equals("Audio")) {
+            // user was already in Audio page and clicked on another Audio in Playin bar
+            BodyController.setFxmlPath("");
+        }
+        BodyController.setFxmlPath("Audio");
+    }
+
 }
