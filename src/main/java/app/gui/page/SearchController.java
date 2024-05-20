@@ -31,11 +31,16 @@ public class SearchController {
         HBox currentHBox = new HBox();
         addParametersToHBox(currentHBox);
 
+        // add artists and audios to the Hbox (first items)
+        addAudiosnArtistsToHBox(currentHBox);
+
         Genre[] genres = Genre.values();
 
         for (int i = 0; i < genres.length; i++) {
             Genre genre = genres[i];
             try {
+
+                // TODO : make path variable
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/fxml/partials/genre-item.fxml"));
                 StackPane genreItem = loader.load();
 
@@ -64,6 +69,29 @@ public class SearchController {
         hBox.setPrefWidth(925.0);
         hBox.setSpacing(15.0);
         hBox.setPadding(new Insets(0, 0, 0, 10));
+    }
+
+    private void addAudiosnArtistsToHBox(HBox hBox) {
+        // TODO: make path variables
+        try {
+            FXMLLoader artistsLoader = new FXMLLoader(getClass().getResource("/app/fxml/partials/genre-item.fxml"));
+            FXMLLoader audiosLoader = new FXMLLoader(getClass().getResource("/app/fxml/partials/genre-item.fxml"));
+
+            StackPane artistsItem = artistsLoader.load();
+            StackPane audiosItem = audiosLoader.load();
+
+            GenreItemController artistsController = artistsLoader.getController();
+            GenreItemController audiosController = audiosLoader.getController();
+
+            artistsController.setGenre("All Artists", "/app/images/genres/Artists.jpg", "#FF1493");
+            audiosController.setGenre("All Audios", "/app/images/genres/Audios.jpg", "#FF1493");
+
+            hBox.getChildren().add(artistsItem);
+            hBox.getChildren().add(audiosItem);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
