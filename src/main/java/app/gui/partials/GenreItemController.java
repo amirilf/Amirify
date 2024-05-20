@@ -1,7 +1,7 @@
 package app.gui.partials;
 
-import app.gui.GenreController;
 import app.gui.base.BodyController;
+import app.gui.page.GenreController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;

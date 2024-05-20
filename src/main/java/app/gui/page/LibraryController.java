@@ -1,23 +1,31 @@
-package app.gui;
+package app.gui.page;
 
-import app.controller.auth.CurrentData;
-import app.gui.base.BodyController;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.TextField;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
-public class ResultController {
+public class LibraryController {
 
     @FXML
-    private TextField searchInput;
+    private MenuButton menuButton;
 
     @FXML
     private void initialize() {
-        searchInput.setText(CurrentData.getSearch());
+
+        menuButton.getItems().forEach(item -> item.setOnAction(event -> handleMenuItemAction(item)));
+        MenuItem defaultItem = (MenuItem) menuButton.getItems().get(0);
+        handleMenuItemAction(defaultItem);
+    }
+
+    private void handleMenuItemAction(MenuItem selected) {
+        String selectedText = selected.getText();
+        menuButton.setText(selectedText);
+        System.out.println("Selected item: " + selectedText);
     }
 
     @FXML
@@ -55,26 +63,6 @@ public class ResultController {
             }
         }
         return null;
-    }
-
-    @FXML
-    private void handleSearchButtonClick() {
-        String searchText = searchInput.getText();
-
-        if (!searchText.equals(CurrentData.getSearch())) {
-            if (searchText.equals("")) {
-                // it's empty
-                BodyController.setFxmlPath("Search");
-            } else {
-                searchInput.setStyle("-fx-border-color: white;");
-                CurrentData.setSearch(searchText);
-                searchInput.setText(searchText);
-
-                System.out.println("Search is changed");
-            }
-
-        }
-
     }
 
 }

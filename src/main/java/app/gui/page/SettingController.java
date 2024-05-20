@@ -1,4 +1,4 @@
-package app.gui;
+package app.gui.page;
 
 import app.controller.ListenterController;
 import app.controller.auth.CurrentUser;

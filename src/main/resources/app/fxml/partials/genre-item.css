@@ -10,19 +10,20 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 15, 0.5, 0, 0);
 }
 
+#stackPane:hover #coverImageView {
+    -fx-opacity: 0.8;
+}
+
+#stackPane:hover .title {
+    -fx-text-fill: #3a3a3a;
+}
+
 #coverImageView {
     -fx-opacity: 1.0;
     -fx-transition: all 0.3s ease-in-out;
 }
 
-#stackPane:hover #coverImageView {
-    -fx-opacity: 0.8;
-}
-
 .title {
     -fx-text-fill: #101010;
     -fx-transition: all 0.3s ease-in-out;
-}
-#stackPane:hover .title {
-    -fx-text-fill: #3a3a3a;
 }

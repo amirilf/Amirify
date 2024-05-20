@@ -1,13 +1,24 @@
-package app.gui;
+package app.gui.page;
 
+import app.controller.auth.CurrentData;
+import app.gui.base.BodyController;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
-public class HomeController {
+public class ResultController {
+
+    @FXML
+    private TextField searchInput;
+
+    @FXML
+    private void initialize() {
+        searchInput.setText(CurrentData.getSearch());
+    }
 
     @FXML
     private void showPlayMedia(MouseEvent event) {
@@ -45,4 +56,25 @@ public class HomeController {
         }
         return null;
     }
+
+    @FXML
+    private void handleSearchButtonClick() {
+        String searchText = searchInput.getText();
+
+        if (!searchText.equals(CurrentData.getSearch())) {
+            if (searchText.equals("")) {
+                // it's empty
+                BodyController.setFxmlPath("Search");
+            } else {
+                searchInput.setStyle("-fx-border-color: white;");
+                CurrentData.setSearch(searchText);
+                searchInput.setText(searchText);
+
+                System.out.println("Search is changed");
+            }
+
+        }
+
+    }
+
 }

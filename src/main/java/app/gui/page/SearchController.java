@@ -1,4 +1,4 @@
-package app.gui;
+package app.gui.page;
 
 import app.controller.auth.CurrentData;
 import app.gui.base.BodyController;
@@ -7,8 +7,6 @@ import app.model.Genre;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;

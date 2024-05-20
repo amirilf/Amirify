@@ -1,4 +1,4 @@
-package app.gui;
+package app.gui.page;
 
 import app.controller.auth.CurrentUser;
 import app.gui.base.BodyController;
