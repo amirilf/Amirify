@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -16,7 +17,7 @@
    <children>
       <Pane layoutX="-1.0" layoutY="1.0" prefHeight="240.0" prefWidth="1000.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
          <children>
-            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="40.0" layoutY="20.0" pickOnBounds="true">
+            <ImageView fx:id="cover" fitHeight="200.0" fitWidth="200.0" layoutX="40.0" layoutY="20.0" pickOnBounds="true">
                 <image>
                     <Image url="@../../media/cover.png" />
                 </image>
@@ -24,24 +25,24 @@
                     <Rectangle arcHeight="50.0" arcWidth="50.0" height="200" width="200" />
                 </clip>
             </ImageView>
-            <Label layoutX="266.0" layoutY="61.0" text="Playlist name">
+            <Label fx:id="title" layoutX="266.0" layoutY="61.0" text="Playlist name">
                <font>
                   <Font name="Dyuthi Regular" size="60.0" />
                </font>
             </Label>
-            <Label layoutX="270.0" layoutY="38.0" text="Playlist">
+            <Label fx:id="type" layoutX="270.0" layoutY="38.0" text="Playlist">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="270.0" layoutY="149.0" text="This is just an example of description in playlist">
+            <Label fx:id="desc" layoutX="270.0" layoutY="149.0" text="This is just an example of description in playlist">
                <font>
                   <Font name="Dyuthi Regular" size="15.0" />
                </font>
             </Label>
             <HBox alignment="CENTER_LEFT" layoutX="270.0" layoutY="178.0" prefHeight="26.0" prefWidth="353.0" spacing="10.0">
                <children>
-                  <Label text="Spotify">
+                  <Label fx:id="owner" text="Spotify">
                      <font>
                         <Font name="Monospaced Regular" size="12.0" />
                      </font>
@@ -51,7 +52,7 @@
                         <Font name="Monospaced Regular" size="12.0" />
                      </font>
                   </Label>
-                  <Label text="192,202 likes">
+                  <Label fx:id="datelike" text="192,202 likes">
                      <font>
                         <Font name="Monospaced Regular" size="12.0" />
                      </font>
@@ -61,7 +62,7 @@
                         <Font name="Monospaced Regular" size="12.0" />
                      </font>
                   </Label>
-                  <Label text="80 songs">
+                  <Label fx:id="numberOfAudios" text="80 songs">
                      <font>
                         <Font name="Monospaced Regular" size="12.0" />
                      </font>
@@ -71,14 +72,14 @@
                         <Font name="Monospaced Regular" size="12.0" />
                      </font>
                   </Label>
-                  <Label text="23h 21min">
+                  <Label fx:id="totalTime" text="23h 21min">
                      <font>
                         <Font name="Monospaced Regular" size="12.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="192.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="playButton" fitHeight="40.0" fitWidth="40.0" layoutX="192.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage">
                <image>
                   <Image url="@../../images/icon/icon-playmedia.png" />
                </image>
@@ -88,21 +89,24 @@
             </ImageView>
          </children>
       </Pane>
-      <ScrollPane hbarPolicy="NEVER" layoutX="24.0" layoutY="236.0" prefHeight="450.0" prefWidth="950.0" vbarPolicy="ALWAYS">
+      <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="18.0" layoutY="243.0" prefHeight="437.0" prefWidth="965.0" AnchorPane.topAnchor="240.0">
          <content>
-            <VBox prefWidth="930.0">
+            <VBox fx:id="contentVBox" prefWidth="935.0" spacing="10.0">
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
                <children>
-                  <Pane prefHeight="75.0" prefWidth="930.0" styleClass="song-pane">
+                  <Pane prefHeight="75.0" prefWidth="935.0" styleClass="song-pane" stylesheets="@../partials/audio-item.css">
                      <children>
-                        <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../media/cover.png" />
-                           </image>
+                        <ImageView fx:id="coverImage" fitHeight="55.0" fitWidth="55.0" layoutX="76.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <clip>
                               <Rectangle arcHeight="10.0" arcWidth="10.0" height="50" width="50" />
                            </clip>
+                           <image>
+                              <Image url="@../../media/cover.png" />
+                           </image>
                         </ImageView>
-                        <Label layoutX="72.0" layoutY="9.0" styleClass="song-title" text="Hello">
+                        <Label fx:id="songTitle" layoutX="137.0" layoutY="11.0" onMouseClicked="#handleAudioClick" styleClass="song-title" text="Title example">
                            <font>
                               <Font name="Dyuthi Regular" size="20.0" />
                            </font>
@@ -110,7 +114,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Label>
-                        <Label layoutX="73.0" layoutY="36.0" styleClass="song-author" text="Label">
+                        <Label fx:id="songAuthor" layoutX="138.0" layoutY="38.0" onMouseClicked="#handleArtistClick" styleClass="song-author" text="Artist example">
                            <font>
                               <Font name="Dyuthi Regular" size="15.0" />
                            </font>
@@ -118,11 +122,46 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Label>
-                        <Label layoutX="806.0" layoutY="21.0" text="03:35">
-                           <font>
-                              <Font name="Dyuthi Regular" size="20.0" />
-                           </font>
-                        </Label>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="881.0" layoutY="26.0" onMouseClicked="#handleOptionsClick" pickOnBounds="true" preserveRatio="true">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <image>
+                              <Image url="@../../images/icon/icon-three-dots.png" />
+                           </image>
+                        </ImageView>
+                        <HBox alignment="CENTER" layoutX="272.0" layoutY="15.0" prefHeight="45.0" prefWidth="500.0" spacing="60.0">
+                           <children>
+                              <Label fx:id="songDate" text="2022-03-12">
+                                 <font>
+                                    <Font name="Dyuthi Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="830.0" layoutY="18.0" onMouseClicked="#handlePlayButton" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage">
+                           <image>
+                              <Image url="@../../images/icon/icon-playmedia.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <HBox alignment="CENTER" layoutX="14.0" layoutY="16.0" prefHeight="45.0" prefWidth="50.0">
+                           <children>
+                              <Label fx:id="labelCounter" text="001">
+                                 <font>
+                                    <Font name="Dyuthi Regular" size="26.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets bottom="2.0" right="2.0" top="2.0" />
+                           </padding>
+                        </HBox>
                      </children>
                   </Pane>
                </children>
