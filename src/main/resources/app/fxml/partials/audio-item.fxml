@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="75.0" prefWidth="865.0" styleClass="song-pane" stylesheets="@audio-item.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.partials.AudioItemController">
+   <children>
+      <ImageView fx:id="coverImage" fitHeight="55.0" fitWidth="55.0" layoutX="79.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <clip>
+            <Rectangle arcHeight="10.0" arcWidth="10.0" height="50" width="50" />
+         </clip>
+         <image>
+            <Image url="@../../media/cover.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="songTitle" layoutX="137.0" layoutY="11.0" onMouseClicked="#handleAudioClick" styleClass="song-title" text="Title example">
+         <font>
+            <Font name="Dyuthi Regular" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Label fx:id="songAuthor" layoutX="138.0" layoutY="38.0" onMouseClicked="#handleArtistClick" styleClass="song-author" text="Artist example">
+         <font>
+            <Font name="Dyuthi Regular" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="826.0" layoutY="24.0" onMouseClicked="#handleOptionsClick" pickOnBounds="true" preserveRatio="true">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <image>
+            <Image url="@../../images/icon/icon-three-dots.png" />
+         </image>
+      </ImageView>
+      <HBox alignment="CENTER" layoutX="275.0" layoutY="14.0" prefHeight="45.0" prefWidth="500.0" spacing="60.0">
+         <children>
+            <Label fx:id="songDate" text="Date Example">
+               <font>
+                  <Font name="Dyuthi Regular" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="775.0" layoutY="17.0" onMouseClicked="#handlePlayButton" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage">
+         <image>
+            <Image url="@../../images/icon/icon-playmedia.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <HBox alignment="CENTER" layoutX="14.0" layoutY="12.0" prefHeight="45.0" prefWidth="50.0">
+         <children>
+            <Label fx:id="labelCounter" text="229">
+               <font>
+                  <Font name="Dyuthi Regular" size="26.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="2.0" right="2.0" top="2.0" />
+         </padding>
+      </HBox>
+   </children>
+</Pane>

@@ -7,6 +7,7 @@ import java.util.List;
 import app.model.Artist;
 import app.model.Audio;
 import app.model.Database;
+import app.model.Genre;
 import app.model.Music;
 import app.model.Report;
 import app.model.User;
@@ -17,29 +18,23 @@ public class AdminController {
     private AdminController() {
     };
 
-    private static ArrayList<Audio> getAudios() {
+    public static ArrayList<Audio> getAudios() {
         return Database.getDB().getAudios();
     }
 
-    public static String getAudiosString() {
-        ArrayList<Audio> audios = getAudios();
-        int length = audios.size();
-        if (length == 0)
-            return "There is no Audio to show!";
+    public static ArrayList<Audio> getAudios(Genre genre) {
+        ArrayList<Audio> results = new ArrayList<>();
 
-        StringBuilder sb = new StringBuilder("Audios: (ID | Title | Likes | Played Times)\n");
-        sb.ensureCapacity(length * 50);
-        int counter = 1;
-        int digits = String.valueOf(length).length();
-        for (Audio audio : audios) {
-            sb.append("    " + String.format("%0" + digits + "d", counter++) + ") "
-                    + audio.getAudioID() + " | " + audio.getTitle() + " | " + audio.getLikes() + " | "
-                    + audio.getPlayedTimes() + ")\n");
+        for (Audio audio : Database.getDB().getAudios()) {
+            if (audio.getGenre().equals(genre)) {
+                results.add(audio);
+            }
         }
-        return sb.toString();
+
+        return results;
     }
 
-    private static ArrayList<Artist> getArtists() {
+    public static ArrayList<Artist> getArtists() {
         ArrayList<Artist> artists = new ArrayList<>();
         for (User user : Database.getDB().getUsers()) {
             if (user instanceof Artist) {
@@ -48,23 +43,6 @@ public class AdminController {
         }
 
         return artists;
-    }
-
-    public static String getArtistsString() {
-        ArrayList<Artist> artists = getArtists();
-        int length = artists.size();
-        if (length == 0)
-            return "There is no Artist to show!";
-
-        StringBuilder sb = new StringBuilder("Artists: (Username | Full Name)\n");
-        sb.ensureCapacity(length * 50);
-        int counter = 1;
-        int digits = String.valueOf(length).length();
-        for (Artist artist : artists) {
-            sb.append("    " + String.format("%0" + digits + "d", counter++) + ") "
-                    + artist.getUsername() + " | " + artist.getFullName() + "\n");
-        }
-        return sb.toString();
     }
 
     public static Artist getArtist(String username) {
@@ -78,6 +56,20 @@ public class AdminController {
         }
         // returns null if there is no match with given username
         return null;
+    }
+
+    // TODO : merge with the top method
+    public static Artist getArtistByUserID(String userID) {
+        for (User user : Database.getDB().getUsers()) {
+            if (user.getUserID().equals(userID)) {
+                if (user instanceof Artist)
+                    return (Artist) user;
+                break;
+            }
+        }
+        // returns null if there is no match with given username
+        return null;
+
     }
 
     public static String getArtistString(String username) {

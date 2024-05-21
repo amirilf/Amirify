@@ -1,17 +1,21 @@
 package app.gui.page;
 
+import app.controller.AdminController;
+import app.model.Artist;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 public class ArtistController {
 
-    public static String name = "";
+    public static String artistID = "";
 
     @FXML
     private Label lbl;
 
     @FXML
     private void initialize() {
-        lbl.setText(name);
+
+        Artist artist = AdminController.getArtistByUserID(artistID);
+        lbl.setText(artist.getFullName());
     }
 }

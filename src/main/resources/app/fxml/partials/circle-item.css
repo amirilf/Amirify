@@ -1,0 +1,13 @@
+.vbox-item > * {
+    -fx-background-color: inherit;
+}
+
+.vbox-item:hover .item-title,
+.vbox-item:hover .item-desc,
+.vbox-item:hover {
+    -fx-background-color: #687172;
+}
+
+.vbox-item {
+    -fx-border-radius: 10px;
+}

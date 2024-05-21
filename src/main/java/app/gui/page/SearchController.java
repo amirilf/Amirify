@@ -49,7 +49,7 @@ public class SearchController {
 
                 currentHBox.getChildren().add(genreItem);
 
-                if ((i + 1) % 5 == 0) {
+                if ((i + 3) % 5 == 0) {
                     contentVBox.getChildren().add(currentHBox);
                     currentHBox = new HBox();
                     addParametersToHBox(currentHBox);

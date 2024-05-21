@@ -29,7 +29,7 @@
             </Button>
          </children>
       </HBox>
-      <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="18.0" layoutY="113.0" prefHeight="570.0" prefWidth="965.0" vbarPolicy="ALWAYS">
+      <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="18.0" layoutY="113.0" prefHeight="570.0" prefWidth="965.0" vbarPolicy="ALWAYS" AnchorPane.topAnchor="110.0">
          <content>
             <VBox fx:id="contentVBox" spacing="10.0">
                <children>

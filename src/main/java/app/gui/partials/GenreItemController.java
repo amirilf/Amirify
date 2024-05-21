@@ -28,7 +28,7 @@ public class GenreItemController {
 
     @FXML
     private void handleGenreClick(MouseEvent event) {
-        GenreController.title = genreLabel.getText();
+        GenreController.genreName = genreLabel.getText();
         BodyController.setFxmlPath("Genre");
     }
 }

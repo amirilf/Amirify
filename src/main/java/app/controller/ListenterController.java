@@ -30,10 +30,6 @@ public class ListenterController {
         return (Listener) CurrentUser.getUser();
     }
 
-    public static String getArtistsString() {
-        return AdminController.getArtistsString();
-    }
-
     public static String getArtistString(String username) {
         return AdminController.getArtistString(username);
     }

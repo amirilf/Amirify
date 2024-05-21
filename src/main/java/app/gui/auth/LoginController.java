@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import app.controller.AdminController;
 import app.controller.auth.CurrentData;
 import app.controller.auth.CurrentUser;
 import app.controller.auth.Login;
@@ -22,6 +23,7 @@ import app.exceptions.UserNotFoundException;
 import app.exceptions.WrongPasswordException;
 import app.gui.base.BodyController;
 import app.model.Audio;
+import app.model.Database;
 import app.util.Variables;
 
 public class LoginController {
@@ -86,28 +88,8 @@ public class LoginController {
             // change default body to Home page
             BodyController.setFxmlPath("Home");
 
-            // TODO: remove these test lines later
-            SignUp.signUpSinger("adel", "adel1234", "Adel", "Adelian", "adel@email.com", "09966337929",
-                    LocalDate.of(1990, 10, 2));
-            CurrentUser.logout();
-            SignUp.signUpSinger("justin", "justin1234", "Justin", "Bieber", "justin@email.com", "09966337929",
-                    LocalDate.of(2010, 10, 2));
-            CurrentUser.logout();
-            SignUp.signUpSinger("trevor", "trevor1234", "Daniel", "Trevor", "daniel@email.com", "09966337929",
-                    LocalDate.of(2000, 10, 2));
-            CurrentUser.logout();
-
-            Audio audio1 = new Audio("Hello", "3", null, "/app/media/Adele - Hello.mp3", "/app/media/cover2.png");
-            Audio audio2 = new Audio("Love Yourself", "4", null, "/app/media/Love Yourself.mp3",
-                    "/app/media/cover3.png");
-            Audio audio3 = new Audio("Falling", "5", null, "/app/media/Trevor Daniel - Falling.mp3",
-                    "/app/media/cover4.png");
-
-            ArrayList<Audio> audios = new ArrayList<>();
-            audios.add(audio1);
-            audios.add(audio2);
-            audios.add(audio3);
-
+            // TODO : remove these test
+            ArrayList<Audio> audios = AdminController.getAudios();
             CurrentData.playlist.addAll(audios);
             CurrentData.setSelectedIndex(0);
 

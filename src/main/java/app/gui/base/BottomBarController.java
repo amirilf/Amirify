@@ -255,7 +255,8 @@ public class BottomBarController {
     private void handleArtistClick() {
         System.out.println("Artist clicked");
 
-        ArtistController.name = artist.getText();
+        // TODO : add artistID instead of this, this is wrong
+        ArtistController.artistID = artist.getText();
 
         if (BodyController.getContentPath().get().equals("Artist"))
             // user was already in Artist page and clicked on another Artist in Playin bar
