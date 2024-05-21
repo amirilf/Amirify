@@ -88,11 +88,10 @@ public class FavoriteGenres {
             return;
         }
 
-        // add selected genres to the arraylist
-
         // clear the array to avoid counting old items
         selectedGenres.clear();
 
+        // add selected genres to the arraylist
         for (CheckBox item : listView.getItems()) {
             if (item.isSelected()) {
                 selectedGenres.add(item.getText());

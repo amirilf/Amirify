@@ -44,6 +44,9 @@ public class SettingController {
     private Label lbl_status;
 
     @FXML
+    private Label lbl_genres;
+
+    @FXML
     private void initialize() {
 
         Listener listener = (Listener) CurrentUser.getUser();
@@ -66,6 +69,7 @@ public class SettingController {
         lbl_username.setText("@" + listener.getUsername());
         lbl_password.setText(listener.getPassword());
         lbl_status.setText(ListenterController.getSubscription());
+        lbl_genres.setText(listener.getFavoriteGenres().toString());
     }
 
     @FXML

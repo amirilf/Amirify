@@ -90,12 +90,17 @@
                   <Font name="Dyuthi Regular" size="20.0" />
                </font>
             </Label>
+            <Label text="Favorite genres:">
+               <font>
+                  <Font name="Dyuthi Regular" size="20.0" />
+               </font>
+            </Label>
          </children>
          <padding>
             <Insets left="20.0" />
          </padding>
       </VBox>
-      <Label layoutX="42.0" layoutY="541.0" text="-&gt; Language">
+      <Label layoutX="42.0" layoutY="577.0" text="-&gt; Language">
          <font>
             <Font name="Monospaced Regular" size="15.0" />
          </font>
@@ -137,12 +142,17 @@
                   <Font name="Dyuthi Regular" size="20.0" />
                </font>
             </Label>
+            <Label fx:id="lbl_genres" text="Pop - HipHop">
+               <font>
+                  <Font name="Dyuthi Regular" size="20.0" />
+               </font>
+            </Label>
          </children>
          <padding>
             <Insets left="20.0" />
          </padding>
       </VBox>
-      <Label layoutX="211.0" layoutY="534.0" text="English">
+      <Label layoutX="213.0" layoutY="570.0" text="English">
          <font>
             <Font name="Dyuthi Regular" size="20.0" />
          </font>
