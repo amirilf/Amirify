@@ -11,19 +11,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 import app.controller.AdminController;
 import app.controller.auth.CurrentData;
 import app.controller.auth.CurrentUser;
 import app.controller.auth.Login;
-import app.controller.auth.SignUp;
 import app.exceptions.UserNotFoundException;
 import app.exceptions.WrongPasswordException;
 import app.gui.base.BodyController;
 import app.model.Audio;
-import app.model.Database;
 import app.util.Variables;
 
 public class LoginController {

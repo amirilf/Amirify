@@ -49,7 +49,16 @@ public class SettingController {
         Listener listener = (Listener) CurrentUser.getUser();
 
         lbl_title.setText(listener.getFirstName());
-        lbl_followings.setText(listener.getFollowings().size() + " followings");
+
+        int followings = listener.getFollowings().size();
+
+        if (followings > 0) {
+            lbl_followings.setText(listener.getFollowings().size() + " followings");
+        } else {
+            lbl_followings.setText("No followings yet!");
+            lbl_followings.setDisable(true);
+        }
+
         lbl_fullName.setText(listener.getFullName());
         lbl_email.setText(listener.getEmail());
         lbl_phone.setText(listener.getPhone());

@@ -410,25 +410,16 @@ public class ListenterController {
         return podcast.getTranscript();
     }
 
-    public static String followings() {
+    public static ArrayList<Artist> getFollowings() {
 
-        int length = getListener().getFollowings().size();
-        if (length == 0)
-            return "You are not following any artist!";
-
-        int counter = 1;
-        int digits = String.valueOf(length).length();
-        StringBuilder sb = new StringBuilder("Your followings (Username | FullName):\n");
+        ArrayList<Artist> artists = new ArrayList<>();
+        Listener listener = getListener();
         for (User user : Database.getDB().getUsers()) {
-            if (getListener().getFollowings().contains(user.getUserID())) {
-                sb.append("    " + String.format("%0" + digits + "d", counter++) + ") " + user.getUsername() + " | "
-                        + user.getFullName() + "\n");
-
-                if (counter > length)
-                    break;
+            if (listener.getFollowings().contains(user.getUserID())) {
+                artists.add((Artist) user);
             }
         }
-        return sb.toString();
+        return artists;
     }
 
     public static String addReport(String artistID, String description) {

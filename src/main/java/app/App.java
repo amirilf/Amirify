@@ -3,13 +3,11 @@ package app;
 import java.io.IOException;
 import java.time.LocalDate;
 
-import app.controller.ArtistController;
+import app.controller.ListenterController;
 import app.controller.SingerController;
 import app.controller.auth.CurrentUser;
 import app.controller.auth.SignUp;
 import app.model.Admin;
-import app.model.Artist;
-import app.model.Audio;
 import app.util.Variables;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -36,11 +34,6 @@ public class App extends Application {
                 Admin.getAdmin("admin", "1234", "mohammad admin", "adminian", "admin@gmail.com", "09999999999",
                                 LocalDate.of(2010, 4, 12));
 
-                SignUp.signUpListener("amirilf", "amir", "Amir", "Khorasani", "amirilf@protonmail.com", "09999999999",
-                                LocalDate.of(2000, 10, 10));
-
-                CurrentUser.logout();
-
                 // TODO: remove these test lines later
 
                 SignUp.signUpSinger("adel", "adel1234", "Adel", "Adelian", "adel@email.com", "09966337929",
@@ -62,6 +55,13 @@ public class App extends Application {
                 SingerController.addAlbum("Fight");
                 SingerController.addMusic("Falling", "HipHop", "This is sample lyrics",
                                 "/app/media/Trevor Daniel - Falling.mp3", "/app/media/cover4.png", "3");
+                CurrentUser.logout();
+
+                SignUp.signUpListener("amirilf", "amir", "Amir", "Khorasani", "amirilf@protonmail.com", "09999999999",
+                                LocalDate.of(2000, 10, 10));
+
+                ListenterController.follow("adel");
+                ListenterController.follow("justin");
                 CurrentUser.logout();
 
                 launch();

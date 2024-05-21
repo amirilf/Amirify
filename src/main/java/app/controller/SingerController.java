@@ -6,7 +6,6 @@ import app.model.Database;
 import app.model.Genre;
 import app.model.Music;
 import app.model.Singer;
-import app.util.validators.LinkValidator;
 
 public class SingerController {
 

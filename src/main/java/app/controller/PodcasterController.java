@@ -5,7 +5,6 @@ import app.model.Database;
 import app.model.Genre;
 import app.model.Podcast;
 import app.model.Podcaster;
-import app.util.validators.LinkValidator;
 
 public class PodcasterController {
 
