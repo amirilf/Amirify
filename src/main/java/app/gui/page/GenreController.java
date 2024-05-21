@@ -103,7 +103,7 @@ public class GenreController {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/fxml/partials/audio-item.fxml"));
                 Pane audioPane = loader.load();
                 AudioItemController controller = loader.getController();
-                controller.setAudioData(artist.getUserID(), audio.getTitle(), artist.getFullName(),
+                controller.setAudioData(artist.getUserID(), audio.getAudioID(), audio.getTitle(), artist.getFullName(),
                         audio.getPublishDate().toString(),
                         audio.getCover(), i++);
                 contentVBox.getChildren().add(audioPane);

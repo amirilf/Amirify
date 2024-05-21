@@ -84,7 +84,7 @@ public class SearchController {
             GenreItemController audiosController = audiosLoader.getController();
 
             artistsController.setGenre("All Artists", "/app/images/genres/Artists.jpg", "#FF1493");
-            audiosController.setGenre("All Audios", "/app/images/genres/Audios.jpg", "#FF1493");
+            audiosController.setGenre("All Audios", "/app/images/genres/Audios.jpg", "#1E90FF");
 
             hBox.getChildren().add(artistsItem);
             hBox.getChildren().add(audiosItem);

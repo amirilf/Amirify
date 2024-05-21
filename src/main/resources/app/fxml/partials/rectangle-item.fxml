@@ -8,10 +8,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox onMouseClicked="#handleArtistClick" onMouseEntered="#showPlayMedia" onMouseExited="#hidePlayMedia" prefHeight="270.0" prefWidth="200.0" styleClass="vbox-item" stylesheets="@circle-item.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.partials.CircleItemController">
+<VBox onMouseClicked="#handleBoxClick" onMouseEntered="#showPlayMedia" onMouseExited="#hidePlayMedia" prefHeight="270.0" prefWidth="200.0" styleClass="vbox-item" stylesheets="@rectangle-item.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.partials.RectangleItemController">
    <children>
       <StackPane prefHeight="180.0" prefWidth="180.0">
          <children>
@@ -20,10 +20,10 @@
                   <Image url="@../../media/cover.png" />
                </image>
                <clip>
-                  <Circle centerX="90" centerY="90" radius="90" />
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" height="180" width="180" />
                </clip>
             </ImageView>
-            <ImageView onMouseClicked="#handlePlayArtistClick"  fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
+            <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#handlePlayBoxClick" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
                <image>
                   <Image url="@../../images/icon/icon-playmedia.png" />
                </image>
@@ -36,7 +36,7 @@
             </ImageView>
          </children>
       </StackPane>
-      <Label fx:id="lbl_name" prefHeight="0.0" prefWidth="200.0" styleClass="item-title" text="Moody mix">
+      <Label fx:id="title" prefHeight="0.0" prefWidth="200.0" styleClass="item-title" text="Moody mix">
          <font>
             <Font name="Dyuthi Regular" size="20.0" />
          </font>
@@ -44,19 +44,30 @@
             <Insets top="5.0" />
          </VBox.margin>
       </Label>
-      <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="180.0" styleClass="item-desc" text="Artist">
-         <font>
-            <Font name="Dyuthi Regular" size="15.0" />
-         </font>
-      </Label>
+      <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="180.0" spacing="5.0">
+         <children>
+            <Label fx:id="type" text="Album">
+               <font>
+                  <Font name="Dyuthi Regular" size="15.0" />
+               </font>
+            </Label>
+            <Label text=".">
+               <font>
+                  <Font name="Dyuthi Regular" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="owner" text="Adel">
+               <font>
+                  <Font name="Dyuthi Regular" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
    </children>
-   <HBox.margin>
-      <Insets />
-   </HBox.margin>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
    </padding>
-   <cursor>
+  <cursor>
       <Cursor fx:constant="HAND" />
    </cursor>
 </VBox>

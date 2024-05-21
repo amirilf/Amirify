@@ -1,8 +1,5 @@
 package app.gui.partials;
 
-import app.gui.base.BodyController;
-import app.gui.page.ArtistController;
-import app.model.Artist;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -11,34 +8,47 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
-public class CircleItemController {
+public class RectangleItemController {
 
-    private String artistID;
+    private String userID;
+    private String listID;
 
     @FXML
     private ImageView cover;
 
     @FXML
-    private Label lbl_name;
+    private Label title;
 
-    public void setArtist(Artist artist) {
-        lbl_name.setText(artist.getFullName());
+    @FXML
+    private Label type;
+
+    @FXML
+    private Label owner;
+
+    // type => Audio Album Episode Podcast or Playlist
+    public void setArtist(String typeText, String cover, String titleText, String name, String userID, String listID) {
+
+        this.listID = listID;
+        this.userID = userID;
+
+        title.setText(titleText);
+        type.setText(typeText);
+        owner.setText(name);
 
         // TODO: later we should add profile to model
-        // cover.setImage(new Image(artist.getProfile()));
-
-        this.artistID = artist.getUserID();
+        // cover.setImage(new Image(cover));
     }
 
     @FXML
-    private void handleArtistClick() {
-        ArtistController.artistID = artistID;
-        BodyController.setFxmlPath("Artist");
+    private void handleBoxClick() {
+        // we will open list
+        System.out.println("Clicked on box");
     }
 
     @FXML
-    private void handlePlayArtistClick(MouseEvent event) {
-        System.out.println("CLICKER PLAY");
+    private void handlePlayBoxClick(MouseEvent event) {
+        // we will open list and run
+        System.out.println("Clicked on play");
         event.consume();
 
     }

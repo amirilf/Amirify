@@ -1,6 +1,7 @@
 package app.gui.partials;
 
 import app.gui.base.BodyController;
+import app.gui.page.AudioController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -9,6 +10,7 @@ import javafx.scene.image.ImageView;
 public class AudioItemController {
 
     private String artistID;
+    private String audioID;
 
     @FXML
     private Label labelCounter;
@@ -25,7 +27,8 @@ public class AudioItemController {
     @FXML
     private Label songDate;
 
-    public void setAudioData(String artistID, String title, String author, String duration, String coverUrl,
+    public void setAudioData(String artistID, String audioID, String title, String author, String duration,
+            String coverUrl,
             int number) {
 
         songTitle.setText(title);
@@ -35,6 +38,7 @@ public class AudioItemController {
         labelCounter.setText(String.format("%03d", number));
 
         this.artistID = artistID;
+        this.audioID = audioID;
 
     }
 
@@ -45,7 +49,8 @@ public class AudioItemController {
 
     @FXML
     private void handleAudioClick() {
-        System.out.println("Audio is clicked" + artistID);
+        AudioController.audioID = audioID;
+        BodyController.setFxmlPath("Audio");
     }
 
     @FXML

@@ -255,8 +255,7 @@ public class BottomBarController {
     private void handleArtistClick() {
         System.out.println("Artist clicked");
 
-        // TODO : add artistID instead of this, this is wrong
-        ArtistController.artistID = artist.getText();
+        ArtistController.artistID = CurrentData.getCurrentAudio().get().getUserID();
 
         if (BodyController.getContentPath().get().equals("Artist"))
             // user was already in Artist page and clicked on another Artist in Playin bar
@@ -268,7 +267,7 @@ public class BottomBarController {
     private void handleAudioClick() {
         System.out.println("Audio clicked");
 
-        AudioController.name = title.getText();
+        AudioController.audioID = CurrentData.getCurrentAudio().get().getAudioID();
 
         if (BodyController.getContentPath().get().equals("Audio")) {
             // user was already in Audio page and clicked on another Audio in Playin bar

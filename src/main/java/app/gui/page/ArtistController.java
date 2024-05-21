@@ -14,7 +14,7 @@ public class ArtistController {
 
     @FXML
     private void initialize() {
-
+        System.out.println("ArtistID : " + artistID);
         Artist artist = AdminController.getArtistByUserID(artistID);
         lbl.setText(artist.getFullName());
     }

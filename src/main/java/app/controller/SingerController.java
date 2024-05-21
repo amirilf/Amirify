@@ -13,7 +13,7 @@ public class SingerController {
         return (Singer) CurrentUser.getUser();
     }
 
-    private static Album getAlbum(String albumID) {
+    public static Album getAlbum(String albumID) {
         for (Album album : getSinger().getAlbums())
             if (album.getAlbumID().equals(albumID))
                 return album;
