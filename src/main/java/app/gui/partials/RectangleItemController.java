@@ -53,7 +53,6 @@ public class RectangleItemController {
         // we will open list and run
         System.out.println("Clicked on play");
         event.consume();
-
     }
 
     @FXML

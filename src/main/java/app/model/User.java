@@ -15,6 +15,7 @@ abstract public class User {
     private String phone;
     private LocalDate birthDate;
     private LocalDate joinDate;
+    private String profile = "";
 
     User(String username, String password, String firstName, String lastName, String email, String phone,
             LocalDate birthDate) {
@@ -73,6 +74,10 @@ abstract public class User {
         return this.birthDate;
     }
 
+    public String getProfile() {
+        return profile;
+    }
+
     // SETTER
     public void setUsername(String username) {
         this.username = username;
@@ -108,5 +113,9 @@ abstract public class User {
 
     public void setUserID(String userID) {
         this.userID = userID;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
     }
 }

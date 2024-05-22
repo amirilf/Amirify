@@ -25,9 +25,9 @@ public class SignUp {
 
     public static Singer signUpSinger(String username, String password, String firstName, String lastName, String email,
             String phone,
-            LocalDate birthDate) {
+            LocalDate birthDate, String bg, String profile) {
 
-        Singer user = new Singer(username, password, firstName, lastName, email, phone, birthDate);
+        Singer user = new Singer(username, password, firstName, lastName, email, phone, birthDate, bg, profile);
         Database.getDB().getUsers().add(user);
         CurrentUser.login(user);
 
@@ -36,9 +36,9 @@ public class SignUp {
 
     public static Podcaster signUpPodcaster(String username, String password, String firstName, String lastName,
             String email, String phone,
-            LocalDate birthDate) {
+            LocalDate birthDate, String bg, String profile) {
 
-        Podcaster user = new Podcaster(username, password, firstName, lastName, email, phone, birthDate);
+        Podcaster user = new Podcaster(username, password, firstName, lastName, email, phone, birthDate, bg, profile);
         Database.getDB().getUsers().add(user);
         CurrentUser.login(user);
 

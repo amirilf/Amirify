@@ -18,7 +18,7 @@
    <children>
       <Pane prefHeight="240.0" prefWidth="1000.0">
          <children>
-            <ImageView fitHeight="240.0" fitWidth="1000.0" pickOnBounds="true">
+            <ImageView fx:id="bgImage" fitHeight="240.0" fitWidth="1000.0" pickOnBounds="true">
                <image>
                   <Image url="@../../images/bg-auth.png" />
                </image>

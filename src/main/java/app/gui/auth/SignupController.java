@@ -264,13 +264,14 @@ public class SignupController {
 
                 break;
 
+            // TODO : bg and profile are null here!
             case "Singer":
-                SignUp.signUpSinger(username, password, firstName, lastName, email, phone, birthDate);
+                SignUp.signUpSinger(username, password, firstName, lastName, email, phone, birthDate, "", "");
                 System.out.println("Singer is created!");
                 break;
 
             case "Podcaster":
-                SignUp.signUpPodcaster(username, password, firstName, lastName, email, phone, birthDate);
+                SignUp.signUpPodcaster(username, password, firstName, lastName, email, phone, birthDate, "", "");
                 System.out.println("Podcaster is created!");
                 break;
         }

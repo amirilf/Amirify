@@ -9,11 +9,14 @@ abstract public class Artist extends User {
     private ArrayList<User> followers = new ArrayList<User>();
     private String bio = "";
     private boolean isVerified = false;
+    private String backGround;
 
     public Artist(String username, String password, String firstName, String lastName, String email, String phone,
-            LocalDate birthDate) {
+            LocalDate birthDate, String bg, String profile) {
         super(username, password, firstName, lastName, email, phone, birthDate);
         this.income = 0;
+        this.backGround = bg;
+        this.setProfile(profile);
     }
 
     // GETTER
@@ -33,6 +36,10 @@ abstract public class Artist extends User {
         return isVerified;
     }
 
+    public String getBackGround() {
+        return backGround;
+    }
+
     // SETTER
     public void setBio(String bio) {
         this.bio = bio;
@@ -44,6 +51,10 @@ abstract public class Artist extends User {
 
     public void setVerified(boolean isVerified) {
         this.isVerified = isVerified;
+    }
+
+    public void setBackGround(String backGround) {
+        this.backGround = backGround;
     }
 
 }

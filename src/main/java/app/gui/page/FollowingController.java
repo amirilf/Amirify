@@ -39,6 +39,7 @@ public class FollowingController {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/fxml/partials/circle-item.fxml"));
                 VBox artistVbox = loader.load();
                 CircleItemController controller = loader.getController();
+
                 controller.setArtist(artist);
 
                 hbox.getChildren().add(artistVbox);

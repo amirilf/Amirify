@@ -20,7 +20,7 @@
             <Image url="@../../media/cover.png" />
          </image>
       </ImageView>
-      <Label fx:id="songTitle" layoutX="137.0" layoutY="11.0" onMouseClicked="#handleAudioClick" styleClass="song-title" text="Title example">
+      <Label fx:id="songTitle" layoutX="137.0" layoutY="11.0" onMouseClicked="#handleAudioClick" styleClass="song-title" text="hello from the earth">
          <font>
             <Font name="Dyuthi Regular" size="20.0" />
          </font>
@@ -44,7 +44,7 @@
             <Image url="@../../images/icon/icon-three-dots.png" />
          </image>
       </ImageView>
-      <HBox alignment="CENTER" layoutX="272.0" layoutY="15.0" prefHeight="45.0" prefWidth="500.0" spacing="60.0">
+      <HBox alignment="CENTER" layoutX="468.0" layoutY="15.0" prefHeight="45.0" prefWidth="200.0" spacing="60.0">
          <children>
             <Label fx:id="songData" text="Date Example">
                <font>

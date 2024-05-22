@@ -6,6 +6,7 @@ import app.model.Artist;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
@@ -23,9 +24,7 @@ public class CircleItemController {
 
     public void setArtist(Artist artist) {
         lbl_name.setText(artist.getFullName());
-
-        // TODO: later we should add profile to model
-        // cover.setImage(new Image(artist.getProfile()));
+        cover.setImage(new Image(getClass().getResource(artist.getProfile()).toString()));
 
         this.artistID = artist.getUserID();
     }

@@ -15,6 +15,8 @@ import app.model.Singer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -22,6 +24,9 @@ import javafx.scene.layout.VBox;
 public class ArtistController {
 
     public static String artistID = "";
+
+    @FXML
+    private ImageView bgImage;
 
     @FXML
     private VBox contentVBox;
@@ -63,7 +68,12 @@ public class ArtistController {
         int top = isSinger ? 5 : 4; // 5 for singer 4 for podcaster
         List<Audio> topAudios = app.controller.ArtistController.getTopAudios(artist, top);
 
+        // set bg image
+        bgImage.setImage(new Image(getClass().getResource(artist.getBackGround()).toString()));
+
         artistName.setText(artist.getFullName());
+
+        // number of followers
         statistics.setText("" + artist.getFollowers().size());
 
         // checking verifed label
@@ -75,7 +85,7 @@ public class ArtistController {
         int counter = 1;
         for (Audio audio : topAudios) {
             try {
-
+                // TODO : variable the path
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/fxml/partials/audio-item.fxml"));
                 Pane audioPane = loader.load();
                 AudioItemController controller = loader.getController();
@@ -96,6 +106,7 @@ public class ArtistController {
 
             for (Album album : albums) {
                 try {
+                    // TODO : variable the path
                     FXMLLoader loader = new FXMLLoader(
                             getClass().getResource("/app/fxml/partials/rectangle-item.fxml"));
                     VBox albumVBox = loader.load();

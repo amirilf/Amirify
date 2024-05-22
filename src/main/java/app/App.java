@@ -4,12 +4,9 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 import app.controller.ListenterController;
-import app.controller.SingerController;
 import app.controller.auth.CurrentUser;
 import app.controller.auth.SignUp;
 import app.model.Admin;
-import app.model.Artist;
-import app.model.Music;
 import app.util.LoadAudios;
 import app.util.Variables;
 import javafx.application.Application;

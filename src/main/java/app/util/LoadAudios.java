@@ -2,12 +2,19 @@ package app.util;
 
 import java.io.File;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Random;
 
 import app.controller.SingerController;
 import app.controller.auth.CurrentUser;
 import app.controller.auth.SignUp;
+import app.model.Genre;
+import app.model.Music;
 
 public class LoadAudios {
+
+    private static ArrayList<String> genres = Genre.getGenreNames();
+    private static int genres_length = genres.size();
 
     public static void loadAudios() {
 
@@ -36,6 +43,13 @@ public class LoadAudios {
             String[] nameParts = artistName.split(" ", 2);
             String firstName = nameParts[0];
 
+            // get picture paths
+            String bgPath = "/app/media/Songs/" + artistName + "/bg.png";
+            String profPath = "/app/media/Songs/" + artistName + "/prof.jpeg";
+
+            System.out.println(bgPath);
+            System.out.println(profPath);
+
             // like for NF he only has first name of "NF" and doesn't have last name 0-0
             String lastName = nameParts.length > 1 ? nameParts[1] : "";
 
@@ -45,7 +59,7 @@ public class LoadAudios {
             SignUp.signUpSinger((firstName + lastName).toLowerCase(), "1234", firstName, lastName,
                     "email@email.com",
                     "09123456789",
-                    LocalDate.of(2010, 10, 10));
+                    LocalDate.of(2010, 10, 10), bgPath, profPath);
 
             // again looking for dirs (albums)
 
@@ -87,7 +101,10 @@ public class LoadAudios {
                     String audioName = audioFileName.substring(0, audioFileName.lastIndexOf('.')).split(" - ")[1];
 
                     System.out.println("    Album id : " + album_counter);
-                    SingerController.addMusic(audioName, "Pop", "test", audioPath, (album_counter + ""));
+                    Music music = SingerController.addMusic(audioName, genres.get(new Random().nextInt(genres_length)),
+                            "test", audioPath, (album_counter + ""));
+                    music.setPlayedTimes(new Random().nextInt(10000));
+                    music.setLikes(new Random().nextInt(10000));
 
                     System.out.println("    Audio: " + audioName + " added");
                 }
