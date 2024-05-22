@@ -12,31 +12,37 @@ public class SignUp {
     private SignUp() {
     };
 
-    public static void signUpListener(String username, String password, String firstName, String lastName,
+    public static BasicListener signUpListener(String username, String password, String firstName, String lastName,
             String email, String phone,
-            LocalDate date) {
+            LocalDate birthDate) {
 
-        BasicListener user = new BasicListener(username, password, firstName, lastName, email, phone, date);
+        BasicListener user = new BasicListener(username, password, firstName, lastName, email, phone, birthDate);
         Database.getDB().getUsers().add(user);
         CurrentUser.login(user);
+
+        return user;
     }
 
-    public static void signUpSinger(String username, String password, String firstName, String lastName, String email,
+    public static Singer signUpSinger(String username, String password, String firstName, String lastName, String email,
             String phone,
-            LocalDate date) {
+            LocalDate birthDate) {
 
-        Singer user = new Singer(username, password, firstName, lastName, email, phone, date);
+        Singer user = new Singer(username, password, firstName, lastName, email, phone, birthDate);
         Database.getDB().getUsers().add(user);
         CurrentUser.login(user);
+
+        return user;
     }
 
-    public static void signUpPodcaster(String username, String password, String firstName, String lastName,
+    public static Podcaster signUpPodcaster(String username, String password, String firstName, String lastName,
             String email, String phone,
-            LocalDate date) {
+            LocalDate birthDate) {
 
-        Podcaster user = new Podcaster(username, password, firstName, lastName, email, phone, date);
+        Podcaster user = new Podcaster(username, password, firstName, lastName, email, phone, birthDate);
         Database.getDB().getUsers().add(user);
         CurrentUser.login(user);
+
+        return user;
     }
 
     public static boolean validUsername(String username) {
