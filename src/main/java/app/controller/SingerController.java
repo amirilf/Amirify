@@ -1,5 +1,7 @@
 package app.controller;
 
+import java.util.List;
+
 import app.controller.auth.CurrentUser;
 import app.model.Album;
 import app.model.Database;
@@ -20,6 +22,20 @@ public class SingerController {
         return null;
     }
 
+    public static List<Album> getAlbums(String singerID) {
+        Singer singer = (Singer) AdminController.getArtistByUserID(singerID);
+        return singer.getAlbums();
+    }
+
+    public static List<Album> getAlbums(String singerID, int number) {
+
+        // return n last album
+
+        List<Album> lastAlbums = getAlbums(singerID);
+        int size = lastAlbums.size();
+        return size <= number ? lastAlbums : lastAlbums.subList(size - number, size);
+    }
+
     public static String getAlbumsString() {
         int length = getSinger().getAlbums().size();
         if (length == 0)
@@ -36,37 +52,31 @@ public class SingerController {
         return sb.toString();
     }
 
-    public static String addAlbum(String name) {
+    public static Album addAlbum(String name, String cover) {
         Singer singer = getSinger();
-        Album album = new Album(name, singer.getUserID());
+        Album album = new Album(name, singer.getUserID(), cover);
         singer.getAlbums().add(album);
-        return "Album " + name + " (ID: " + album.getAlbumID() + ") successfully created";
+        return album;
     }
 
-    public static String addMusic(String title, String genre, String lyrics, String link, String cover,
+    public static Music addMusic(String title, String genre, String lyrics, String link,
             String albumID) {
 
-        Genre genreOBJ;
-        try {
-            genreOBJ = Genre.valueOf(genre);
-        } catch (Exception e) {
-            return "Gener is not valid! see Help for more";
-        }
+        // check genre exists
+        Genre genreOBJ = Genre.valueOf(genre);
 
+        // check album exists
         Album album = getAlbum(albumID);
-        if (album == null)
-            return "There is no Album with this albumID";
 
         // TODO : make validation ok using exceptions
         // if (!LinkValidator.isValid(link))
         // return LinkValidator.ERROR;
 
         Music music = new Music(title, getSinger().getUserID(), genreOBJ, link,
-                cover, lyrics);
+                album.getCover(), lyrics);
         album.getMusics().add(music);
         Database.getDB().getAudios().add(music);
-        return "Music " + music.getTitle() + "(ID : " + music.getAudioID() + ") successfuly added in Album "
-                + album.getName() + " by you!";
+        return music;
 
     }
 

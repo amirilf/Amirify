@@ -8,6 +8,8 @@ import app.controller.SingerController;
 import app.controller.auth.CurrentUser;
 import app.controller.auth.SignUp;
 import app.model.Admin;
+import app.model.Artist;
+import app.model.Music;
 import app.util.Variables;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -41,6 +43,10 @@ public class App extends Application {
                 SingerController.addAlbum("Hello Album");
                 SingerController.addMusic("Hello", "Pop", "This is sample lyrics", "/app/media/Adele - Hello.mp3",
                                 "/app/media/cover2.png", "1");
+                Music music = SingerController.addMusic("Hi", "Rock", "This is sample lyrics",
+                                "/app/media/Adele - Hello.mp3",
+                                "/app/media/cover2.png", "1");
+                music.setPlayedTimes(1924920);
                 CurrentUser.logout();
 
                 SignUp.signUpSinger("justin", "justin1234", "Justin", "Bieber", "justin@email.com", "09966337929",
@@ -48,6 +54,8 @@ public class App extends Application {
                 SingerController.addAlbum("Purpose");
                 SingerController.addMusic("Love Yourself", "Pop", "This is sample lyrics",
                                 "/app/media/Love Yourself.mp3", "/app/media/cover3.png", "2");
+                Artist artist = (Artist) CurrentUser.getUser();
+                artist.setVerified(true);
                 CurrentUser.logout();
 
                 SignUp.signUpSinger("trevor", "trevor1234", "Daniel", "Trevor", "daniel@email.com", "09966337929",

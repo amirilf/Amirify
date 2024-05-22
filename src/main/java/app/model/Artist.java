@@ -8,6 +8,7 @@ abstract public class Artist extends User {
     private double income;
     private ArrayList<User> followers = new ArrayList<User>();
     private String bio = "";
+    private boolean isVerified = false;
 
     public Artist(String username, String password, String firstName, String lastName, String email, String phone,
             LocalDate birthDate) {
@@ -28,6 +29,10 @@ abstract public class Artist extends User {
         return this.bio;
     }
 
+    public boolean isVerified() {
+        return isVerified;
+    }
+
     // SETTER
     public void setBio(String bio) {
         this.bio = bio;
@@ -35,6 +40,10 @@ abstract public class Artist extends User {
 
     public void setIncome(double income) {
         this.income = income;
+    }
+
+    public void setVerified(boolean isVerified) {
+        this.isVerified = isVerified;
     }
 
 }

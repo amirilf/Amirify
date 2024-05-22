@@ -1,5 +1,6 @@
 package app.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 // import utility.RandomGenerator;
 
@@ -12,11 +13,15 @@ public class Album {
     private String description = ""; // optional
     private final String userID;
     private ArrayList<Music> musics = new ArrayList<Music>();
+    private String cover;
+    private final LocalDate datePublished;
 
-    public Album(String name, String userID) {
+    public Album(String name, String userID, String cover) {
+        this.cover = cover;
         this.name = name;
         this.userID = userID;
         this.albumID = String.valueOf(id++);
+        this.datePublished = LocalDate.now();
         // this.albumID = RandomGenerator.randomIDGenerator(4, id++, 3);
     }
 
@@ -41,6 +46,14 @@ public class Album {
         return this.description;
     }
 
+    public String getCover() {
+        return cover;
+    }
+
+    public LocalDate getDatePublished() {
+        return datePublished;
+    }
+
     // SETTER
 
     public void setName(String name) {
@@ -49,6 +62,10 @@ public class Album {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
     }
 
 }

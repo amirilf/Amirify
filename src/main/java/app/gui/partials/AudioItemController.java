@@ -25,17 +25,17 @@ public class AudioItemController {
     private Label songAuthor;
 
     @FXML
-    private Label songDate;
+    private Label songData;
 
-    public void setAudioData(String artistID, String audioID, String title, String author, String duration,
+    public void setAudioData(String artistID, String audioID, String title, String author, String metaData,
             String coverUrl,
             int number) {
 
         songTitle.setText(title);
         songAuthor.setText(author);
-        songDate.setText(duration);
+        songData.setText(metaData);
         coverImage.setImage(new Image(coverUrl));
-        labelCounter.setText(String.format("%03d", number));
+        labelCounter.setText("" + number);
 
         this.artistID = artistID;
         this.audioID = audioID;

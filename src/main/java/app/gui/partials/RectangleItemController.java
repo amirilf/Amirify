@@ -3,6 +3,7 @@ package app.gui.partials;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
@@ -20,23 +21,25 @@ public class RectangleItemController {
     private Label title;
 
     @FXML
-    private Label type;
+    private Label first;
 
     @FXML
-    private Label owner;
+    private Label second;
 
     // type => Audio Album Episode Podcast or Playlist
-    public void setArtist(String typeText, String cover, String titleText, String name, String userID, String listID) {
+    public void setArtist(String coverPath, String titleText, String firstText, String secondText, String userID,
+            String listID) {
 
         this.listID = listID;
         this.userID = userID;
 
-        title.setText(titleText);
-        type.setText(typeText);
-        owner.setText(name);
+        cover.setImage(new Image(getClass().getResource(coverPath).toString()));
 
-        // TODO: later we should add profile to model
-        // cover.setImage(new Image(cover));
+        title.setText(titleText);
+
+        first.setText(firstText);
+        second.setText(secondText);
+
     }
 
     @FXML

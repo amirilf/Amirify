@@ -1,6 +1,8 @@
 package app.controller;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import app.controller.auth.CurrentUser;
 import app.model.Album;
@@ -19,12 +21,29 @@ public class ArtistController {
         return (Artist) CurrentUser.getUser();
     }
 
-    private static ArrayList<Audio> getAudios() {
+    public static ArrayList<Audio> getAudios() {
         ArrayList<Audio> audios = new ArrayList<>();
         for (Audio audio : Database.getDB().getAudios())
             if (audio.getUserID().equals(getArtist().getUserID()))
                 audios.add(audio);
         return (audios.size() == 0) ? null : audios;
+    }
+
+    public static List<Audio> getTopAudios(Artist artist, int number) {
+        String artistID = artist.getUserID();
+        ArrayList<Audio> audios = new ArrayList<>();
+
+        for (Audio audio : Database.getDB().getAudios()) {
+            if (audio.getUserID().equals(artistID)) {
+                audios.add(audio);
+            }
+        }
+
+        // return top {number} audios based on likes
+        return audios.stream()
+                .sorted((a1, a2) -> Integer.compare(a2.getLikes(), a1.getLikes()))
+                .limit(number)
+                .collect(Collectors.toList());
     }
 
     public static String getAudiosPlayedTimesString() {
