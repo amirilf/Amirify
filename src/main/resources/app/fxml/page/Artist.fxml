@@ -86,7 +86,7 @@
                               <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </Label>
-                        <Label fx:id="seemoreAudios" layoutX="880.0" layoutY="23.0" styleClass="lbl" text="See all">
+                        <Label fx:id="seemoreAudios" layoutX="880.0" layoutY="23.0" onMouseClicked="#handleSeeAllAudios" styleClass="lbl" text="See all" visible="false">
                            <font>
                               <Font name="Dyuthi Regular" size="15.0" />
                            </font>
@@ -107,7 +107,7 @@
                               <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </Label>
-                        <Label fx:id="seemoreAlbums" layoutX="880.0" layoutY="23.0" styleClass="lbl" text="See all">
+                        <Label fx:id="seemoreAlbums" layoutX="880.0" layoutY="23.0" onMouseClicked="#handleSeeAllAlbums" styleClass="lbl" text="See all" visible="false">
                            <font>
                               <Font name="Dyuthi Regular" size="15.0" />
                            </font>

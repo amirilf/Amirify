@@ -64,10 +64,18 @@ public class ArtistController {
         Artist artist = AdminController.getArtistByUserID(artistID);
         boolean isSinger = artist instanceof Singer;
 
-        int top = isSinger ? 5 : 4; // 5 for singer 4 for podcaster
+        // we only show 5 items but if there is 6 items
+        // then we know there should `show more` label:D
+        int top = 6;
 
         // top in plays
         List<Audio> topAudios = app.controller.ArtistController.getTopAudios(artist, top, 'p');
+
+        // remove last item & make see more visible
+        if (topAudios.size() == 6) {
+            seemoreAudios.setVisible(true);
+            topAudios.removeLast();
+        }
 
         // set bg image
         bgImage.setImage(new Image(getClass().getResource(artist.getBackGround()).toString()));
@@ -103,7 +111,15 @@ public class ArtistController {
 
         // here we check if it's a singer or podcaster
         if (isSinger) {
-            List<Album> albums = SingerController.getAlbums(artistID, 4);
+
+            // get 5 but we actually show 4 latest album
+            List<Album> albums = SingerController.getAlbums(artistID, 5);
+
+            // visible see more label
+            if (albums.size() == 5) {
+                seemoreAlbums.setVisible(true);
+                albums.removeLast();
+            }
 
             for (Album album : albums) {
                 try {
@@ -126,4 +142,15 @@ public class ArtistController {
             contentVBox.getChildren().remove(albumsPane);
         }
     }
+
+    @FXML
+    private void handleSeeAllAudios() {
+        System.out.println("see all audios clicked!");
+    }
+
+    @FXML
+    private void handleSeeAllAlbums() {
+        System.out.println("see all albums clicked!");
+    }
+
 }
