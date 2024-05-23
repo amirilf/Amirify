@@ -49,6 +49,13 @@ public class AudioItemController {
 
     @FXML
     private void handleAudioClick() {
+
+        // set fxml path to "" to be able to reload the page
+        // cuz it will not change since the last path was also "Audio")
+        if (BodyController.getContentPath().get().equals("Audio")) {
+            BodyController.setFxmlPath("");
+        }
+
         AudioController.audioID = audioID;
         BodyController.setFxmlPath("Audio");
     }

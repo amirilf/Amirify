@@ -2,7 +2,6 @@ package app.gui.page;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Locale;
 
 import app.controller.AdminController;
 import app.controller.SingerController;
@@ -92,7 +91,7 @@ public class ArtistController {
                 Pane audioPane = loader.load();
                 AudioItemController controller = loader.getController();
                 controller.setAudioData(audio.getUserID(), audio.getAudioID(), audio.getTitle(), artist.getFullName(),
-                        String.format(Locale.US, "%,d", audio.getPlayedTimes()) + " Plays", audio.getCover(),
+                        audio.getHumanReadablePlays(), audio.getCover(),
                         counter++);
 
                 audiosVBox.getChildren().add(audioPane);

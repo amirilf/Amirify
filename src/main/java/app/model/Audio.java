@@ -10,6 +10,7 @@ import java.time.LocalDate;
 // import utility.RandomGenerator;;
 
 import app.util.Duration;
+import app.util.Plays;
 import javazoom.jl.decoder.Bitstream;
 import javazoom.jl.decoder.Header;
 import javazoom.jl.decoder.JavaLayerException;
@@ -162,6 +163,10 @@ public class Audio {
 
     public String getHumanReadableDuration() {
         return Duration.durationToString(this.duration);
+    }
+
+    public String getHumanReadablePlays() {
+        return Plays.playTimesToString(this.playedTimes);
     }
 
     public String getStandardDuration() {

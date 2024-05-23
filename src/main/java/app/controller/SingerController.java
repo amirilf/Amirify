@@ -1,9 +1,13 @@
 package app.controller;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import app.controller.auth.CurrentUser;
 import app.model.Album;
+import app.model.Audio;
 import app.model.Database;
 import app.model.Genre;
 import app.model.Music;
@@ -19,6 +23,33 @@ public class SingerController {
         for (Album album : getSinger().getAlbums())
             if (album.getAlbumID().equals(albumID))
                 return album;
+        return null;
+    }
+
+    public static List<Audio> getSimilarAudios(Audio audio, int n) {
+
+        // return n similar audios based on Genre and Artist
+
+        Stream<Audio> audioStream = Database.getDB().getAudios().stream()
+                .filter(a -> (a.getGenre().equals(audio.getGenre()) || (a.getUserID().equals(audio.getUserID())))
+                        && !a.equals(audio));
+        List<Audio> similars = audioStream.collect(Collectors.toList());
+        Collections.shuffle(similars);
+        return similars.subList(0, Math.min(similars.size(), n));
+    }
+
+    public static Album getAlbumByAudioID(String singerID, String audioID) {
+
+        Singer singer = (Singer) AdminController.getArtistByUserID(singerID);
+
+        for (Album album : singer.getAlbums()) {
+            for (Music music : album.getMusics()) {
+                if (music.getAudioID().equals(audioID)) {
+                    return album;
+                }
+            }
+        }
+
         return null;
     }
 

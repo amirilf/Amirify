@@ -1,0 +1,26 @@
+* {
+    /* -fx-background-color: #747f81; */
+    -fx-background-radius: 10px
+}
+
+#contentVBox {
+    -fx-border-color: transparent;
+}
+
+.playMediaImage {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0);
+    -fx-transition: all 0.3s;
+}
+
+.playMediaImage:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0, 0, 0);
+}
+
+
+.link-label:hover{
+    -fx-cursor: hand;
+    -fx-underline: true;
+    -fx-underline-width: 2px;
+}
