@@ -23,7 +23,7 @@
                   <Circle centerX="90" centerY="90" radius="90" />
                </clip>
             </ImageView>
-            <ImageView onMouseClicked="#handlePlayArtistClick"  fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
+            <ImageView fx:id="playMediaIcon" onMouseClicked="#handlePlayArtistClick"  fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="playMediaImage" visible="false">
                <image>
                   <Image url="@../../images/icon/icon-playmedia.png" />
                </image>

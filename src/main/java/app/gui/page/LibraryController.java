@@ -28,6 +28,7 @@ public class LibraryController {
         System.out.println("Selected item: " + selectedText);
     }
 
+    // TODO : remove all these shits
     @FXML
     private void showPlayMedia(MouseEvent event) {
         if (event.getSource() instanceof VBox) {

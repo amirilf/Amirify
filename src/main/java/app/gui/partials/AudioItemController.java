@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class AudioItemController {
 
@@ -17,6 +18,9 @@ public class AudioItemController {
 
     @FXML
     private ImageView coverImage;
+
+    @FXML
+    private ImageView playMediaIcon;
 
     @FXML
     private Label songTitle;
@@ -70,4 +74,15 @@ public class AudioItemController {
     private void handleOptionsClick() {
         System.out.println("Options btn is clicked!" + artistID);
     }
+
+    @FXML
+    private void showPlayMedia(MouseEvent event) {
+        playMediaIcon.setVisible(true);
+    }
+
+    @FXML
+    private void hidePlayMedia(MouseEvent event) {
+        playMediaIcon.setVisible(false);
+    }
+
 }

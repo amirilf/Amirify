@@ -9,6 +9,7 @@ import javafx.scene.layout.VBox;
 
 public class HomeController {
 
+    // TODO : remove all these shits
     @FXML
     private void showPlayMedia(MouseEvent event) {
         if (event.getSource() instanceof VBox) {

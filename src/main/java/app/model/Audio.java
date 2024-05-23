@@ -1,13 +1,10 @@
 package app.model;
 
 import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDate;
-// import utility.RandomGenerator;;
 
 import app.util.Duration;
 import app.util.Plays;
@@ -32,7 +29,7 @@ public class Audio {
 
     public Audio(String title, String userID, Genre genre, String link,
             String cover) {
-        // this.audioID = RandomGenerator.randomIDGenerator(4, id++, 3);
+
         this.audioID = String.valueOf(id++);
         this.title = title;
         this.userID = userID;

@@ -20,6 +20,7 @@ public class ResultController {
         searchInput.setText(CurrentData.getSearch());
     }
 
+    // TODO : remove these shits
     @FXML
     private void showPlayMedia(MouseEvent event) {
         if (event.getSource() instanceof VBox) {
