@@ -1,5 +1,7 @@
 package app.gui.partials;
 
+import app.gui.base.BodyController;
+import app.gui.page.PlaylistController;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -44,15 +46,15 @@ public class RectangleItemController {
 
     @FXML
     private void handleBoxClick() {
-        // we will open list
-        System.out.println("Clicked on box");
+        PlaylistController.userID = userID;
+        PlaylistController.listID = listID;
+        BodyController.setFxmlPath("Playlist");
     }
 
     @FXML
     private void handlePlayBoxClick(MouseEvent event) {
-        // we will open list and run
-        System.out.println("Clicked on play");
-        event.consume();
+        PlaylistController.play = true;
+        System.out.println("Play clicked!!");
     }
 
     @FXML

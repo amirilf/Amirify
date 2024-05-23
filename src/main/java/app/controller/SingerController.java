@@ -22,6 +22,14 @@ public class SingerController {
         return null;
     }
 
+    public static Album getAlbum(String albumID, String singerID) {
+        Singer singer = (Singer) AdminController.getArtistByUserID(singerID);
+        for (Album album : singer.getAlbums())
+            if (album.getAlbumID().equals(albumID))
+                return album;
+        return null;
+    }
+
     public static List<Album> getAlbums(String singerID) {
         Singer singer = (Singer) AdminController.getArtistByUserID(singerID);
         return singer.getAlbums();
@@ -34,22 +42,6 @@ public class SingerController {
         List<Album> lastAlbums = getAlbums(singerID);
         int size = lastAlbums.size();
         return size <= number ? lastAlbums : lastAlbums.subList(size - number, size);
-    }
-
-    public static String getAlbumsString() {
-        int length = getSinger().getAlbums().size();
-        if (length == 0)
-            return "You have no albums!";
-
-        StringBuilder sb = new StringBuilder("Albums: (ID | Name)\n");
-        sb.ensureCapacity(length * 30);
-        int counter = 1;
-        int digits = String.valueOf(length).length();
-        for (Album album : getSinger().getAlbums())
-            sb.append("    " + String.format("%0" + digits + "d", counter) + ") " + album.getAlbumID() + " | "
-                    + album.getName() + "\n");
-
-        return sb.toString();
     }
 
     public static Album addAlbum(String name, String cover) {

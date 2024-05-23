@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.controller.auth.CurrentUser;
+import app.model.Database;
 import app.model.User;
 import app.util.validators.DateValidator;
 
@@ -8,6 +9,17 @@ public class UserController {
 
     private UserController() {
     };
+
+    public static User getUser(String userID) {
+        for (User user : Database.getDB().getUsers()) {
+            if (user.getUserID().equals(userID)) {
+                return user;
+            }
+        }
+
+        // TODO : in all cases like this there should be exceptions!
+        return null;
+    }
 
     public static String getUserInfo() {
         User user = CurrentUser.getUser();

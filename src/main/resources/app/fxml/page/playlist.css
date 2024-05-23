@@ -1,5 +1,5 @@
 * {
-    -fx-background-color: #747f81;
+    /* -fx-background-color: #747f81; */
     -fx-background-radius: 10px
 }
 
@@ -49,4 +49,10 @@
     -fx-scale-x: 1.1;
     -fx-scale-y: 1.1;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0, 0, 0);
+}
+
+
+.owner-link:hover{
+    -fx-underline: true;
+    -fx-underline-width: 2px;
 }

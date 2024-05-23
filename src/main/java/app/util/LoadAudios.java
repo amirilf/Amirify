@@ -10,6 +10,7 @@ import app.controller.auth.CurrentUser;
 import app.controller.auth.SignUp;
 import app.model.Genre;
 import app.model.Music;
+import app.model.Singer;
 
 public class LoadAudios {
 
@@ -56,10 +57,13 @@ public class LoadAudios {
             System.out.println("Artist: " + firstName + " " + lastName);
 
             // it will also login the singer
-            SignUp.signUpSinger((firstName + lastName).toLowerCase(), "1234", firstName, lastName,
+            Singer singer = SignUp.signUpSinger((firstName + lastName).toLowerCase(), "1234", firstName, lastName,
                     "email@email.com",
                     "09123456789",
                     LocalDate.of(2010, 10, 10), bgPath, profPath);
+
+            // randomly make artists verified
+            singer.setVerified(new Random().nextBoolean());
 
             // again looking for dirs (albums)
 

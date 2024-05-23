@@ -66,7 +66,9 @@ public class ArtistController {
         boolean isSinger = artist instanceof Singer;
 
         int top = isSinger ? 5 : 4; // 5 for singer 4 for podcaster
-        List<Audio> topAudios = app.controller.ArtistController.getTopAudios(artist, top);
+
+        // top in plays
+        List<Audio> topAudios = app.controller.ArtistController.getTopAudios(artist, top, 'p');
 
         // set bg image
         bgImage.setImage(new Image(getClass().getResource(artist.getBackGround()).toString()));

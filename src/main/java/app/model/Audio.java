@@ -1,7 +1,18 @@
 package app.model;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.time.LocalDate;
 // import utility.RandomGenerator;;
+
+import app.util.Duration;
+import javazoom.jl.decoder.Bitstream;
+import javazoom.jl.decoder.Header;
+import javazoom.jl.decoder.JavaLayerException;
 
 public class Audio {
 
@@ -16,6 +27,7 @@ public class Audio {
     private String link;
     private String cover;
     private String caption = "";
+    private long duration;
 
     public Audio(String title, String userID, Genre genre, String link,
             String cover) {
@@ -29,6 +41,14 @@ public class Audio {
         this.link = link;
         this.cover = cover;
         this.likes = 0;
+
+        try {
+            this.duration = calculateDuration(link);
+        } catch (IOException | JavaLayerException e) {
+            System.out.println(link);
+            System.out.println(e.getMessage());
+        }
+
     }
 
     // GETTER
@@ -72,6 +92,10 @@ public class Audio {
         return this.publishDate;
     }
 
+    public long getDuration() {
+        return duration;
+    }
+
     // SETTER
     public void setLikes(int likes) {
         this.likes = likes;
@@ -110,4 +134,38 @@ public class Audio {
     public void increasePlayTime() {
         this.playedTimes++;
     }
+
+    private int calculateDuration(String filePath) throws IOException, JavaLayerException {
+
+        InputStream fileStream = getClass().getResourceAsStream(filePath);
+        if (fileStream == null) {
+            throw new FileNotFoundException("File not found: " + filePath);
+        }
+
+        BufferedInputStream buffer = new BufferedInputStream(fileStream);
+        Bitstream bitstream = new Bitstream(buffer);
+        int time = 0; // milli seconds!
+        Header frame;
+        try {
+            while ((frame = bitstream.readFrame()) != null) {
+                time += frame.ms_per_frame();
+                bitstream.closeFrame();
+            }
+        } finally {
+            bitstream.close();
+            buffer.close();
+            fileStream.close();
+        }
+
+        return time;
+    }
+
+    public String getHumanReadableDuration() {
+        return Duration.durationToString(this.duration);
+    }
+
+    public String getStandardDuration() {
+        return Duration.durationToStandardFormat(this.duration);
+    }
+
 }

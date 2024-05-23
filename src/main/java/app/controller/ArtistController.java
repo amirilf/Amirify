@@ -29,7 +29,10 @@ public class ArtistController {
         return (audios.size() == 0) ? null : audios;
     }
 
-    public static List<Audio> getTopAudios(Artist artist, int number) {
+    public static List<Audio> getTopAudios(Artist artist, int number, char type) {
+
+        // type => p:plays or l:likes
+
         String artistID = artist.getUserID();
         ArrayList<Audio> audios = new ArrayList<>();
 
@@ -40,10 +43,14 @@ public class ArtistController {
         }
 
         // return top {number} audios based on likes
-        return audios.stream()
+        return type == 'l' ? audios.stream()
                 .sorted((a1, a2) -> Integer.compare(a2.getLikes(), a1.getLikes()))
                 .limit(number)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList())
+                : audios.stream()
+                        .sorted((a1, a2) -> Integer.compare(a2.getPlayedTimes(), a1.getPlayedTimes()))
+                        .limit(number)
+                        .collect(Collectors.toList());
     }
 
     public static String getAudiosPlayedTimesString() {
