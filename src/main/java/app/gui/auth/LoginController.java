@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import app.controller.AdminController;
 import app.controller.auth.CurrentData;
@@ -81,22 +82,17 @@ public class LoginController {
             stage.setScene(scene);
             stage.setTitle("Amirify | " + CurrentUser.getUser().getFullName());
 
-            // TODO : it could be by default Home and not setting every time ):
             // change default body to Home page
-            BodyController.setFxmlPath("Home");
+            BodyController.setFxmlPath(List.of("page/Home"));
 
             // TODO : remove these test
             ArrayList<Audio> audios = AdminController.getAudios();
             CurrentData.playlist.addAll(audios);
             CurrentData.setSelectedIndex(0);
 
-            Login.login(username, password);
             System.out.println(CurrentUser.getUser().getFullName());
 
         } catch (UserNotFoundException | WrongPasswordException e) {
-
-            // TODO : remove line | only testing exceptions work good
-            System.out.println(e.getMessage());
 
             // showing error message
             errorMessage.setVisible(true);

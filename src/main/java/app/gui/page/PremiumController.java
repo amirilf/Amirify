@@ -1,5 +1,7 @@
 package app.gui.page;
 
+import java.util.List;
+
 import app.controller.ListenterController;
 import app.controller.auth.CurrentUser;
 import app.exceptions.NotEnoughCredit;
@@ -43,7 +45,7 @@ public class PremiumController {
 
     @FXML
     private void handleAddCreditButton() {
-        BodyController.setFxmlPath("AddCredit");
+        BodyController.setFxmlPath(List.of("page/AddCredit"));
     }
 
     @FXML

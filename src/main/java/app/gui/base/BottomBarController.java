@@ -18,11 +18,10 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
+import java.util.List;
 import java.util.Random;
 
 import app.controller.auth.CurrentData;
-import app.gui.page.ArtistController;
-import app.gui.page.AudioController;
 import app.model.Audio;
 import app.util.Variables;
 
@@ -249,31 +248,21 @@ public class BottomBarController {
         artist.setDisable(true);
     }
 
-    // mouse clicked on Artist name or Audio name
-
     @FXML
     private void handleArtistClick() {
-        System.out.println("Artist clicked");
-
-        ArtistController.artistID = CurrentData.getCurrentAudio().get().getUserID();
-
         if (BodyController.getContentPath().get().equals("Artist"))
             // user was already in Artist page and clicked on another Artist in Playin bar
-            BodyController.setFxmlPath("");
-        BodyController.setFxmlPath("Artist");
+            BodyController.setFxmlPath(null);
+        BodyController.setFxmlPath(List.of("page/Artist", CurrentData.getCurrentAudio().get().getUserID()));
     }
 
     @FXML
     private void handleAudioClick() {
-        System.out.println("Audio clicked");
-
-        AudioController.audioID = CurrentData.getCurrentAudio().get().getAudioID();
-
         if (BodyController.getContentPath().get().equals("Audio")) {
             // user was already in Audio page and clicked on another Audio in Playin bar
-            BodyController.setFxmlPath("");
+            BodyController.setFxmlPath(null);
         }
-        BodyController.setFxmlPath("Audio");
+        BodyController.setFxmlPath(List.of("page/Audio", CurrentData.getCurrentAudio().get().getAudioID()));
     }
 
 }

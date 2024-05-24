@@ -1,7 +1,8 @@
 package app.gui.partials;
 
+import java.util.List;
+
 import app.gui.base.BodyController;
-import app.gui.page.ArtistController;
 import app.model.Artist;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -31,15 +32,13 @@ public class CircleItemController {
 
     @FXML
     private void handleArtistClick() {
-        ArtistController.artistID = artistID;
-        BodyController.setFxmlPath("Artist");
+        BodyController.setFxmlPath(List.of("page/Artist", artistID));
     }
 
     @FXML
     private void handlePlayArtistClick(MouseEvent event) {
         System.out.println("CLICKER PLAY");
-        event.consume();
-
+        handleArtistClick();
     }
 
     @FXML

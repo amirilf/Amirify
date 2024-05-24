@@ -13,6 +13,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.util.List;
 
 public class SearchController {
 
@@ -104,8 +105,11 @@ public class SearchController {
             System.out.println("empty");
         } else {
             searchInput.setStyle("-fx-border-color: white;");
+
+            // TODO : handle search query using historyPages
             CurrentData.setSearch(searchText);
-            BodyController.setFxmlPath("Result");
+            BodyController.setFxmlPath(List.of("page/Result"));
+
         }
     }
 }

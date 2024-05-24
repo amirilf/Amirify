@@ -1,7 +1,9 @@
 package app.gui.base;
 
 import java.io.IOException;
+import java.util.List;
 
+import app.controller.auth.CurrentData;
 import app.util.Variables;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -16,7 +18,8 @@ import javafx.scene.layout.AnchorPane;
  * then in that controller we will update contentPath by its setter, and here we have a listener
  * which calls loadPage method after realizing that contentPath is updated, then we achieve the goal :D
  * 
- * we also don't need to set path like => "/app/..." we just send "Home" or ... {the fxml file name even without .fxml}
+ * we also don't need to set path like => "/app/..." we just send "page/Home" or ... {without .fxml}
+ * ex => "page/Home", "auth/Auth" or ...
  * 
  * all contents should have the same size as body anchor size which is 1000,700 if not then میفتد مشکل ها
  */
@@ -27,8 +30,19 @@ public class BodyController {
 
     private static StringProperty contentPath = new SimpleStringProperty();
 
-    public static void setFxmlPath(String path) {
-        contentPath.set(path);
+    public static void setFxmlPath(List<String> list, boolean addToHistory) {
+        if (list == null) {
+            contentPath.set("");
+        } else {
+            if (addToHistory && !CurrentData.currentPage.equals(list)) {
+                CurrentData.addHistory(list);
+            }
+            contentPath.set(list.get(0));
+        }
+    }
+
+    public static void setFxmlPath(List<String> list) {
+        setFxmlPath(list, true);
     }
 
     public static StringProperty getContentPath() {
@@ -51,7 +65,7 @@ public class BodyController {
         if (!contentPath.get().equals("")) {
             try {
                 FXMLLoader loader = new FXMLLoader(
-                        getClass().getResource(Variables.pagesFXMLBasePath + contentPath.get() + ".fxml"));
+                        getClass().getResource(Variables.FXMLBasePath + contentPath.get() + ".fxml"));
                 Node page = loader.load();
                 mainAnchorPane.getChildren().setAll(page);
             } catch (IOException e) {

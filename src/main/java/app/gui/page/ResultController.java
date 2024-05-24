@@ -1,5 +1,7 @@
 package app.gui.page;
 
+import java.util.List;
+
 import app.controller.auth.CurrentData;
 import app.gui.base.BodyController;
 import javafx.fxml.FXML;
@@ -65,9 +67,12 @@ public class ResultController {
         if (!searchText.equals(CurrentData.getSearch())) {
             if (searchText.equals("")) {
                 // it's empty
-                BodyController.setFxmlPath("Search");
+                BodyController.setFxmlPath(List.of("page/Search"));
+
             } else {
                 searchInput.setStyle("-fx-border-color: white;");
+
+                // TODO : handle search query using historyPages
                 CurrentData.setSearch(searchText);
                 searchInput.setText(searchText);
 

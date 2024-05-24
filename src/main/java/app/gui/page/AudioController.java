@@ -5,6 +5,7 @@ import java.util.List;
 
 import app.controller.AdminController;
 import app.controller.SingerController;
+import app.controller.auth.CurrentData;
 import app.gui.base.BodyController;
 import app.gui.partials.AudioItemController;
 import app.model.Album;
@@ -21,9 +22,9 @@ import javafx.scene.layout.VBox;
 
 public class AudioController {
 
-    public static String audioID = "";
-    public static String artistID = "";
-    public static String albumID = "";
+    public static String audioID;
+    private static String artistID;
+    private static String albumID;
 
     @FXML
     private VBox contentVBox;
@@ -63,6 +64,8 @@ public class AudioController {
 
     @FXML
     private void initialize() {
+
+        audioID = CurrentData.getCurrentPage().get(1);
 
         Audio audioObj = AdminController.getAudio(audioID);
         artistID = audioObj.getUserID();
@@ -130,15 +133,12 @@ public class AudioController {
 
     @FXML
     private void handleOwnerClicked() {
-        ArtistController.artistID = artistID;
-        BodyController.setFxmlPath("Artist");
+        BodyController.setFxmlPath(List.of("page/Artist", artistID));
     }
 
     @FXML
     private void handleAlbumClicked() {
-        PlaylistController.listID = albumID;
-        PlaylistController.userID = artistID;
-        BodyController.setFxmlPath("Playlist");
+        BodyController.setFxmlPath(List.of("page/Playlist", artistID, albumID));
     }
 
 }

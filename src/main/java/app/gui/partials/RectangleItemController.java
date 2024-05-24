@@ -1,5 +1,7 @@
 package app.gui.partials;
 
+import java.util.List;
+
 import app.gui.base.BodyController;
 import app.gui.page.PlaylistController;
 import javafx.fxml.FXML;
@@ -46,9 +48,7 @@ public class RectangleItemController {
 
     @FXML
     private void handleBoxClick() {
-        PlaylistController.userID = userID;
-        PlaylistController.listID = listID;
-        BodyController.setFxmlPath("Playlist");
+        BodyController.setFxmlPath(List.of("page/Playlist", userID, listID));
     }
 
     @FXML

@@ -1,9 +1,11 @@
 package app.gui.page;
 
 import java.io.IOException;
+import java.util.List;
 
 import app.controller.SingerController;
 import app.controller.UserController;
+import app.controller.auth.CurrentData;
 import app.gui.base.BodyController;
 import app.gui.partials.AudioItemController;
 import app.model.Album;
@@ -64,6 +66,10 @@ public class PlaylistController {
 
     @FXML
     private void initialize() {
+
+        userID = CurrentData.getCurrentPage().get(1);
+        listID = CurrentData.getCurrentPage().get(2);
+
         Artist user = (Artist) UserController.getUser(userID);
 
         if (user instanceof Singer) {
@@ -118,8 +124,7 @@ public class PlaylistController {
 
     @FXML
     private void handleOwnerClicked() {
-        ArtistController.artistID = userID;
-        BodyController.setFxmlPath("Artist");
+        BodyController.setFxmlPath(List.of("page/Artist", userID));
     }
 
 }

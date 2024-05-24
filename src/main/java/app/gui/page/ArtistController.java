@@ -7,6 +7,7 @@ import java.util.List;
 import app.controller.AdminController;
 import app.controller.ListenterController;
 import app.controller.SingerController;
+import app.controller.auth.CurrentData;
 import app.controller.auth.CurrentUser;
 import app.gui.base.BodyController;
 import app.gui.partials.AudioItemController;
@@ -27,7 +28,7 @@ import javafx.scene.layout.VBox;
 
 public class ArtistController {
 
-    public static String artistID = "";
+    public static String artistID;
 
     @FXML
     private ImageView bgImage;
@@ -71,6 +72,7 @@ public class ArtistController {
     @FXML
     private void initialize() {
 
+        artistID = CurrentData.getCurrentPage().get(1);
         Artist artist = AdminController.getArtistByUserID(artistID);
 
         // default value is Follow (meaning user is not following the artist and here we
@@ -172,8 +174,7 @@ public class ArtistController {
 
     @FXML
     private void handleReport() {
-        ReportController.artistID = artistID;
-        BodyController.setFxmlPath("Report");
+        BodyController.setFxmlPath(List.of("page/Report", artistID));
     }
 
     @FXML

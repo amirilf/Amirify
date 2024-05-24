@@ -1,6 +1,7 @@
 package app.gui.base;
 
 import java.io.IOException;
+import java.util.List;
 
 import app.controller.auth.CurrentData;
 import app.controller.auth.CurrentUser;
@@ -13,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.geometry.Bounds;
@@ -26,7 +28,18 @@ public class TopBarController {
     private Label nameLabel;
 
     @FXML
+    private Text nextPage;
+
+    @FXML
+    private Text prevPage;
+
+    @FXML
     private void initialize() {
+
+        // add listener for next and prev page buttons
+        CurrentData.pageIndex.addListener((observable, oldValue, newValue) -> {
+            checkPrevNextStatus();
+        });
 
         // ============= creating contextmenu and its items
         MenuItem settingItem = new MenuItem("Setting");
@@ -60,11 +73,11 @@ public class TopBarController {
     }
 
     private void handleSetting(ActionEvent event) {
-        BodyController.setFxmlPath("Setting");
+        BodyController.setFxmlPath(List.of("page/Setting"));
     }
 
     private void handleAbout(ActionEvent event) {
-        BodyController.setFxmlPath("About");
+        BodyController.setFxmlPath(List.of("page/About"));
     }
 
     private void handleLogout(ActionEvent event) {
@@ -81,7 +94,7 @@ public class TopBarController {
         // the last path was Home since we set Home again after loggin in, then there is
         // no change in FXMLPath and it doesn't notice changes so... it will show
         // default body 0-0
-        BodyController.setFxmlPath("");
+        BodyController.setFxmlPath(null);
 
         // opening Login page after loggin out
         try {
@@ -100,6 +113,62 @@ public class TopBarController {
 
     @FXML
     private void handlePremiumClick() {
-        BodyController.setFxmlPath("Premium");
+        BodyController.setFxmlPath(List.of("page/Premium"));
     }
+
+    @FXML
+    private void handleNextPage() {
+        handleNewPage(CurrentData.getNextHistory());
+    }
+
+    @FXML
+    private void handlePrevPage() {
+        handleNewPage(CurrentData.getPrevHistory());
+    }
+
+    private void handleNewPage(List<String> page) {
+
+        /*
+         * Pages that have meta data
+         * 1) Artist -> artistID
+         * 2) Audio -> audioID
+         * 3) Report -> artistID
+         * 4) Playlist -> artistID - albumID (listenerID - playlistID)
+         * 5) Genre -> genreName
+         * 6) {add later}
+         */
+
+        // make sure it will recognize new path update
+        BodyController.setFxmlPath(null);
+
+        String pageName = page.get(0);
+        switch (pageName) {
+            case "page/Artist":
+                BodyController.setFxmlPath(List.of(pageName, page.get(1)), false);
+                break;
+            case "page/Audio":
+                BodyController.setFxmlPath(List.of(pageName, page.get(1)), false);
+                break;
+            case "page/Report":
+                BodyController.setFxmlPath(List.of(pageName, page.get(1)), false);
+                break;
+            case "page/Playlist":
+                // first userID and then listID
+                BodyController.setFxmlPath(List.of(pageName, page.get(1), page.get(2)), false);
+                break;
+            case "page/Genre":
+                BodyController.setFxmlPath(List.of(pageName, page.get(1)), false);
+                break;
+            default:
+                // other pages which don't have meta data
+                BodyController.setFxmlPath(List.of(pageName), false);
+                break;
+        }
+    }
+
+    public void checkPrevNextStatus() {
+        nextPage.setDisable(!CurrentData.isNextPage());
+        prevPage.setDisable(!CurrentData.isPrevPage());
+    }
+
 }

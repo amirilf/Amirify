@@ -1,7 +1,8 @@
 package app.gui.partials;
 
+import java.util.List;
+
 import app.gui.base.BodyController;
-import app.gui.page.GenreController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -28,7 +29,6 @@ public class GenreItemController {
 
     @FXML
     private void handleGenreClick(MouseEvent event) {
-        GenreController.genreName = genreLabel.getText();
-        BodyController.setFxmlPath("Genre");
+        BodyController.setFxmlPath(List.of("page/Genre", genreLabel.getText()));
     }
 }

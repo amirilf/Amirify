@@ -34,12 +34,6 @@
     -fx-background-color: transparent;
 }
 
-.vbox {
-    -fx-border-color: black;
-    -fx-border-width: 1px;
-}
-
-
 .lbl {
     -fx-text-fill: #ffffff;
     -fx-cursor: hand;

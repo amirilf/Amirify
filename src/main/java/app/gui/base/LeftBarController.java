@@ -1,5 +1,7 @@
 package app.gui.base;
 
+import java.util.List;
+
 import app.util.Variables;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -84,16 +86,16 @@ public class LeftBarController {
 
     @FXML
     private void handleHomeClick(MouseEvent event) {
-        BodyController.setFxmlPath("Home");
+        BodyController.setFxmlPath(List.of("page/Home"));
     }
 
     @FXML
     private void handleSearchClick(MouseEvent event) {
-        BodyController.setFxmlPath("Search");
+        BodyController.setFxmlPath(List.of("page/Search"));
     }
 
     @FXML
     private void handleLibraryClick(MouseEvent event) {
-        BodyController.setFxmlPath("Library");
+        BodyController.setFxmlPath(List.of("page/Library"));
     }
 }

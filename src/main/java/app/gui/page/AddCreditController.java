@@ -1,5 +1,7 @@
 package app.gui.page;
 
+import java.util.List;
+
 import app.controller.auth.CurrentUser;
 import app.gui.base.BodyController;
 import app.model.Listener;
@@ -48,7 +50,7 @@ public class AddCreditController {
             showError("");
 
             // Navigate back to premium page
-            BodyController.setFxmlPath("Premium");
+            BodyController.setFxmlPath(List.of("page/Premium"));
 
         } else {
             showError("Select or enter a valid value!");

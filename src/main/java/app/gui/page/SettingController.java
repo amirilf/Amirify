@@ -1,5 +1,7 @@
 package app.gui.page;
 
+import java.util.List;
+
 import app.controller.ListenterController;
 import app.controller.auth.CurrentUser;
 import app.gui.base.BodyController;
@@ -74,6 +76,6 @@ public class SettingController {
 
     @FXML
     void handleFollowingLabelClick() {
-        BodyController.setFxmlPath("Following");
+        BodyController.setFxmlPath(List.of("page/Following"));
     }
 }

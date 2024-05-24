@@ -2,6 +2,7 @@ package app.gui.auth;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 
 import app.controller.ListenterController;
 import app.controller.auth.CurrentUser;
@@ -286,7 +287,7 @@ public class SignupController {
 
         // TODO : it could be by default Home and not setting every time ):
         // change default body to Home page
-        BodyController.setFxmlPath("Home");
+        BodyController.setFxmlPath(List.of("page/Home"));
 
     }
 

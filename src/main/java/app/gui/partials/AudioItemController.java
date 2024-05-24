@@ -1,8 +1,9 @@
 package app.gui.partials;
 
+import java.util.List;
+
 import app.gui.base.BodyController;
 import app.gui.page.ArtistController;
-import app.gui.page.AudioController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -58,11 +59,9 @@ public class AudioItemController {
         // set fxml path to "" to be able to reload the page
         // cuz it will not change since the last path was also "Audio")
         if (BodyController.getContentPath().get().equals("Audio")) {
-            BodyController.setFxmlPath("");
+            BodyController.setFxmlPath(null);
         }
-
-        AudioController.audioID = audioID;
-        BodyController.setFxmlPath("Audio");
+        BodyController.setFxmlPath(List.of("page/Audio", audioID));
     }
 
     @FXML
@@ -70,8 +69,7 @@ public class AudioItemController {
 
         // 🗿 (شاید برادر خودش صفحه ای است که میخواهیم به ان برویم)
         if (!(BodyController.getContentPath().get().equals("Artist") && ArtistController.artistID.equals(artistID))) {
-            app.gui.page.ArtistController.artistID = artistID;
-            BodyController.setFxmlPath("Artist");
+            BodyController.setFxmlPath(List.of("page/Artist", artistID));
         }
     }
 

@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import app.controller.AdminController;
+import app.controller.auth.CurrentData;
 import app.gui.partials.AudioItemController;
 import app.gui.partials.CircleItemController;
 import app.model.Artist;
@@ -19,7 +20,7 @@ import app.model.Genre;
 
 public class GenreController {
 
-    public static String genreName = "";
+    public static String genreName;
 
     @FXML
     private Label lbl;
@@ -29,6 +30,9 @@ public class GenreController {
 
     @FXML
     private void initialize() {
+
+        genreName = CurrentData.getCurrentPage().get(1);
+
         lbl.setText(genreName);
         checkGenreName();
     }
