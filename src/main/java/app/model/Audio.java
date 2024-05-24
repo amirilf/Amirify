@@ -6,8 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDate;
 
-import app.util.Duration;
-import app.util.Plays;
+import app.util.Humanize;
 import javazoom.jl.decoder.Bitstream;
 import javazoom.jl.decoder.Header;
 import javazoom.jl.decoder.JavaLayerException;
@@ -159,15 +158,15 @@ public class Audio {
     }
 
     public String getHumanReadableDuration() {
-        return Duration.durationToString(this.duration);
+        return Humanize.durationToString(this.duration);
     }
 
     public String getHumanReadablePlays() {
-        return Plays.playTimesToString(this.playedTimes);
+        return Humanize.intToHumanFormat(this.playedTimes);
     }
 
     public String getStandardDuration() {
-        return Duration.durationToStandardFormat(this.duration);
+        return Humanize.durationToStandardFormat(this.duration);
     }
 
 }

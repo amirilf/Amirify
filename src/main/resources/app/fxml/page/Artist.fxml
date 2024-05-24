@@ -56,17 +56,37 @@
                   <Insets />
                </opaqueInsets>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="37.0" layoutY="172.0" spacing="5.0">
+            <Label fx:id="report" alignment="CENTER" layoutX="916.0" layoutY="14.0" onMouseClicked="#handleReport" prefHeight="30.0" prefWidth="70.0" styleClass="report-label" text="report">
+               <font>
+                  <Font name="Dyuthi Regular" size="15.0" />
+               </font>
+               <padding>
+                  <Insets bottom="1.0" />
+               </padding>
+            </Label>
+            <HBox alignment="CENTER" layoutX="37.0" layoutY="172.0" spacing="20.0">
                <children>
-                  <Label fx:id="statistics" text="1,992,231" textFill="WHITE">
+                  <HBox alignment="CENTER_LEFT" spacing="5.0">
+                     <children>
+                        <Label fx:id="statistics" text="1,992,231" textFill="WHITE">
+                           <font>
+                              <Font name="Dyuthi Regular" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="listeners1" text="followers" textFill="WHITE">
+                           <font>
+                              <Font name="Dyuthi Regular" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label fx:id="follow" alignment="CENTER" onMouseClicked="#handleFollow" prefHeight="30.0" prefWidth="90.0" styleClass="follow-label" text="Follow">
                      <font>
-                        <Font name="Dyuthi Regular" size="18.0" />
+                        <Font name="Dyuthi Regular" size="20.0" />
                      </font>
-                  </Label>
-                  <Label fx:id="listeners1" text="followers" textFill="WHITE">
-                     <font>
-                        <Font name="Dyuthi Regular" size="18.0" />
-                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                   </Label>
                </children>
             </HBox>

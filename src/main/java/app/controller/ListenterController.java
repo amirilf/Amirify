@@ -127,21 +127,20 @@ public class ListenterController {
         return sb.toString();
     }
 
-    public static String follow(String username) {
+    public static void follow(String artistID) {
 
-        Artist artist = AdminController.getArtist(username);
-
-        if (artist == null)
-            return "There is no Artist with that username!";
-
-        if (artist.getFollowers().contains(getListener()))
-            return "You already followed this artist before!";
+        Artist artist = AdminController.getArtistByUserID(artistID);
 
         artist.getFollowers().add(getListener());
         getListener().getFollowings().add(artist.getUserID());
+    }
 
-        return "Now you are following Artist (Name: " + artist.getFullName() + " | username: " + artist.getUsername()
-                + ")";
+    public static void unfollow(String artistID) {
+
+        Artist artist = AdminController.getArtistByUserID(artistID);
+
+        artist.getFollowers().remove(getListener());
+        getListener().getFollowings().remove(artist.getUserID());
     }
 
     private static ArrayList<Audio> filter(String userID) {

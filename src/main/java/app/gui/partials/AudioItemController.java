@@ -1,6 +1,7 @@
 package app.gui.partials;
 
 import app.gui.base.BodyController;
+import app.gui.page.ArtistController;
 import app.gui.page.AudioController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -66,8 +67,12 @@ public class AudioItemController {
 
     @FXML
     private void handleArtistClick() {
-        app.gui.page.ArtistController.artistID = artistID;
-        BodyController.setFxmlPath("Artist");
+
+        // 🗿 (شاید برادر خودش صفحه ای است که میخواهیم به ان برویم)
+        if (!(BodyController.getContentPath().get().equals("Artist") && ArtistController.artistID.equals(artistID))) {
+            app.gui.page.ArtistController.artistID = artistID;
+            BodyController.setFxmlPath("Artist");
+        }
     }
 
     @FXML

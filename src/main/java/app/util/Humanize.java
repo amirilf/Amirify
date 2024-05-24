@@ -1,10 +1,23 @@
 package app.util;
 
-public class Duration {
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Locale;
+
+public class Humanize {
+
+    public static String intToHumanFormat(int plays) {
+        return String.format(Locale.US, "%,d", plays);
+    }
+
+    public static int humanFormatToInt(String humanFormat) throws ParseException {
+        NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.US);
+        Number number = numberFormat.parse(humanFormat);
+        return number.intValue();
+    }
 
     // converts the duration time to a human readable string
     // ex => 136 seconds => 2min 16sec
-
     // duration is in mili seconds
     public static String durationToString(long duration) {
         long totalSeconds = duration / 1000;
@@ -23,6 +36,7 @@ public class Duration {
         return sb.toString().trim();
     }
 
+    // duration is in mili seconds
     public static String durationToStandardFormat(long duration) {
         long totalSec = duration / 1000;
         long hours = totalSec / 3600;
@@ -36,4 +50,5 @@ public class Duration {
 
         return formattedTime;
     }
+
 }

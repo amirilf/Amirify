@@ -10,7 +10,7 @@ import app.model.Album;
 import app.model.Artist;
 import app.model.Music;
 import app.model.Singer;
-import app.util.Duration;
+import app.util.Humanize;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -107,7 +107,7 @@ public class PlaylistController {
                 total_time += music.getDuration();
             }
 
-            totalTime.setText(Duration.durationToString(total_time));
+            totalTime.setText(Humanize.durationToString(total_time));
 
         } else {
             // this is a playlist from a user

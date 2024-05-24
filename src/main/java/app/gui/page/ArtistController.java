@@ -1,16 +1,21 @@
 package app.gui.page;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
 
 import app.controller.AdminController;
+import app.controller.ListenterController;
 import app.controller.SingerController;
+import app.controller.auth.CurrentUser;
+import app.gui.base.BodyController;
 import app.gui.partials.AudioItemController;
 import app.gui.partials.RectangleItemController;
 import app.model.Album;
 import app.model.Artist;
 import app.model.Audio;
 import app.model.Singer;
+import app.util.Humanize;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -43,6 +48,12 @@ public class ArtistController {
     private Label statistics;
 
     @FXML
+    private Label follow;
+
+    @FXML
+    private Label report;
+
+    @FXML
     private Label seemoreAudios;
 
     @FXML
@@ -59,20 +70,26 @@ public class ArtistController {
 
     @FXML
     private void initialize() {
-        System.out.println("ArtistID : " + artistID);
 
         Artist artist = AdminController.getArtistByUserID(artistID);
+
+        // default value is Follow (meaning user is not following the artist and here we
+        // check if it's a follower then label should be 'following')
+        if (artist.getFollowers().contains(CurrentUser.getUser())) {
+            follow.setText("Following");
+        }
+
         boolean isSinger = artist instanceof Singer;
 
         // we only show 5 items but if there is 6 items
         // then we know there should `show more` label:D
-        int top = 6;
+        int top = 5;
 
         // top in plays
         List<Audio> topAudios = app.controller.ArtistController.getTopAudios(artist, top, 'p');
 
         // remove last item & make see more visible
-        if (topAudios.size() == 6) {
+        if (topAudios.size() == top) {
             seemoreAudios.setVisible(true);
             topAudios.removeLast();
         }
@@ -83,7 +100,7 @@ public class ArtistController {
         artistName.setText(artist.getFullName());
 
         // number of followers
-        statistics.setText("" + artist.getFollowers().size());
+        statistics.setText(Humanize.intToHumanFormat(artist.getFollowers().size()));
 
         // checking verifed label
         if (!artist.isVerified()) {
@@ -151,6 +168,31 @@ public class ArtistController {
     @FXML
     private void handleSeeAllAlbums() {
         System.out.println("see all albums clicked!");
+    }
+
+    @FXML
+    private void handleReport() {
+        ReportController.artistID = artistID;
+        BodyController.setFxmlPath("Report");
+    }
+
+    @FXML
+    private void handleFollow() throws ParseException {
+        if (follow.getText().equals("Follow")) {
+            // wants to follow (:
+            ListenterController.follow(artistID);
+            follow.setText("Following");
+
+            statistics.setText(Humanize.intToHumanFormat(Humanize.humanFormatToInt(statistics.getText()) + 1));
+
+        } else {
+            // wants to unfollow ):
+            ListenterController.unfollow(artistID);
+            follow.setText("Follow");
+
+            statistics.setText(Humanize.intToHumanFormat(Humanize.humanFormatToInt(statistics.getText()) - 1));
+        }
+
     }
 
 }

@@ -42,9 +42,9 @@ public class App extends Application {
                                 "amirilf@protonmail.com", "09999999999",
                                 LocalDate.of(2000, 10, 10));
 
-                ListenterController.follow("adel");
-                ListenterController.follow("nf");
-                ListenterController.follow("mohsenchavoshi");
+                ListenterController.follow("3");
+                ListenterController.follow("4");
+                ListenterController.follow("5");
                 CurrentUser.logout();
 
                 launch();
