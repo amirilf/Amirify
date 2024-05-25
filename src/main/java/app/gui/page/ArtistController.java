@@ -2,6 +2,7 @@ package app.gui.page;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 import app.controller.AdminController;
@@ -10,6 +11,7 @@ import app.controller.SingerController;
 import app.controller.auth.CurrentData;
 import app.controller.auth.CurrentUser;
 import app.gui.base.BodyController;
+import app.gui.base.BottomBarController;
 import app.gui.partials.AudioItemController;
 import app.gui.partials.RectangleItemController;
 import app.model.Album;
@@ -28,6 +30,7 @@ import javafx.scene.layout.VBox;
 
 public class ArtistController {
 
+    public static boolean play = false;
     public static String artistID;
 
     @FXML
@@ -160,6 +163,18 @@ public class ArtistController {
         } else {
             contentVBox.getChildren().remove(albumsPane);
         }
+
+        // TODO : make everythinh List or ArrayList
+        // TODO : taklif moshakhas nist agha, che khabare ArrayList ya List as akhar 0-0
+
+        if (play) {
+            CurrentData.setNewPlaylist(new ArrayList<>(topAudios), 0);
+            BottomBarController.playFromOutside();
+
+            // TODO : this convention is just a piece of shit! change it later!
+            play = false;
+        }
+
     }
 
     @FXML

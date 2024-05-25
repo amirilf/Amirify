@@ -37,7 +37,7 @@ public class CircleItemController {
 
     @FXML
     private void handlePlayArtistClick(MouseEvent event) {
-        System.out.println("CLICKER PLAY");
+        app.gui.page.ArtistController.play = true;
         handleArtistClick();
     }
 

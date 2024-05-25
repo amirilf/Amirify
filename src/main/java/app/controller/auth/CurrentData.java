@@ -40,6 +40,13 @@ public class CurrentData {
         }
     }
 
+    // TODO: later make <String> instead of <Audio> in playlist!
+    public static void setNewPlaylist(ArrayList<Audio> newPlaylist, int index) {
+        playlist.clear();
+        playlist.addAll(newPlaylist);
+        setSelectedIndex(index);
+    }
+
     public static ObjectProperty<Audio> getCurrentAudio() {
         return currentAudio;
     }

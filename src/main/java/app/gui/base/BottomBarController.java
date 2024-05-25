@@ -27,6 +27,8 @@ import app.util.Variables;
 
 public class BottomBarController {
 
+    private static BottomBarController instance;
+
     // TODO : after loggin out it's still playling!!!
 
     @FXML
@@ -56,9 +58,9 @@ public class BottomBarController {
 
     private MediaPlayer mediaPlayer;
     private Timeline timeline = new Timeline();
-    private boolean isPlaying = false;
-    private boolean isRepeat = false;
-    private boolean isShuffle = false;
+    private static boolean isPlaying = false;
+    private static boolean isRepeat = false;
+    private static boolean isShuffle = false;
     private DoubleProperty currentDurationProperty = new SimpleDoubleProperty(0);
     private DoubleProperty totalDurationProperty = new SimpleDoubleProperty(0);
 
@@ -68,8 +70,11 @@ public class BottomBarController {
     @FXML
     private void initialize() {
 
+        instance = this;
+
         // default values | clear old playlist
         setDefaultValues();
+
         CurrentData.getCurrentAudio().addListener(new ChangeListener<Audio>() {
             @Override
             public void changed(ObservableValue<? extends Audio> observable, Audio oldValue, Audio newValue) {
@@ -105,6 +110,13 @@ public class BottomBarController {
         int minutes = (int) (seconds / 60);
         int remainingSeconds = (int) (seconds % 60);
         return String.format("%02d:%02d", minutes, remainingSeconds);
+    }
+
+    public static void playFromOutside() {
+        // this method is called from outside to play the media if it's not playin
+        if (!isPlaying) {
+            instance.handlePlayPauseClicked();
+        }
     }
 
     @FXML

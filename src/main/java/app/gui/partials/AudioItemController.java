@@ -1,9 +1,14 @@
 package app.gui.partials;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import app.controller.AdminController;
+import app.controller.auth.CurrentData;
 import app.gui.base.BodyController;
+import app.gui.base.BottomBarController;
 import app.gui.page.ArtistController;
+import app.model.Audio;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -50,7 +55,9 @@ public class AudioItemController {
 
     @FXML
     private void handlePlayButton() {
-        System.out.println("Play clicked " + artistID);
+        Audio audio = AdminController.getAudio(audioID);
+        CurrentData.setNewPlaylist(new ArrayList<>(List.of(audio)), 0);
+        BottomBarController.playFromOutside();
     }
 
     @FXML

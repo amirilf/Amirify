@@ -1,15 +1,18 @@
 package app.gui.page;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import app.controller.SingerController;
 import app.controller.UserController;
 import app.controller.auth.CurrentData;
 import app.gui.base.BodyController;
+import app.gui.base.BottomBarController;
 import app.gui.partials.AudioItemController;
 import app.model.Album;
 import app.model.Artist;
+import app.model.Audio;
 import app.model.Music;
 import app.model.Singer;
 import app.util.Humanize;
@@ -120,11 +123,29 @@ public class PlaylistController {
             System.out.println("THIS IS A PLAYLIST!");
         }
 
+        if (play) {
+            handlePlayList();
+            BottomBarController.playFromOutside();
+            play = false;
+        }
+
     }
 
     @FXML
     private void handleOwnerClicked() {
         BodyController.setFxmlPath(List.of("page/Artist", userID));
+    }
+
+    @FXML
+    private void handlePlayList() {
+
+        ArrayList<Audio> newPlaylist = new ArrayList<>(SingerController.getAlbum(listID, userID).getMusics());
+
+        if (CurrentData.playlist.equals(newPlaylist)) {
+            System.out.println("Same list!");
+        } else {
+            CurrentData.setNewPlaylist(newPlaylist, 0);
+        }
     }
 
 }
