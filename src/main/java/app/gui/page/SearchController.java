@@ -4,6 +4,7 @@ import app.controller.auth.CurrentData;
 import app.gui.base.BodyController;
 import app.gui.partials.GenreItemController;
 import app.model.Genre;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -17,6 +18,8 @@ import java.util.List;
 
 public class SearchController {
 
+    public static boolean focusCursor = false;
+
     @FXML
     private TextField searchInput;
 
@@ -25,6 +28,20 @@ public class SearchController {
 
     @FXML
     private void initialize() {
+
+        if (focusCursor) {
+            // place cursor in right place
+            // only when backing from result to the page!
+            Platform.runLater(() -> {
+                searchInput.requestFocus();
+            });
+
+            focusCursor = false;
+        }
+
+        // set listener for searchInput
+        searchInput.textProperty().addListener((observable, oldValue, newValue) -> openResultPage(newValue));
+
         loadGenres();
     }
 
@@ -111,5 +128,11 @@ public class SearchController {
             BodyController.setFxmlPath(List.of("page/Result"));
 
         }
+    }
+
+    private void openResultPage(String query) {
+        System.out.println("query detected!");
+        CurrentData.setSearch(query);
+        BodyController.setFxmlPath(List.of("page/Result"));
     }
 }

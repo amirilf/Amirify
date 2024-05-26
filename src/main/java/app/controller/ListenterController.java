@@ -493,60 +493,33 @@ public class ListenterController {
         return "Your premium subscription has " + (daysLeft - 1) + " days left!";
     }
 
-    private static List<?> search(String query, boolean is_audio) {
+    private static List<?> search(String query, boolean is_audio, int number) {
 
         // assuming query at least has two letters to find best results!
         // boolean => True for audios and False for Artists
 
         return (is_audio) ? Database.getDB().getAudios().stream()
-                .filter(audio -> audio.getTitle().contains(query))
+                .filter(audio -> audio.getTitle().toLowerCase().contains(query))
                 .sorted(Comparator.comparing(Audio::getTitle))
+                .limit(number)
                 .collect(Collectors.toList())
                 : Database.getDB().getUsers().stream()
-                        .filter(user -> user instanceof Artist && user.getFullName().contains(query))
+                        .filter(user -> user instanceof Artist && user.getFullName().toLowerCase().contains(query))
                         .sorted(Comparator.comparing(User::getFullName))
+                        .limit(number)
                         .collect(Collectors.toList());
     }
 
-    public static String search(String query) {
+    @SuppressWarnings("unchecked")
+    public static List<Audio> searchAudios(String query, int number) {
+        // -1 => all | anything else with that size
+        return (List<Audio>) search(query.toLowerCase(), true, number);
+    }
 
-        if (query.trim().length() < 2)
-            return "Query must have at least 2 length!";
-
-        @SuppressWarnings("unchecked")
-        List<Audio> audios = (List<Audio>) search(query, true);
-        @SuppressWarnings("unchecked")
-        List<Artist> artists = (List<Artist>) search(query, false);
-
-        int len_audios = audios.size();
-        int len_artists = artists.size();
-
-        if (len_artists == 0 && len_audios == 0)
-            return "There is no matching objects with the query: " + query;
-
-        StringBuilder sb = new StringBuilder("Search results of query: " + query + "\n");
-
-        int counter, digits;
-
-        if (len_audios != 0) {
-            sb.append("\n   * Audio results (ID | Title) :\n");
-            counter = 0;
-            digits = String.valueOf(len_audios).length();
-            for (Audio audio : audios)
-                sb.append("        " + String.format("%0" + digits + "d", counter++) + ") " + audio.getAudioID() + " | "
-                        + audio.getTitle() + "\n");
-        }
-
-        if (len_artists != 0) {
-            sb.append("\n   * Artist results (Username | FullName) :\n");
-            counter = 0;
-            digits = String.valueOf(len_artists).length();
-            for (Artist artist : artists)
-                sb.append("        " + String.format("%0" + digits + "d", counter++) + ") " + artist.getUsername()
-                        + " | " + artist.getFullName() + "\n");
-        }
-
-        return sb.toString();
+    @SuppressWarnings("unchecked")
+    public static List<Artist> searchArtists(String query, int number) {
+        // -1 => all | anything else with that size
+        return (List<Artist>) search(query.toLowerCase(), false, number);
 
     }
 }

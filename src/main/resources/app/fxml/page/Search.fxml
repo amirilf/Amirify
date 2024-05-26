@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="@search.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.page.SearchController">
    <children>
-      <HBox alignment="CENTER" layoutX="200.0" layoutY="14.0" prefHeight="100.0" prefWidth="600.0" spacing="20.0">
-         <children>
-            <TextField fx:id="searchInput" prefHeight="50.0" prefWidth="400.0" promptText="What do you want to play?" styleClass="search-box" />
-            <Button mnemonicParsing="false" onAction="#handleSearchButtonClick" prefHeight="50.0" prefWidth="100.0" styleClass="search-button" text="Search"/>
-         </children>
-      </HBox>
       <ScrollPane fx:id="scrollPane" layoutX="18.0" layoutY="169.0" prefHeight="500.0" prefWidth="964.0">
          <content>
             <VBox fx:id="contentVBox" prefWidth="930.0" spacing="15.0">
@@ -37,5 +24,6 @@
             <Font name="Dyuthi Regular" size="30.0" />
          </font>
       </Label>
+      <TextField fx:id="searchInput" layoutX="300.0" layoutY="42.0" prefHeight="50.0" prefWidth="400.0" promptText="What do you want to play?" styleClass="search-box" AnchorPane.topAnchor="30.0" />
    </children>
 </AnchorPane>
