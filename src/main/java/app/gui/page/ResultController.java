@@ -50,17 +50,32 @@ public class ResultController {
 
     @FXML
     private void initialize() {
+
+        searchInput.setText(CurrentData.currentPage.get(1));
+        int queryLength = searchInput.getText().length();
+
         Platform.runLater(() -> {
             searchInput.requestFocus();
-            searchInput.positionCaret(searchInput.getText().length());
+            searchInput.positionCaret(queryLength);
         });
 
-        searchInput.setText(CurrentData.getSearch());
+        if (queryLength < 2) {
+            searchInput.setStyle("-fx-border-color:red");
+        } else {
+            injectData(searchInput.getText(), false);
+        }
 
         searchInput.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.isEmpty()) {
                 backToSearch();
             } else {
+
+                if (searchInput.getText().length() < 2)
+                    searchInput.setStyle("-fx-border-color:red");
+                else {
+                    searchInput.setStyle("-fx-border-color:white");
+                }
+
                 resetPauseTransition(newValue);
             }
         });
@@ -70,8 +85,7 @@ public class ResultController {
 
     private void setupPauseTransition() {
         pause.setOnFinished(event -> {
-            String currentSearchText = searchInput.getText();
-            Platform.runLater(() -> injectData(currentSearchText));
+            Platform.runLater(() -> injectData(searchInput.getText(), true));
         });
     }
 
@@ -80,8 +94,9 @@ public class ResultController {
         pause.playFromStart();
     }
 
-    private void injectData(String query) {
-        if (!query.isEmpty()) {
+    private void injectData(String query, boolean saveInHistory) {
+        if (!query.isEmpty() && query.length() > 1) {
+
             System.out.println("Search input changed: " + query);
 
             // we actually show 4 items but the extra item is for
@@ -96,12 +111,17 @@ public class ResultController {
             // if there is no item
             loadAudios(audios);
             loadArtists(artists);
+
+            if (saveInHistory) {
+                // add this to history
+                CurrentData.addHistory(List.of("page/Result", query));
+            }
         }
     }
 
     private void backToSearch() {
         SearchController.focusCursor = true;
-        BodyController.setFxmlPath(List.of("page/Search"));
+        BodyController.setFxmlPath(List.of("page/Search"), false);
     }
 
     private void loadAudios(List<Audio> audios) {

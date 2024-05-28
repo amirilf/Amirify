@@ -1,6 +1,5 @@
 package app.gui.page;
 
-import app.controller.auth.CurrentData;
 import app.gui.base.BodyController;
 import app.gui.partials.GenreItemController;
 import app.model.Genre;
@@ -112,27 +111,7 @@ public class SearchController {
         }
     }
 
-    @FXML
-    private void handleSearchButtonClick() {
-        String searchText = searchInput.getText();
-
-        if (searchText.equals("")) {
-            // it's empty
-            searchInput.setStyle("-fx-border-color: red;");
-            System.out.println("empty");
-        } else {
-            searchInput.setStyle("-fx-border-color: white;");
-
-            // TODO : handle search query using historyPages
-            CurrentData.setSearch(searchText);
-            BodyController.setFxmlPath(List.of("page/Result"));
-
-        }
-    }
-
     private void openResultPage(String query) {
-        System.out.println("query detected!");
-        CurrentData.setSearch(query);
-        BodyController.setFxmlPath(List.of("page/Result"));
+        BodyController.setFxmlPath(List.of("page/Result", query));
     }
 }

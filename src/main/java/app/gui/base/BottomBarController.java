@@ -29,8 +29,6 @@ public class BottomBarController {
 
     private static BottomBarController instance;
 
-    // TODO : after loggin out it's still playling!!!
-
     @FXML
     private ImageView cover;
     @FXML
@@ -125,6 +123,16 @@ public class BottomBarController {
             setImage(playPause, Variables.playIconPath);
             mediaPlayer.pause();
         } else {
+
+            // that was the last audio in playlist
+            // and also repeat was not enable, now after
+            // clicking on play icon again, we start from the first
+            // audio of the playlist! not the current audio again.
+            // maybe the playlist is only have this audio but doesn't matter 0-0
+            if (!CurrentData.isNext()) {
+                handleNextClick();
+            }
+
             setImage(playPause, Variables.pauseIconPath);
             if (currentDurationProperty.get() >= totalDurationProperty.get()) {
                 currentDurationProperty.set(0);
@@ -194,7 +202,7 @@ public class BottomBarController {
                                 currentDurationProperty.set(0);
                                 playMedia(0d);
                             } else {
-                                handleNextClick();
+                                handlePlayPauseClicked();
                             }
                         }
                     }

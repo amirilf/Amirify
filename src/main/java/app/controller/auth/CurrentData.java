@@ -14,18 +14,11 @@ import javafx.beans.property.SimpleObjectProperty;
 
 public class CurrentData {
 
-    private static String search = "";
+    // ===================== playlist
+
     public static ArrayList<Audio> playlist = new ArrayList<>();
     private static int selectedIndex = -1; // no selected item now
     private static ObjectProperty<Audio> currentAudio = new SimpleObjectProperty<>();
-
-    public static void setSearch(String search) {
-        CurrentData.search = search;
-    }
-
-    public static String getSearch() {
-        return search;
-    }
 
     public static int getSelectedIndex() {
         return selectedIndex;
@@ -40,7 +33,8 @@ public class CurrentData {
         }
     }
 
-    // TODO: later make <String> instead of <Audio> in playlist!
+    // TODO: later make <String> instead of <Audio> in playlist
+    // TODO: and don't save the Audio objects!
     public static void setNewPlaylist(ArrayList<Audio> newPlaylist, int index) {
         playlist.clear();
         playlist.addAll(newPlaylist);
@@ -83,7 +77,7 @@ public class CurrentData {
      * 3) Report -> artistID
      * 4) Playlist -> artistID - albumID (listenerID - playlistID)
      * 5) Genre -> genreName
-     * 6) {add later}
+     * 6) Result -> query
      */
 
     private static List<List<String>> history = new ArrayList<>();
