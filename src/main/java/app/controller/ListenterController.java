@@ -413,6 +413,9 @@ public class ListenterController {
 
         ArrayList<Artist> artists = new ArrayList<>();
         Listener listener = getListener();
+
+        // TODO : can be better by checking if all followings are found then
+        // TODO : don't continue the loop!
         for (User user : Database.getDB().getUsers()) {
             if (listener.getFollowings().contains(user.getUserID())) {
                 artists.add((Artist) user);
@@ -521,5 +524,26 @@ public class ListenterController {
         // -1 => all | anything else with that size
         return (List<Artist>) search(query.toLowerCase(), false, number);
 
+    }
+
+    public static List<Audio> getLikedSongs() {
+
+        List<String> IDs = new ArrayList<>(getListener().getLikedAudios());
+
+        List<Audio> musics = new ArrayList<>();
+
+        for (Audio audio : Database.getDB().getAudios()) {
+            if (audio instanceof Music) {
+                if (IDs.contains(audio.getAudioID())) {
+                    musics.add(audio);
+
+                    if (IDs.size() == 0) {
+                        break;
+                    }
+                }
+            }
+        }
+
+        return musics;
     }
 }

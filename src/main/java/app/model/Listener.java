@@ -10,6 +10,7 @@ abstract public class Listener extends User {
     // key is Audio unique ID
     private Map<String, Integer> playedTimes = new HashMap<>();
     private ArrayList<String> likedAudios = new ArrayList<>();
+    private ArrayList<String> savedAlbums = new ArrayList<>();
     private ArrayList<String> followings = new ArrayList<>();
     private double credit;
     private ArrayList<Genre> favoriteGenres = new ArrayList<>();
@@ -44,6 +45,10 @@ abstract public class Listener extends User {
 
     public ArrayList<String> getLikedAudios() {
         return this.likedAudios;
+    }
+
+    public ArrayList<String> getSavedAlbums() {
+        return savedAlbums;
     }
 
     // SETTER

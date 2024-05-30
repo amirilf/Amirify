@@ -1,16 +1,20 @@
 package app.gui.page;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import app.controller.AdminController;
 import app.controller.SingerController;
 import app.controller.auth.CurrentData;
+import app.controller.auth.CurrentUser;
 import app.gui.base.BodyController;
+import app.gui.base.BottomBarController;
 import app.gui.partials.AudioItemController;
 import app.model.Album;
 import app.model.Artist;
 import app.model.Audio;
+import app.model.Listener;
 import app.model.Singer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +29,7 @@ public class AudioController {
     public static String audioID;
     private static String artistID;
     private static String albumID;
+    private static boolean isSaved = false;
 
     @FXML
     private VBox contentVBox;
@@ -63,6 +68,9 @@ public class AudioController {
     private ImageView ownerCover;
 
     @FXML
+    private ImageView saveIcon;
+
+    @FXML
     private void initialize() {
 
         audioID = CurrentData.getCurrentPage().get(1);
@@ -71,6 +79,11 @@ public class AudioController {
         artistID = audioObj.getUserID();
 
         Artist artistObj = AdminController.getArtistByUserID(artistID);
+
+        // check if it's saved (liked or smth)
+        Listener listener = (Listener) CurrentUser.getUser();
+        isSaved = listener.getLikedAudios().contains(audioID);
+        saveIcon.setImage(new Image(getClass().getResource(saveIconPath()).toString()));
 
         if (artistObj instanceof Singer) {
 
@@ -128,7 +141,9 @@ public class AudioController {
 
     @FXML
     private void handleAudioClick() {
-        System.out.println("Play current audio clicked!");
+        Audio audio = AdminController.getAudio(audioID);
+        CurrentData.setNewPlaylist(new ArrayList<>(List.of(audio)), 0);
+        BottomBarController.playFromOutside();
     }
 
     @FXML
@@ -139,6 +154,30 @@ public class AudioController {
     @FXML
     private void handleAlbumClicked() {
         BodyController.setFxmlPath(List.of("page/Playlist", artistID, albumID));
+    }
+
+    @FXML
+    private void handleSavePlaylist() {
+
+        Listener currentListener = (Listener) CurrentUser.getUser();
+
+        if (isSaved)
+            currentListener.getLikedAudios().remove(audioID);
+        else
+            currentListener.getLikedAudios().add(audioID);
+
+        isSaved = !isSaved;
+
+        saveIcon.setImage(new Image(getClass().getResource(saveIconPath()).toString()));
+
+        System.out.println("IS THIS SAVED? :" + isSaved);
+    }
+
+    // TODO : path variables
+    private String saveIconPath() {
+        if (isSaved)
+            return "/app/images/icon/icon-check.png";
+        return "/app/images/icon/icon-save.png";
     }
 
 }

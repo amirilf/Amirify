@@ -76,7 +76,8 @@ public class AudioItemController {
     private void handleArtistClick() {
 
         // 🗿 (شاید برادر خودش صفحه ای است که میخواهیم به ان برویم)
-        if (!(BodyController.getContentPath().get().equals("Artist") && ArtistController.artistID.equals(artistID))) {
+        if (!(BodyController.getContentPath().get().equals("page/Artist")
+                && ArtistController.artistID.equals(artistID))) {
             BodyController.setFxmlPath(List.of("page/Artist", artistID));
         }
     }

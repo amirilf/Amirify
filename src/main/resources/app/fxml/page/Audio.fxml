@@ -14,7 +14,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="@audio.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.page.AudioController">
    <children>
-      <Pane layoutX="1.0" prefHeight="240.0" prefWidth="1000.0">
+      <Pane layoutX="1.0" prefHeight="240.0" prefWidth="1000.0" AnchorPane.bottomAnchor="460.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fx:id="cover" fitHeight="200.0" fitWidth="200.0" layoutX="40.0" layoutY="20.0" pickOnBounds="true">
                <image>
@@ -41,6 +41,19 @@
                   </Label>
                   <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="353.0" spacing="10.0">
                      <children>
+                        <ImageView fx:id="saveIcon" fitHeight="28.0" fitWidth="28.0" onMouseClicked="#handleSavePlaylist" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icon/icon-save.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <Label text="•">
+                           <font>
+                              <Font name="Monospaced Regular" size="12.0" />
+                           </font>
+                        </Label>
                         <HBox alignment="CENTER_LEFT" spacing="5.0">
                            <children>
                               <ImageView fx:id="ownerCover" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true">

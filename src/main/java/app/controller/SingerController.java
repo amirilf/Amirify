@@ -1,5 +1,6 @@
 package app.controller;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,6 +13,7 @@ import app.model.Database;
 import app.model.Genre;
 import app.model.Music;
 import app.model.Singer;
+import app.model.User;
 
 public class SingerController {
 
@@ -73,6 +75,30 @@ public class SingerController {
         List<Album> lastAlbums = getAlbums(singerID);
         int size = lastAlbums.size();
         return size <= number ? lastAlbums : lastAlbums.subList(size - number, size);
+    }
+
+    public static List<Album> getSavedAlbums(List<String> albumIDs) {
+
+        List<String> IDs = new ArrayList<>(albumIDs);
+        List<Album> albums = new ArrayList<>();
+
+        for (User user : Database.getDB().getUsers()) {
+            if (user instanceof Singer) {
+                Singer singer = (Singer) user;
+                for (Album album : singer.getAlbums()) {
+                    if (IDs.contains(album.getAlbumID())) {
+                        IDs.remove(album.getAlbumID());
+                        albums.add(album);
+
+                        if (IDs.size() == 0) {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        return albums;
     }
 
     public static Album addAlbum(String name, String cover) {

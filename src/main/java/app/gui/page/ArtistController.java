@@ -152,7 +152,7 @@ public class ArtistController {
                     RectangleItemController controller = loader.getController();
                     String albumType = album.getMusics().size() == 1 ? "Single" : "Album";
                     controller.setArtist(album.getCover(), album.getName(), album.getDatePublished().getYear() + "",
-                            albumType, artistID, album.getAlbumID());
+                            albumType, album.getUserID(), album.getAlbumID());
                     albumsHBox.getChildren().add(albumVBox);
 
                 } catch (IOException e) {
