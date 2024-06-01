@@ -528,6 +528,19 @@ public class ListenterController {
 
     }
 
+    public static List<Album> searchAlbums(String query, int number) {
+
+        List<Album> results = Database.getDB().getUsers().stream()
+                .filter(user -> user instanceof Singer)
+                .map(user -> (Singer) user)
+                .flatMap(singer -> singer.getAlbums().stream())
+                .filter(album -> album.getName().toLowerCase().contains(query.toLowerCase()))
+                .collect(Collectors.toList());
+
+        Collections.shuffle(results);
+        return results.subList(0, Math.min(number, results.size()));
+    }
+
     public static List<Audio> getLikedSongs() {
 
         List<String> IDs = new ArrayList<>(getListener().getLikedAudios());

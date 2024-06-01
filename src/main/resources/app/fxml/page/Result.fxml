@@ -17,7 +17,7 @@
          <content>
             <VBox fx:id="contentVBox" prefWidth="935.0" spacing="30.0">
                <children>
-                  <Pane prefWidth="935.0">
+                  <Pane fx:id="paneAudios" prefWidth="935.0">
                      <children>
                         <Label layoutX="14.0" layoutY="15.0" styleClass="lbl" text="Audios">
                            <font>
@@ -38,7 +38,7 @@
                         <VBox fx:id="audiosVBox" layoutX="3.0" layoutY="71.0" prefWidth="935.0" spacing="5.0" />
                      </children>
                   </Pane>
-                  <Pane prefWidth="935.0">
+                  <Pane fx:id="paneArtists" prefWidth="935.0">
                      <children>
                         <Label layoutX="14.0" layoutY="15.0" styleClass="lbl" text="Artists">
                            <font>
@@ -62,7 +62,7 @@
                            </children></VBox>
                      </children>
                   </Pane>
-                  <Pane prefWidth="935.0">
+                  <Pane fx:id="paneAlbums" prefWidth="935.0">
                      <children>
                         <Label layoutX="14.0" layoutY="15.0" styleClass="lbl" text="Albums">
                            <font>

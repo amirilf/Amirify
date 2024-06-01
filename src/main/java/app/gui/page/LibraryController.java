@@ -67,7 +67,7 @@ public class LibraryController {
                 loadItems(SelectedType.ARTISTS);
                 break;
 
-            // not enable yet
+            // not enabled yet
             case "Playlists":
                 loadItems(SelectedType.PLAYLISTS);
                 break;

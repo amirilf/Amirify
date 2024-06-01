@@ -20,10 +20,24 @@ import app.controller.auth.CurrentData;
 import app.gui.base.BodyController;
 import app.gui.partials.AudioItemController;
 import app.gui.partials.CircleItemController;
+import app.gui.partials.RectangleItemController;
+import app.model.Album;
 import app.model.Artist;
 import app.model.Audio;
 
 public class ResultController {
+
+    @FXML
+    private VBox contentVBox;
+
+    @FXML
+    private Pane paneAudios;
+
+    @FXML
+    private Pane paneAlbums;
+
+    @FXML
+    private Pane paneArtists;
 
     @FXML
     private Label seemoreAudios;
@@ -103,14 +117,11 @@ public class ResultController {
             // disabling or enabling see all label in each category
             List<Audio> audios = ListenterController.searchAudios(query, 5);
             List<Artist> artists = ListenterController.searchArtists(query, 5);
+            List<Album> albums = ListenterController.searchAlbums(query, 5);
 
-            System.out.println(audios.size());
-            System.out.println(artists.size());
-
-            // TODO : show smth like there is no result for each category
-            // if there is no item
             loadAudios(audios);
             loadArtists(artists);
+            loadAlbums(albums);
 
             if (saveInHistory) {
                 // add this to history
@@ -127,6 +138,11 @@ public class ResultController {
     private void loadAudios(List<Audio> audios) {
 
         int size = audios.size();
+
+        if (size == 0) {
+            contentVBox.getChildren().remove(paneAudios);
+            return;
+        }
 
         if (size == 5) {
             seemoreAudios.setVisible(true);
@@ -161,6 +177,11 @@ public class ResultController {
 
         int size = artists.size();
 
+        if (size == 0) {
+            contentVBox.getChildren().remove(paneArtists);
+            return;
+        }
+
         if (size == 5) {
             seemoreArtists.setVisible(true);
             size--;
@@ -181,6 +202,42 @@ public class ResultController {
                 System.out.println(e.getMessage());
             }
         }
+    }
+
+    private void loadAlbums(List<Album> albums) {
+
+        int size = albums.size();
+
+        if (size == 0) {
+            contentVBox.getChildren().remove(paneAlbums);
+            return;
+        }
+
+        if (size == 5) {
+            seemoreAlbums.setVisible(true);
+            size--;
+        }
+
+        albumsHBox.getChildren().clear();
+
+        for (Album album : albums) {
+            try {
+
+                // TODO : variable path
+                FXMLLoader loader = new FXMLLoader(
+                        getClass().getResource("/app/fxml/partials/rectangle-item.fxml"));
+                VBox albumVBox = loader.load();
+                RectangleItemController controller = loader.getController();
+                String albumType = album.getMusics().size() == 1 ? "Single" : "Album";
+                controller.setArtist(album.getCover(), album.getName(), album.getDatePublished().getYear() + "",
+                        albumType, album.getUserID(), album.getAlbumID());
+                albumsHBox.getChildren().add(albumVBox);
+
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
     }
 
     @FXML
