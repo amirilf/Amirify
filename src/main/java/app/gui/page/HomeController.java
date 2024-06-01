@@ -1,49 +1,96 @@
 package app.gui.page;
 
+import java.io.IOException;
+import java.util.List;
+
+import app.controller.ListenterController;
+import app.gui.partials.RectangleItemController;
+import app.model.Album;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class HomeController {
 
-    // TODO : remove all these shits
     @FXML
-    private void showPlayMedia(MouseEvent event) {
-        if (event.getSource() instanceof VBox) {
-            VBox vbox = (VBox) event.getSource();
-            ImageView playMediaImageView = findPlayMediaImageView(vbox);
-            if (playMediaImageView != null) {
-                playMediaImageView.setVisible(true);
-            }
-
-        }
-    }
+    private HBox mostListenedHBox;
+    @FXML
+    private HBox randomHBox;
+    @FXML
+    private HBox lastReleasedHBox;
 
     @FXML
-    private void hidePlayMedia(MouseEvent event) {
-        if (event.getSource() instanceof VBox) {
-            VBox vbox = (VBox) event.getSource();
-            ImageView playMediaImageView = findPlayMediaImageView(vbox);
-            if (playMediaImageView != null) {
-                playMediaImageView.setVisible(false);
-            }
-        }
+    private void initialize() {
+        loadItems();
     }
 
-    private ImageView findPlayMediaImageView(VBox vbox) {
-        for (Node node : vbox.getChildren()) {
-            if (node instanceof StackPane) {
-                StackPane stackPane = (StackPane) node;
-                for (Node child : stackPane.getChildren()) {
-                    if (child instanceof ImageView && child.getStyleClass().contains("playMediaImage")) {
-                        return (ImageView) child;
-                    }
-                }
+    private void loadItems() {
+
+        mostListenedHBox.getChildren().clear();
+        randomHBox.getChildren().clear();
+        lastReleasedHBox.getChildren().clear();
+
+        // ( last release , most played , random instead of favorite items )
+        List<List<Album>> feed = ListenterController.feedAlbums();
+
+        // last released
+        for (Album album : feed.get(0)) {
+            try {
+
+                // TODO : variable path
+                FXMLLoader loader = new FXMLLoader(
+                        getClass().getResource("/app/fxml/partials/rectangle-item.fxml"));
+                VBox albumVBox = loader.load();
+                RectangleItemController controller = loader.getController();
+                String albumType = album.getMusics().size() == 1 ? "Single" : "Album";
+                controller.setArtist(album.getCover(), album.getName(), album.getDatePublished().getYear() + "",
+                        albumType, album.getUserID(), album.getAlbumID());
+                lastReleasedHBox.getChildren().add(albumVBox);
+
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
             }
         }
-        return null;
+
+        // most listened
+        for (Album album : feed.get(1)) {
+            try {
+
+                // TODO : variable path
+                FXMLLoader loader = new FXMLLoader(
+                        getClass().getResource("/app/fxml/partials/rectangle-item.fxml"));
+                VBox albumVBox = loader.load();
+                RectangleItemController controller = loader.getController();
+                String albumType = album.getMusics().size() == 1 ? "Single" : "Album";
+                controller.setArtist(album.getCover(), album.getName(), album.getDatePublished().getYear() + "",
+                        albumType, album.getUserID(), album.getAlbumID());
+                mostListenedHBox.getChildren().add(albumVBox);
+
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        // random items
+        for (Album album : feed.get(2)) {
+            try {
+
+                // TODO : variable path
+                FXMLLoader loader = new FXMLLoader(
+                        getClass().getResource("/app/fxml/partials/rectangle-item.fxml"));
+                VBox albumVBox = loader.load();
+                RectangleItemController controller = loader.getController();
+                String albumType = album.getMusics().size() == 1 ? "Single" : "Album";
+                controller.setArtist(album.getCover(), album.getName(), album.getDatePublished().getYear() + "",
+                        albumType, album.getUserID(), album.getAlbumID());
+                randomHBox.getChildren().add(albumVBox);
+
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
     }
+
 }

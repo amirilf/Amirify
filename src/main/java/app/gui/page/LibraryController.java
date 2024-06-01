@@ -127,7 +127,6 @@ public class LibraryController {
 
             for (Artist artist : artists) {
 
-                System.out.println("artist :" + artist.getFullName());
                 try {
 
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/fxml/partials/circle-item.fxml"));
@@ -191,7 +190,6 @@ public class LibraryController {
 
             for (Artist artist : artists) {
 
-                System.out.println("artist :" + artist.getFullName());
                 try {
 
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/fxml/partials/circle-item.fxml"));

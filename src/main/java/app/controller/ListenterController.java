@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import app.controller.auth.CurrentUser;
 import app.exceptions.NotEnoughCredit;
+import app.model.Album;
 import app.model.Artist;
 import app.model.Audio;
 import app.model.BasicListener;
@@ -21,6 +22,7 @@ import app.model.Podcast;
 import app.model.PremiumListener;
 import app.model.PremiumPackage;
 import app.model.Report;
+import app.model.Singer;
 import app.model.User;
 import app.util.validators.DateValidator;
 
@@ -545,5 +547,44 @@ public class ListenterController {
         }
 
         return musics;
+    }
+
+    public static List<List<Album>> feedAlbums() {
+        List<List<Album>> feed = new ArrayList<>();
+        List<Album> albums = new ArrayList<>();
+
+        // get all albums
+        for (User user : Database.getDB().getUsers()) {
+            if (user instanceof Singer) {
+                Singer singer = (Singer) user;
+                albums.addAll(singer.getAlbums());
+            }
+        }
+
+        // return 4 last released albums
+        feed.add(albums.stream()
+                .sorted(Comparator.comparing(Album::getDatePublished).reversed())
+                .limit(4)
+                .collect(Collectors.toList()));
+
+        // most played albums
+        feed.add(albums.stream()
+                .sorted((a1, a2) -> {
+                    int totalPlayedTimes1 = a1.getMusics().stream().mapToInt(Music::getPlayedTimes).sum();
+                    int totalPlayedTimes2 = a2.getMusics().stream().mapToInt(Music::getPlayedTimes).sum();
+                    return Integer.compare(totalPlayedTimes2, totalPlayedTimes1); // descending
+                })
+                .limit(4)
+                .collect(Collectors.toList()));
+
+        // return random 4 albums (instead of favorite items)
+        Collections.shuffle(albums);
+        feed.add(albums.stream()
+                .limit(4)
+                .collect(Collectors.toList()));
+
+        // ( last release , most played , random instead of favorite items )
+        return feed;
+
     }
 }
