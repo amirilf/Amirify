@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import app.controller.ListenterController;
+import app.controller.auth.CurrentData;
 import app.controller.auth.CurrentUser;
 import app.controller.auth.SignUp;
 import app.exceptions.InvalidFormatException;
@@ -284,6 +285,8 @@ public class SignupController {
         Stage stage = (Stage) errorMessage.getScene().getWindow();
         stage.setScene(scene);
         stage.setTitle("Amirify | " + CurrentUser.getUser().getFullName());
+
+        CurrentData.clearHistory();
 
         // TODO : it could be by default Home and not setting every time ):
         // change default body to Home page

@@ -83,6 +83,7 @@ public class LoginController {
             stage.setTitle("Amirify | " + CurrentUser.getUser().getFullName());
 
             // change default body to Home page
+            CurrentData.clearHistory();
             BodyController.setFxmlPath(List.of("page/Home"));
 
             // TODO : remove these test

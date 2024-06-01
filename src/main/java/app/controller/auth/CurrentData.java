@@ -84,6 +84,12 @@ public class CurrentData {
     public static IntegerProperty pageIndex = new SimpleIntegerProperty(-1);
     public static List<String> currentPage = new ArrayList<>();
 
+    public static void clearHistory() {
+        history.clear();
+        pageIndex.set(-1);
+        currentPage = new ArrayList<>();
+    }
+
     public static void updatePageIndex(int number) {
         pageIndex.set(number);
         currentPage = history.get(pageIndex.get());
